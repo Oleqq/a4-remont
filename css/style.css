@@ -598,7 +598,6 @@ body {
 
 .benefits {
   padding: 56px 0 70px;
-  background: #f3efe9;
 }
 @media (max-width: 991px) {
   .benefits {
@@ -899,7 +898,6 @@ body {
 }
 
 .offer-tabs {
-  background: #f3efe9;
   padding: 56px 0 70px;
 }
 @media (max-width: 991px) {
@@ -1314,7 +1312,6 @@ body {
 }
 
 .work-steps {
-  background: #f3efe9;
   padding: 56px 0 70px;
 }
 @media (max-width: 991px) {
@@ -1904,7 +1901,6 @@ body {
 }
 
 .why-us {
-  background: #f3efe9;
   padding: 56px 0 70px;
   overflow: hidden;
 }
@@ -2104,7 +2100,6 @@ body {
   display: block;
 }
 .news-preview {
-  background: #f3efe9;
   padding: 56px 0 70px;
 }
 .news-preview .section__title {
@@ -2338,7 +2333,6 @@ body {
 }
 
 .faq {
-  background: #f3efe9;
   padding: 56px 0 70px;
 }
 @media (max-width: 991px) {
@@ -2557,7 +2551,6 @@ body {
           transform: rotate(45deg) !important;
 }
 .portfolio-gallery {
-  background: #f3efe9;
   padding: 56px 0 70px;
 }
 @media (max-width: 991px) {
@@ -2857,7 +2850,6 @@ body {
 
 .about-reviews {
   position: relative;
-  background: #f3efe9;
   height: 1660px;
 }
 @media (min-width: 1200px) {

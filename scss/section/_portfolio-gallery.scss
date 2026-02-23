@@ -2,7 +2,7 @@
 @use "../global/mixins" as *;
 
 .portfolio-gallery {
-	background: #f3efe9;
+	
 	padding: 56px 0 70px;
 
 	@include max($bp-tablet) {

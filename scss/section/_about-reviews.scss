@@ -3,7 +3,7 @@
 
 .about-reviews {
 	position: relative;
-	background: #f3efe9;
+	
 	
     height: 1660px;
     @include adaptive-value(height, 1660px, 915px, $bp-desktop, $bp-mob);
