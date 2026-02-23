@@ -1,0 +1,28 @@
+@use "../global/mixins" as *;
+
+.advantages {
+  padding: 40px 0 80px;
+
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include max(991px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.advantages-card {
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.08);
+
+  &__title { margin-bottom: 8px; }
+  &__text { opacity: .8; }
+}

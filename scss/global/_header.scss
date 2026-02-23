@@ -1,0 +1,60 @@
+@use "vars" as *;
+@use "mixins" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+
+  &__container {}
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+    min-height: 72px;
+  }
+
+  &__logo { font-weight: 800; }
+
+  &__nav {
+    display: flex;
+    gap: 14px;
+
+    @include max($bp-tablet) {
+      display: none;
+    }
+  }
+
+  &__link {
+    opacity: .9;
+    @include hover-desktop { opacity: 1; }
+  }
+
+  &__burger {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: transparent;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-direction: column;
+
+    @include max($bp-tablet) {
+      display: inline-flex;
+    }
+  }
+
+  &__burger-line {
+    width: 18px;
+    height: 2px;
+    background: #111;
+    border-radius: 2px;
+  }
+}

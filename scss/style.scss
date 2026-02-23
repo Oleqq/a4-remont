@@ -1,0 +1,29 @@
+@use "sass:math";
+@use "sass:map";
+
+@use "global/vars";
+@use "global/mixins";
+@use "global/reset";
+@use "global/typography";
+@use "global/container";
+@use "global/helpers";
+@use "global/base";
+@use "global/header";
+@use "global/footer";
+
+@use "section/hero";
+@use "section/advantages";
+@use "section/benefits";
+@use "section/offer-tabs";
+
+@use "section/work-steps";
+
+@use "section/why-us";
+
+@use "section/news-preview";
+
+@use "section/faq";
+
+@use "section/portfolio-gallery";
+
+@use "section/about-reviews";

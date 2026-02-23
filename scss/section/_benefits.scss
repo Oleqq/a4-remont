@@ -1,0 +1,190 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.benefits {
+	padding: 56px 0 70px;
+	background: #f3efe9;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 32px 0 44px;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 20px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 18px;
+		}
+
+		@include max($bp-mob-lg) {
+			gap: 16px;
+		}
+
+		@include max($bp-mob) {
+			grid-template-columns: 1fr;
+			gap: 14px;
+		}
+	}
+}
+
+.benefits-card {
+	position: relative;
+	background: #efe6d6;
+	border-radius: 10px;
+	
+	min-height: 360px;
+	overflow: hidden;
+
+	display: grid;
+	grid-template-rows: auto auto 1fr;
+	gap: 12px;
+
+    height: 100%;
+
+    padding-top: 10px;
+    @include adaptive-value(padding-top, 20px, 10px, $bp-desktop, $bp-mob);
+
+	@include max($bp-mob-lg) {
+		
+	}
+
+	&__head {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: start;
+		gap: 12px;
+
+        padding: 0 20px;
+        @include adaptive-value(padding-left, 20px, 10px, $bp-desktop, $bp-mob);
+        @include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
+	}
+
+	&__title {
+		
+        font-family: $font-family;
+        font-weight: 700;
+        font-size: 24px;
+        @include adaptive-font(18, 24);
+        line-height: 130%;
+        color: #222;
+	}
+
+	&__mark {
+		width: 22px;
+		height: 22px;
+		border-radius: 999px;
+		border: 2px solid #C09B57;
+		position: relative;
+		margin-top: 2px;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 5px;
+			border-radius: 999px;
+			background: #C09B57;
+			
+		}
+	}
+
+	&__text {
+		
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 18px;
+        @include adaptive-font(14, 18);
+        line-height: 130%;
+        color: #222;
+
+        padding: 0 20px;
+        @include adaptive-value(padding-left, 20px, 10px, $bp-desktop, $bp-mob);
+        @include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
+	}
+
+	&__media {
+		align-self: end;
+		display: flex;
+		justify-content: flex-start;
+        width: 100%;
+	}
+
+	&__img {
+		display: block;
+		width: 100%;
+		max-width: 320px;
+		height: auto;
+		object-fit: contain;
+
+		@include max($bp-tablet) {
+			max-width: 100%;
+		}
+	}
+
+    
+}
+
+
+.benefits {
+	overflow: hidden;
+	&__slider {
+		min-width: 0;
+        overflow: visible;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 20px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 18px;
+		}
+
+		@include max($bp-mob) {
+			display: flex;
+			gap: 0;
+		}
+	}
+
+	.swiper-slide {
+		height: auto;
+
+		@include max($bp-mob) {
+			width: auto;
+		}
+	}
+
+	&__pagination {
+		display: none;
+		margin-top: 14px;
+
+		@include max($bp-mob) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.swiper-pagination-bullet {
+			width: 10px;
+			height: 10px;
+			border-radius: 999px;
+			background: rgba(0, 0, 0, 0.2);
+			opacity: 1;
+			margin: 0 6px !important;
+		}
+
+		.swiper-pagination-bullet-active {
+			background: rgba(0, 0, 0, 0.55);
+			transform: scale(1.1);
+		}
+	}
+}
+

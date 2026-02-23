@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-phone" viewBox="0 0 24 24">
+    <path d="M6.5 3.5h3l1 5-2 1.5c1.2 2.2 3 4 5.2 5.2L15.2 14l5 1v3c0 1.1-.9 2-2 2C10.6 20 4 13.4 4 5.5c0-1.1.9-2 2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+</svg>

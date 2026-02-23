@@ -1,0 +1,111 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.why-us {
+	background: #f3efe9;
+	padding: 56px 0 70px;
+
+    overflow: hidden;
+
+    .section__title {
+        margin-bottom: 10px;
+    }
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 32px 0 44px;
+	}
+
+	&__top {
+		margin-bottom: 40px;
+        @include adaptive-value(margin-bottom, 40px, 20px, $bp-desktop, $bp-mob);
+		max-width: 980px;
+	}
+
+	&__slider {
+		min-width: 0;
+        overflow: visible;
+
+        .swiper-slide {
+            height: auto;
+        }
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 12px;
+
+		@include max($bp-tablet) {
+			display: flex;
+			gap: 0;
+		}
+	}
+}
+
+.why-card {
+	background: #fcf7f1;
+	border-radius: 10px;
+	padding: 20px;
+    @include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+	height: 100%;
+	overflow: hidden;
+
+	display: grid;
+	grid-template-rows: auto auto 1fr;
+	gap: 12px;
+
+	height: 100%;
+    @include max($bp-mob) {
+        max-height: 300px;
+    }
+
+	&__icon {
+		width: 54px;
+        @include adaptive-value(width, 54px, 50px, $bp-desktop, $bp-mob);
+        
+		height: 54px;
+        @include adaptive-value(height, 54px, 50px, $bp-desktop, $bp-mob);
+
+		border-radius: 999px;
+		background: #c6a15a;
+		color: #fff;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__title {
+		@include adaptive-font(16, 20);
+		font-weight: 900;
+		margin: 0;
+	}
+
+	&__text {
+		margin: 0;
+		opacity: 0.9;
+		line-height: 1.35;
+	}
+
+	&--image {
+		padding: 0;
+		height: 100%;
+        display: flex;
+        width: 100%;
+		
+	}
+
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+
+		@include max($bp-tablet) {
+			
+		}
+	}
+}

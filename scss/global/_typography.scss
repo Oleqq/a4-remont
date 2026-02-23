@@ -1,0 +1,46 @@
+@use "vars" as *;
+@use "mixins" as *;
+
+body {
+  font-family: $font-family;
+  color: $color-text;
+  background: $color-bg;
+  line-height: 1.4;
+}
+
+h1, h2, h3 { margin: 0; }
+
+h2 { @include adaptive-font(20, 40); }
+h3 { @include adaptive-font(16, 22); }
+p  { @include adaptive-font(14, 16); margin: 0; }
+
+
+.section {
+
+  &__title {
+    font-family:$font-family;
+    font-weight: 700;
+    font-size: 40px;
+    @include adaptive-font(22, 40);
+    line-height: 130%;
+    color: #c09b57;
+  }
+
+  &__subtitle {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 18px;
+    @include adaptive-font(14, 18);
+    line-height: 130%;
+    color: #313131;
+  }
+
+  &__highlighted {
+    font-family: $font-family;
+    font-weight: 700;
+    font-size: 24px;
+    @include adaptive-font(18, 24);
+    line-height: 130%;
+    color: #222;
+  }
+}

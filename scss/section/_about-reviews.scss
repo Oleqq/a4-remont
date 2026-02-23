@@ -1,0 +1,320 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.about-reviews {
+	position: relative;
+	background: #f3efe9;
+	
+    height: 1660px;
+    @include adaptive-value(height, 1660px, 915px, $bp-desktop, $bp-mob);
+	
+	padding: 360px 0 70px;
+    margin-top: 120px;
+    @include adaptive-value(margin-top, 120px, 350px, $bp-desktop, $bp-mob);
+
+    .section__subtitle {
+        color: #fff;
+    }
+
+	@include max($bp-tablet) {
+		padding: 340px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 290px 0 20px;
+	}
+
+    &__container {
+        height: 100%;
+    }
+
+	&__bg {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+
+		// &::after {
+		// 	content: "";
+		// 	position: absolute;
+		// 	inset: 0;
+		// 	background: linear-gradient(180deg, rgba(243, 239, 233, 0.55) 0%, rgba(243, 239, 233, 0.75) 60%, rgba(243, 239, 233, 0.92) 100%);
+		// }
+	}
+
+	&__bg-img {
+		width: 100%;
+		
+		object-fit: cover;
+		display: flex;
+        height: 100%;
+	}
+
+	&__container {
+		position: relative;
+		z-index: 1;
+        display: flex;
+        align-items: flex-end;
+	}
+
+	
+	&__company {
+		position: absolute;
+		bottom: 925px;
+        @include adaptive-value(bottom, 925px, 700px, $bp-desktop, 467px);
+		left: 50%;
+		transform: translateX(-50%);
+		width: min(760px, 100%);
+		background: #efe6d6;
+		border-radius: 18px;
+		padding: 110px;
+        @include adaptive-value(padding, 110px, 20px, $bp-desktop, $bp-mob);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+		border: 1px solid rgba(0, 0, 0, 0.06);
+
+		@include max($bp-tablet) {
+			
+		}
+
+		@include max($bp-mob) {
+			
+		}
+        @media (max-width:467px) {
+            max-width: 90%;
+        }
+	}
+
+	&__company-title {
+		margin: 0 0 20px;
+        @include adaptive-value(margin-bottom, 20px, 10px, $bp-desktop, $bp-mob);
+		font-weight: 900;
+		
+		font-family: $font-family;
+        font-weight: 700;
+        font-size: 40px;
+        @include adaptive-font(22, 40);
+        line-height: 130%;
+        color: #222;
+	}
+
+	&__company-strong {
+		margin: 0 0 20px;
+        @include adaptive-value(margin-bottom, 20px, 10px, $bp-desktop, $bp-mob);
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.02em;
+		font-size: 18px;
+        @include adaptive-font(14, 18);
+		line-height: 1.35;
+		color: #1b1b1b;
+	}
+
+	&__company-text {
+		margin: 0;
+		font-size: 18px;
+        @include adaptive-font(14, 18);
+		line-height: 1.35;
+		opacity: 0.9;
+		color: #1b1b1b;
+	}
+
+	&__logo {
+		margin: 60px 0 60px;
+        @include adaptive-value(margin-top, 60px, 40px, $bp-desktop, $bp-mob);
+        @include adaptive-value(margin-bottom, 60px, 40px, $bp-desktop, $bp-mob);
+		height: 62px;
+		display: flex;
+		align-items: center;
+	}
+
+	&__company-btn {
+		height: 62px;
+        @include adaptive-value(height, 62px, 52px, $bp-desktop, $bp-mob);
+		
+		border-radius: 999px;
+		background: #1f1f1f;
+		color: #fff;
+		font-weight: 800;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s ease, filter 0.2s ease;
+
+		@include hover-desktop {
+			transform: translateY(-2px);
+			filter: brightness(1.05);
+		}
+
+		@include max($bp-mob) {
+			width: 100%;
+		}
+        @media (min-width:$bp-mob) {
+            width: 433px;
+        }
+	}
+
+	
+	&__reviews {
+		position: relative;
+        width: 100%;
+	}
+
+	&__reviews-head {
+		max-width: 480px;
+		margin-bottom: 18px;
+
+		
+		@include min($bp-tablet + 1px) {
+			margin-top: 140px;
+		}
+
+        .section__title {
+            margin-bottom: 10px;
+        }
+        .section__subtitle {
+            max-width: 430px;
+        }
+	}
+
+	&__cards {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 10px;
+		align-items: start;
+
+		@include max($bp-tablet) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			
+		}
+
+		@include max($bp-mob) {
+			grid-template-columns: 1fr;
+			
+		}
+	}
+
+	
+	@include min($bp-tablet + 1px) {
+		.review-card--1,
+		.review-card--2 {
+			transform: translateY(46px);
+		}
+
+		.review-card--3,
+		.review-card--4 {
+			transform: translateY(-170px);
+		}
+	}
+
+	
+	@include max($bp-mob) {
+		.review-card--3,
+		.review-card--4 {
+			display: none;
+		}
+
+		.review-card--2 {
+			transform: translateX(22px);
+		}
+	}
+
+	&__actions {
+		margin-top: 18px;
+		display: flex;
+		justify-content: flex-end;
+
+		@include max($bp-tablet) {
+			justify-content: center;
+		}
+	}
+
+	&__all {
+		height: 62px;
+        @include adaptive-value(height, 62px, 52px, $bp-desktop, $bp-mob);
+		border-radius: 999px;
+
+		@include max($bp-mob) {
+			width: 100%;
+		}
+
+        @include min($bp-mob) {
+            width: 433px;
+        }
+	}
+}
+
+.review-card {
+	background: #fcf7f1;
+	border-radius: 10px;
+	padding: 20px;
+    @include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+	box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+	border: 1px solid rgba(0, 0, 0, 0.06);
+
+	display: grid;
+	gap: 10px;
+
+    @include max($bp-tablet) {
+        width: 93%;
+    }
+
+    &--2{
+        
+        @media (max-width:991px) and (min-width:467px) {
+            right: 36px;
+            @include adaptive-value(right, 36px, 12px, 991px, 467px);
+            position: relative;
+        }
+    }
+    &--3 {
+
+        @media (max-width:991px) and (min-width:467px) {
+            left: 36px;
+            @include adaptive-value(left, 36px, 12px, 991px, 467px);
+            position: relative;
+        }
+    }
+
+	&__top {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 10px;
+        align-items: center;
+	}
+
+	&__name {
+		margin: 0;
+        font-family: $font-family;
+        font-weight: 700;
+        font-size: 18px;
+        @include adaptive-font(14, 18);
+        line-height: 110%;
+        color: #222;
+	}
+
+	&__stars {
+		display: inline-flex;
+		gap: 4px;
+		color: #f6c343;
+	}
+
+	&__text {
+		margin: 0;
+        font-family: $font-family;
+        font-weight: 400;
+        @include adaptive-font(14, 18);
+        line-height: 130%;
+        color: #222;
+
+        margin-bottom: 20px;
+        @include adaptive-value(margin-bottom, 40px, 20px, $bp-desktop, $bp-mob);
+	}
+
+	&__date {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 18px;
+        @include adaptive-font(14, 18);
+        line-height: 130%;
+        color: #858585;
+	}
+}

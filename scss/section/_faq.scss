@@ -1,0 +1,125 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.faq {
+	background: #f3efe9;
+	padding: 56px 0 70px;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 32px 0 44px;
+	}
+
+    .section__title {
+        margin-bottom: 40px;
+        @include adaptive-value(margin-bottom, 40px, 20px, $bp-desktop, $bp-mob);
+    }
+
+	&__grid {
+		margin-top: 22px;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 40px;
+        @include adaptive-value(gap, 40px, 20px, $bp-desktop, $bp-mob);
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+            gap: 10px;
+		}
+	}
+
+	&__col {
+		display: grid;
+		gap: 10px;
+        height: fit-content;
+	}
+}
+
+.faq-item {
+	background: #efe6d6;
+	border-radius: 10px;
+	padding: 0;
+	overflow: hidden;
+    height: fit-content;
+
+	&__head {
+		width: 100%;
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+		padding: 20px;
+        @include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 14px;
+		align-items: center;
+		text-align: left;
+	}
+
+	&__q {
+		font-weight: 900;
+		@include adaptive-font(18, 24);
+		line-height: 1.15;
+	}
+
+	&__icon {
+		width: 44px;
+		height: 44px;
+		border-radius: 999px;
+		
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		
+		transition: transform 0.25s $easing;
+	}
+
+	&__body {
+		display: grid;
+		grid-template-rows: 0fr;
+		transition: grid-template-rows 0.35s $easing;
+	}
+
+	&__content {
+		overflow: hidden;
+		padding: 0 20px 0;
+        @include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
+		opacity: 0;
+		transform: translateY(-6px);
+		transition: opacity 0.25s $easing, transform 0.25s $easing;
+        
+        
+	}
+
+	&__content p {
+		margin: 0;
+		padding: 0 0 18px;
+		opacity: 0.92;
+		line-height: 1.35;
+        @include adaptive-font(14, 18);
+	}
+
+	&._active {
+		.faq-item__body {
+			grid-template-rows: 1fr;
+		}
+
+		.faq-item__content {
+			opacity: 1;
+			// transform: translateY(0);
+		}
+
+		.faq-item__icon {
+			transform: rotate(45deg) !important;
+		}
+	}
+
+	@include hover-desktop {
+		.faq-item__icon {
+			// transform: translateY(-1px);
+		}
+	}
+}
