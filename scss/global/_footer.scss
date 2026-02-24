@@ -1,7 +1,393 @@
-.footer {
-  padding: 40px 0;
+@use "vars" as *;
+@use "mixins" as *;
 
-  &__copy {
-    opacity: .7;
-  }
+.footer {
+	background: #171717;
+	color: #fff;
+	padding: 40px 0;
+
+	@include max($bp-mob) {
+		padding: 40px 0 20px;
+	}
+
+	&__container {
+		position: relative;
+	}
+
+	&__top {
+		display: grid;
+		grid-template-columns: minmax(0, 320px) minmax(0, 520px) minmax(0, 260px) minmax(0, 280px);
+		gap: 15px;
+		align-items: start;
+
+		@include max($bp-tablet) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-areas:
+				"brand brand socials"
+				"nav nav policy"
+				"req req req";
+			gap: 20px;
+		}
+
+		@include max($bp-mob) {
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas:
+				"logo logo"
+				"phone phone"
+				"social social"
+				"nav nav"
+				"policy policy"
+				"req req";
+			gap: 20px;
+		}
+	}
+
+	&__brand {
+		display: grid;
+
+		@include min($bp-tablet) {
+			gap: 40px;
+		}
+
+	
+		@include max($bp-tablet) {
+			grid-area: brand;
+			grid-template-columns: auto 1fr auto;
+			align-items: center;
+			gap: 22px;
+		}
+
+		
+		@include max($bp-mob) {
+			grid-area: logo;
+			grid-template-columns: 1fr;
+			justify-items: center;
+			gap: 16px;
+		}
+	}
+
+	&__logo {
+		display: inline-flex;
+		align-items: center;
+
+		@include max($bp-tablet) {
+			grid-column: 1 / 2;
+			justify-self: start;
+		}
+
+		@include max($bp-mob) {
+			justify-self: center;
+      margin-bottom: 20px;
+		}
+	}
+
+	&__phone {
+		display: inline-flex;
+		align-items: center;
+		gap: 12px;
+		font-family: $font-family;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 130%;
+		color: #fff;
+
+		@include max($bp-tablet) {
+			grid-column: 2 / 3;
+			justify-self: center;
+			white-space: nowrap;
+			flex-wrap: nowrap;
+			font-size: 16px;
+		}
+
+		@include max($bp-mob) {
+			grid-area: phone;
+			justify-self: center;
+			font-size: 20px;
+		}
+	}
+
+	&__phone-ic {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		@include max($bp-tablet) {
+			flex: 0 0 auto;
+		}
+	}
+
+	
+	&__social {
+		display: flex;
+		gap: 10px;
+		width: fit-content;
+
+		@include max($bp-tablet) {
+			grid-area: unset;          
+			grid-column: 3 / 4;       
+			justify-self: end;
+			justify-content: flex-end;
+			align-self: center;
+			white-space: nowrap;
+		}
+
+		@include max($bp-mob) {
+			grid-area: social;
+			grid-column: auto;
+			justify-self: center;
+			justify-content: center;
+		}
+	}
+
+	&__social-link {
+		width: 58px;
+		height: 58px;
+		border-radius: 999px;
+		background: #c09b57;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s $easing, filter 0.2s $easing;
+
+		@include hover-desktop {
+			transform: translateY(-2px);
+			filter: brightness(0.96);
+		}
+
+		@include max($bp-mob) {
+			width: 54px;
+			height: 54px;
+		}
+	}
+
+	&__nav {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 20px;
+
+		@include max($bp-tablet) {
+			grid-area: nav;
+			margin-bottom: 20px;
+		}
+
+		@include max($bp-mob) {
+			grid-area: nav;
+		}
+	}
+
+	&__nav-col {
+		display: grid;
+		gap: 20px;
+
+		@include max($bp-mob) {
+			justify-items: center;
+		}
+	}
+
+	&__nav-link {
+		font-family: $font-family;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 130%;
+		text-transform: uppercase;
+		color: #fff;
+		letter-spacing: 0.08em;
+		opacity: 1;
+		transition: 0.2s $easing;
+
+		@include hover-desktop {
+			color: #c09b57;
+		}
+	}
+
+	&__policy {
+		display: grid;
+		gap: 16px;
+
+		@include max($bp-tablet) {
+			grid-area: policy;
+			align-content: start;
+		}
+
+		@include max($bp-mob) {
+			grid-area: policy;
+		}
+	}
+
+	&__policy-link {
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 16px;
+		@include adaptive-font(12, 16);
+		line-height: 130%;
+		text-decoration: underline;
+		text-decoration-skip-ink: none;
+		color: #f7f7f7;
+		opacity: 1;
+		transition: 0.2s $easing;
+
+		@include hover-desktop {
+			color: #c09b57;
+		}
+
+		@include max($bp-mob) {
+			text-align: center;
+		}
+	}
+
+	&__requisites {
+		background: #222;
+		height: 100%;
+		border-radius: 10px;
+		padding: 20px;
+		@include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+
+		@include max($bp-tablet) {
+			grid-area: req;
+		}
+
+		@include max($bp-mob) {
+			grid-area: req;
+			padding: 20px;
+		}
+	}
+
+	&__req-title {
+		margin: 0 0 6px;
+		font-weight: 700;
+		font-family: $font-family;
+		font-size: 16px;
+		@include adaptive-font(14, 16);
+	}
+
+	&__req-text {
+		margin: 0 0 16px;
+		font-family: $font-family;
+		font-weight: 500;
+		font-size: 16px;
+		@include adaptive-font(14, 16);
+		line-height: 130%;
+		color: #f7f7f7;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__bottom {
+		margin-top: 26px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+
+		font-family: $font-family;
+		font-weight: 500;
+		font-size: 16px;
+		@include adaptive-font(12, 16);
+		line-height: 130%;
+		color: #f7f7f7;
+
+		@include min(1279px) {
+			justify-content: center;
+			gap: 40px;
+
+			position: absolute;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+
+		@include max($bp-mob) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      
+		}
+	}
+
+	&__copy {
+		margin: 0;
+    @include adaptive-font(12, 16);
+	}
+
+	&__dev {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		opacity: 0.92;
+		transition: opacity 0.2s $easing;
+
+		@include hover-desktop {
+			opacity: 1;
+		}
+	}
+
+	&__dev-ic {
+		width: 22px;
+		height: 22px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.footer {
+	&__brand {
+		@include max($bp-tablet) {
+			grid-area: brand;
+			grid-template-columns: 1fr 1fr 1fr;
+			align-items: center;
+			gap: 20px;
+		}
+
+		@include max($bp-mob) {
+			grid-area: logo;
+			grid-template-columns: 1fr;
+			justify-items: center;
+			gap: 20px;
+		}
+	}
+
+	&__logo {
+		@include max($bp-tablet) {
+			grid-column: 1 / 2;
+			justify-self: start;
+		}
+
+		@include max($bp-mob) {
+			grid-column: auto;
+			justify-self: center;
+		}
+	}
+
+	&__phone {
+		@include max($bp-tablet) {
+			grid-column: 2 / 3;
+			justify-self: center;
+		}
+
+		@include max($bp-mob) {
+			grid-area: auto;
+			grid-column: auto;
+			justify-self: center;
+		}
+	}
+
+	&__social {
+		@include max($bp-tablet) {
+			grid-column: 3 / 4;
+			justify-self: end;
+		}
+
+		@include max($bp-mob) {
+			grid-area: auto;
+			grid-column: auto;
+			justify-self: center;
+		}
+	}
 }

@@ -10,7 +10,7 @@
 	}
 
 	@include max($bp-mob) {
-		padding: 32px 0 44px;
+		padding: 30px 0 60px;
 	}
 
 	&__head {
@@ -20,6 +20,7 @@
         @include adaptive-value(gap, 24px, 20px, $bp-desktop, $bp-mob);
 		align-items: start;
 		margin-bottom: 20px;
+		    margin-bottom: 0px;
 
 		@include max($bp-tablet) {
 			grid-template-columns: 1fr;
@@ -27,7 +28,7 @@
 	}
 
 	&__title {
-		@include adaptive-font(22, 44);
+		@include adaptive-font(22, 40);
 		color: #c6a15a;
 		font-weight: 900;
 		margin: 0 0 10px;
@@ -52,6 +53,11 @@
         @include adaptive-value(padding, 18px, 10px, $bp-desktop, $bp-mob);
 		overflow: hidden;
 		min-height: 112px;
+
+		@media (width:1440px) {
+    		margin-top: 28px;
+			height: 178px;
+		}
 
         svg {
             position: absolute;
@@ -81,7 +87,12 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 16px;
 		max-width: 600px;
-		margin-bottom: 22px;
+		margin-bottom: 10px;
+
+		@include min($bp-tablet) {
+			position: relative;
+			bottom: 32px;
+		}
 
 		@include max($bp-mob) {
 			max-width: none;
@@ -251,6 +262,7 @@
 		gap: 0px;
 
         height: 100%;
+		padding-bottom: 36px;
 	}
 
 	&__title {

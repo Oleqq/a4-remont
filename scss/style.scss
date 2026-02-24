@@ -11,6 +11,8 @@
 @use "global/header";
 @use "global/footer";
 
+@use "global/animate";
+
 @use "section/hero";
 @use "section/advantages";
 @use "section/benefits";
@@ -27,3 +29,5 @@
 @use "section/portfolio-gallery";
 
 @use "section/about-reviews";
+
+@use "section/cta-banner";

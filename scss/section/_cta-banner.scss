@@ -1,0 +1,340 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.cta-banner {
+	background: #f3efe9;
+	padding: 56px 0 70px;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 32px 0 44px;
+	}
+
+    &__content {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+	&__card {
+		position: relative;
+		background: #b59a58;
+		border-radius: 10px;
+		
+		
+		padding: 40px;
+        @include adaptive-value(padding, 40px, 20px, $bp-tablet, $bp-mob);
+        
+
+		@include min($bp-tablet) {
+			max-height: 520px;
+		}
+
+		@include max($bp-tablet) {
+			padding-top: 68px;
+		}
+
+		@include max($bp-mob) {
+			
+		}
+	}
+
+	&__social {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		display: flex;
+		gap: 10px;
+		z-index: 2;
+
+		@include max($bp-mob) {
+			top: 20px;
+			left: 20px;
+			right: auto;
+		}
+	}
+
+	&__social-link {
+		width: 28px;
+		height: 28px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.95);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s $easing, filter 0.2s $easing;
+
+		@include hover-desktop {
+			transform: translateY(-2px);
+			filter: brightness(0.98);
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 550px) minmax(0, 100%);
+		gap: 24px;
+		align-items: start;
+		height: auto;
+		position: relative;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__title {
+		margin: 0 0 10px;
+        font-family: $font-family;
+        font-weight: 700;
+        font-size: 40px;
+        @include adaptive-font(22, 40);
+        line-height: 130%;
+        color: #fff;
+	}
+
+	&__subtitle {
+		margin: 0 0 20px;
+        font-family:$font-family;
+        font-weight: 400;
+        font-size: 18px;
+        @include adaptive-font(14, 18);
+        line-height: 130%;
+        color: #fff;
+		max-width: 560px;
+	}
+
+	&__form {
+		display: grid;
+		gap: 14px;
+
+        margin-bottom: auto;
+	}
+
+	&__fields {
+		display: grid;
+		grid-template-columns: minmax(0, 360px) minmax(0, 260px);
+		gap: 10px;
+		align-items: center;
+
+		@include max($bp-mob) {
+			grid-template-columns: 1fr;
+			
+		}
+	}
+
+	&__input {
+		width: 100%;
+		height: 46px;
+		border-radius: 999px;
+		border: 0;
+		background: rgba(255, 255, 255, 0.16);
+		color: #fff;
+		padding: 0 18px;
+		outline: none;
+
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 130%;
+        color: rgb(255, 255, 255);
+
+		&::placeholder {
+			font-family: $font-family;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 130%;
+            color: rgba(255, 255, 255, 0.7);
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+		}
+	}
+
+	&__submit {
+		height: 46px;
+		border-radius: 999px;
+		border: 0;
+		cursor: pointer;
+		background: #fff;
+		font-family: $font-family;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 130%;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: #222;
+		transition: transform 0.2s $easing, filter 0.2s $easing;
+
+		@include hover-desktop {
+			transform: translateY(-2px);
+			filter: brightness(0.98);
+		}
+	}
+
+	&__agree {
+		display: grid;
+		grid-template-columns: 34px minmax(0, 1fr);
+		gap: 12px;
+		align-items: start;
+		cursor: pointer;
+		user-select: none;
+	}
+
+	&__checkbox {
+		/* доступно для клавиатуры и скринридеров */
+		position: absolute;
+		opacity: 0;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	&__agree-ui {
+		width: 34px;
+		height: 34px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.95);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: #1b1b1b;
+		position: relative;
+		transition: transform 0.2s $easing, box-shadow 0.2s $easing;
+	}
+
+	/* галочка (data-uri), появляется только когда checked */
+	&__agree-ui::after {
+		content: "";
+		width: 18px;
+		height: 13px;
+		opacity: 0;
+		transform: scale(0.85);
+		transition: opacity 0.18s $easing, transform 0.18s $easing;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 18px 13px;
+		background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2218%22%20height%3D%2213%22%20viewBox%3D%220%200%2018%2013%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1.25%206.25L6.25079%2011.25L16.25%201.25%22%20stroke%3D%22%23222222%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
+	}
+
+	/* checked -> показать галку */
+	&__checkbox:checked + &__agree-ui::after {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	/* focus-visible -> обводка по ui */
+	&__checkbox:focus-visible + &__agree-ui {
+		box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35), 0 0 0 4px rgba(0, 0, 0, 0.15);
+	}
+
+	/* disabled (на будущее) */
+	&__checkbox:disabled + &__agree-ui {
+		opacity: 0.6;
+		filter: grayscale(0.2);
+	}
+
+	&__checkbox:disabled ~ &__agree-text {
+		opacity: 0.7;
+	}
+
+	&__agree-text {
+       
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 130%;
+        letter-spacing: -0.02em;
+        color: #f7f8fc;
+
+		a {
+			color: #fff;
+			text-decoration: underline;
+			text-underline-offset: 3px;
+		}
+	}
+
+	&__contacts {
+		display: flex;
+		column-gap: 40px;
+        @include adaptive-value(column-gap, 40px, 20px, $bp-desktop, $bp-mob);
+        row-gap: 20px;
+        @include adaptive-value(row-gap, 20px, 10px, $bp-desktop, $bp-mob);
+		flex-wrap: wrap;
+		align-items: center;
+        
+        margin-top: 40px;
+        @include adaptive-value(margin-top, 40px, 20px, $bp-desktop, $bp-mob);
+
+		@include max($bp-mob) {
+			display: grid;
+           
+		}
+	}
+
+	&__contact {
+		display: inline-flex;
+		gap: 12px;
+		align-items: center;
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: 20px;
+        @include adaptive-font(14, 20);
+        line-height: 130%;
+        color: #fff;
+	}
+
+	&__contact-ic {
+		
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__media {
+		
+		height: auto;
+		display: flex;
+		justify-content: flex-end;
+		align-items: end;
+
+    	
+        // @include adaptive-value(top, 40px, 20px, $bp-tablet, $bp-mob);
+
+		@include min($bp-tablet) {
+			position: absolute;
+			right: 0;
+			bottom: -40px;
+		}
+
+		@include max($bp-tablet) {
+			justify-content: center;
+			
+			position: relative;
+			top: 39px;
+			@include adaptive-value(top, 39px, 20px, $bp-tablet, $bp-mob);
+		}
+	}
+
+	&__people {
+		width: 100%;
+		max-width: 675px;
+		@include adaptive-value(max-width, 675px, 500px, $bp-desktop, 1380px);
+		
+		height: auto;
+		display: flex;
+		object-fit: contain;
+
+		@include max($bp-mob) {
+			max-width: 420px;
+		}
+	}
+}

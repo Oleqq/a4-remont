@@ -1,0 +1,18 @@
+@use "mixins" as *;
+@use "vars" as *;
+
+section {
+    opacity: 0;
+    transition: 1s ease;
+    transform: translateY(50px);
+
+    &.hero {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+section.animated {
+    opacity: 1;
+    transition: 1s ease;
+    transform: translateY(0px);
+}

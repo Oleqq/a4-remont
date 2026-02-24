@@ -71,15 +71,19 @@
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 		border: 1px solid rgba(0, 0, 0, 0.06);
 
+		@media (width:1440px) {
+			width: 880px;
+		}
+
 		@include max($bp-tablet) {
-			
+			max-width: 90%;
 		}
 
 		@include max($bp-mob) {
 			
 		}
         @media (max-width:467px) {
-            max-width: 90%;
+            
         }
 	}
 

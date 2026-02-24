@@ -3,14 +3,14 @@
 
 .hero {
 
-  padding: 56px 0 70px;
+  padding: 40px 0 40px;
 
   @include max($bp-tablet) {
     padding: 42px 0 56px;
   }
   
   @include max($bp-mob) {
-    padding: 32px 0 44px;
+    padding: 30px 0 44px;
   }
 
   &__grid {
@@ -161,7 +161,7 @@
     grid-template-columns: 44px 1fr 44px;
     align-items: center;
     gap: 12px;
-    pointer-events: none;
+    
 
     z-index: 10;
     width: fit-content;

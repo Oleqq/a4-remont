@@ -3,18 +3,18 @@
 
 .news-preview {
 	
-	padding: 56px 0 70px;
+	padding: 130px 0 70px;
 
     .section__title {
         margin-bottom: 10px;
     }
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 100px 0 60px;
 	}
 
 	@include max($bp-mob) {
-		padding: 32px 0 44px;
+		padding: 60px 0 30px;
 	}
 
 	&__top {

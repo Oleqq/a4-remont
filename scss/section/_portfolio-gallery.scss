@@ -10,7 +10,7 @@
 	}
 
 	@include max($bp-mob) {
-		padding: 32px 0 44px;
+		padding: 60px 0 30px;
 	}
 
 	&__top {
@@ -19,8 +19,8 @@
 		gap: 26px;
 		align-items: start;
         justify-content: space-between;
-		margin-bottom: 40px;
-        @include adaptive-value(margin-bottom, 40px, 20px, $bp-desktop, $bp-mob);
+		margin-bottom: 46px;
+        @include adaptive-value(margin-bottom, 46px, 20px, $bp-desktop, $bp-mob);
 
 		@include max($bp-tablet) {
 			grid-template-columns: 1fr;
@@ -79,6 +79,12 @@
 		overflow: hidden;
 		background: #ddd;
 		transform: translateZ(0);
+		
+		width: 100%;
+
+		@include min($bp-tablet) {
+			height: 500px;
+		}
 
 		img {
 			width: 100%;
@@ -151,7 +157,7 @@
 			&--f,
 			&--g {
 				aspect-ratio: 100 / 115;
-				border-radius: 12px;
+				border-radius: 10px;
 			}
 		}
 	}
