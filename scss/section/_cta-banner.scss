@@ -29,7 +29,7 @@
         @include adaptive-value(padding, 40px, 20px, $bp-tablet, $bp-mob);
         
 
-		@include min($bp-tablet) {
+		@include min($bp-tablet + 1px) {
 			max-height: 520px;
 		}
 

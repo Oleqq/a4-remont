@@ -1,0 +1,108 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.feedback-showcase {
+	padding: 60px 0;
+	background: #f3eee8;
+	overflow: hidden;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 60px;
+	}
+	
+	.review-card {
+		box-shadow: none;
+		border: 0;
+		width: 100% !important;
+	}
+
+	&__head {
+		display: flex;
+		
+		gap: 40px;
+		@include adaptive-value(gap, 40px, 5px, $bp-desktop, $bp-mob);
+		align-items: start;
+		margin-bottom: 40px;
+		@include adaptive-value(margin-bottom, 40px, 20px, $bp-desktop, $bp-mob);
+		justify-content: space-between;
+
+		@include max($bp-tablet) {
+			
+			
+			flex-direction: column;
+		}
+	}
+
+	&__lead {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 18px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: #222222;
+		max-width: 640px;
+	}
+
+	&__body {
+		min-width: 0;
+	}
+
+	&__slider {
+		min-width: 0;
+		overflow: visible;
+
+		.swiper-slide {
+			height: auto;
+		}
+	}
+
+	&__track {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 10px;
+
+        
+
+		
+
+        @include min($bp-tablet) {
+            display: grid;
+		    grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+        }
+		@include max($bp-tablet) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+		@include max($bp-mob) {
+			display: flex;
+			gap: 0;
+		}
+	}
+
+	&__slide {
+		min-width: 0;
+	}
+
+	&__footer {
+		margin-top: 40px;
+		@include adaptive-value(margin-top, 40px, 20px, $bp-desktop, $bp-mob);
+		display: flex;
+		justify-content: center;
+
+		
+	}
+
+	&__cta {
+		width: 420px;
+
+		@include max($bp-tablet) {
+			width: 100%;
+		}
+	}
+}

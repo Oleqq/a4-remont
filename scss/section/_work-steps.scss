@@ -123,6 +123,7 @@
         font-family: $font-family;
         font-weight: 600;
         font-size: 20px;
+		@include adaptive-font(16, 20);
         line-height: 130%;
         letter-spacing: 0.02em;
         text-align: center;

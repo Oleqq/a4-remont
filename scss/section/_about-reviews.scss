@@ -5,12 +5,12 @@
 	position: relative;
 	
 	
-    height: 1660px;
-    @include adaptive-value(height, 1660px, 915px, $bp-desktop, $bp-mob);
+    height: 1537px;
+    @include adaptive-value(height, 1537px, 915px, $bp-desktop, $bp-mob);
 	
 	padding: 360px 0 70px;
-    margin-top: 120px;
-    @include adaptive-value(margin-top, 120px, 350px, $bp-desktop, $bp-mob);
+    margin-top: 210px;
+    @include adaptive-value(margin-top, 210px, 300px, $bp-desktop, $bp-mob);
 
     .section__subtitle {
         color: #fff;
@@ -59,8 +59,8 @@
 	
 	&__company {
 		position: absolute;
-		bottom: 925px;
-        @include adaptive-value(bottom, 925px, 700px, $bp-desktop, 467px);
+		bottom: 865px;
+        @include adaptive-value(bottom, 865px, 650px, $bp-desktop, 467px);
 		left: 50%;
 		transform: translateX(-50%);
 		width: min(760px, 100%);
@@ -131,13 +131,19 @@
 	}
 
 	&__company-btn {
-		height: 62px;
-        @include adaptive-value(height, 62px, 52px, $bp-desktop, $bp-mob);
+		height: 66px;
+        @include adaptive-value(height, 66px, 52px, $bp-desktop, $bp-mob);
 		
 		border-radius: 999px;
-		background: #1f1f1f;
+		background: #222;;
+		font-family:$font-family;
+		font-weight: 600;
+		font-size: 20px;
+		@include adaptive-font(16, 20);
+		line-height: 130%;
+		letter-spacing: 0.02em;
+		text-align: center;
 		color: #fff;
-		font-weight: 800;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;

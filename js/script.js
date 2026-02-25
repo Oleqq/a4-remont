@@ -9,6 +9,10 @@ import { initOfferTabs, initOfferSliders } from './section/offer-tabs.js';
 import { initWhyUs } from './section/why-us.js';
 import { initFaq } from './section/faq.js';
 
+import { initTeamPreview } from './section/team-preview.js';
+
+import { initFeedbackShowcase } from './section/feedback-showcase.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 	initBurger();
 	initHeaderDropdown();
@@ -21,5 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	initOfferSliders();
 	initWhyUs();
 	initFaq();
+
+	initTeamPreview();
+
+	initFeedbackShowcase();
 
 });

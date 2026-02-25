@@ -1,0 +1,152 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.history-achievements {
+	background: #f3efe9;
+	padding: 56px 0 70px;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 32px 0 44px;
+	}
+
+	&__card {
+		background: #efe6d6;
+		border-radius: 10px;
+		padding: 40px;
+        @include adaptive-value(padding, 40px, 10px, $bp-desktop, $bp-mob);
+		overflow: hidden;
+
+		@include max($bp-tablet) {
+			padding: 26px;
+		}
+
+		@include max($bp-mob) {
+			padding: 18px;
+		}
+	}
+
+	&__top {
+		display: grid;
+		grid-template-columns: minmax(0, 560fr) minmax(0, 620px);
+		gap: 26px;
+        @include adaptive-value(gap, 26px, 10px, $bp-desktop, $bp-mob);
+		align-items: start;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		max-width: 650px;
+
+		.section__title {
+			margin-bottom: 14px;
+		}
+
+		.section__subtitle {
+			margin: 0 0 14px;
+		}
+
+        p {
+            max-width: 550px;
+        }
+	}
+
+	&__stats {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+
+		@include max($bp-mob) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__stat {
+		border-radius: 10px;
+		padding: 18px;
+		height: 300px;
+        @include adaptive-value(height, 300px, 150px, $bp-desktop, $bp-mob);
+		display: grid;
+		grid-template-rows: auto 1fr;
+		overflow: hidden;
+
+		@include max($bp-tablet) {
+			min-height: 200px;
+		}
+
+		@include max($bp-mob) {
+			min-height: 180px;
+		}
+
+		&--dark {
+			background: #1f1f1f;
+			color: #fff;
+
+			.history-achievements__stat-num,
+			.history-achievements__stat-unit {
+				color: #c09b57;
+			}
+		}
+
+		&--gold {
+			background: #c09b57;
+			color: #fff;
+		}
+	}
+
+	&__stat-title {
+		margin: 0;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 130%;
+        color: #fff;
+		@include adaptive-font(14, 18);
+	}
+
+	&__stat-value {
+		margin: 0;
+		align-self: end;
+		display: inline-flex;
+		gap: 14px;
+		align-items: baseline;
+        justify-content: flex-end;
+        
+	}
+
+	&__stat-num {
+        font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 110%;
+        text-transform: uppercase;
+        color: #fff;
+		@include adaptive-font(48, 64);
+
+	}
+
+	&__stat-unit {
+		font-weight: 900;
+		@include adaptive-font(22, 34);
+		line-height: 1;
+	}
+
+	&__timeline {
+		margin-top: 26px;
+
+		svg {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		@include max($bp-mob) {
+			margin-top: 18px;
+		}
+	}
+}

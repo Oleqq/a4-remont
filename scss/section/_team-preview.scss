@@ -1,0 +1,244 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.team-preview {
+	padding: 60px 0;
+	background: #f3eee8;
+	overflow: hidden;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 60px;
+	}
+
+	&__head {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+		gap: 24px;
+		@include adaptive-value(gap, 24px, 20px, $bp-desktop, $bp-mob);
+		align-items: start;
+		margin-bottom: 20px;
+		@include adaptive-value(margin-bottom, 20px, 20px, $bp-desktop, $bp-mob);
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+		}
+		@include max($bp-mob) {
+			gap: 0;
+		}
+	}
+
+	&__text {
+		max-width: 760px;
+        
+        .section__title {
+            margin-bottom: 10px;
+        }
+	}
+
+	&__nav {
+		display: flex;
+		gap: 12px;
+		flex: 0 0 auto;
+
+		@include max($bp-tablet) {
+			
+		}
+	}
+
+	&__body {
+		position: relative;
+	}
+
+	&__slider {
+		min-width: 0;
+		overflow: visible;
+
+		.swiper-slide {
+			height: auto;
+		}
+	}
+
+	&__btn {
+		width: 56px;
+		height: 56px;
+		border-radius: 999px;
+		border: 0;
+		cursor: pointer;
+
+		background: #c09b57;
+		color: #fff;
+
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		@include adaptive-value(width, 56px, 56px, $bp-desktop, $bp-mob);
+		@include adaptive-value(height, 56px, 56px, $bp-desktop, $bp-mob);
+
+        transition: .2s ease;
+
+		@include hover-desktop {
+			transform: translateY(-2px);
+			filter: brightness(0.95);
+		}
+
+		&.is-disabled,
+		&[disabled] {
+			opacity: 0.5;
+			cursor: default;
+			filter: none;
+			transform: none;
+		}
+
+		span {
+			display: inline-flex;
+			font-size: 20px;
+			line-height: 1;
+			transform: translateY(-1px);
+		}
+
+		
+		@include max($bp-tablet) {
+			position: absolute;
+			bottom: 40px;
+			z-index: 5;
+		}
+
+		&--prev {
+			@include max($bp-tablet) {
+				left: 10px;
+			}
+		}
+
+		&--next {
+			@include max($bp-tablet) {
+				right: 10px;
+			}
+		}
+	}
+
+	&__scrollbar-wrap {
+		display: none;
+		margin-top: 22px;
+		@include adaptive-value(margin-top, 22px, 12px, $bp-desktop, $bp-mob);
+
+		@include max($bp-tablet) {
+			display: flex;
+			justify-content: center;
+			padding-bottom: 78px; 
+		}
+	}
+
+	&__scrollbar {
+		width: min(520px, 70%);
+		height: 8px !important;
+		border-radius: 999px;
+		background: rgba(192, 155, 87, 0.22);
+		position: relative;
+
+        @include max($bp-tablet) {
+            width: 80% !important;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+        }
+
+        @include max(467px) {
+            width: 50% !important;
+        }
+
+		.swiper-scrollbar-drag {
+			height: 8px;
+			border-radius: 999px;
+			background: #222222;
+		}
+	}
+}
+
+.team-card {
+	background: #ede4d2;
+	border-radius: 10px;
+	padding: 10px;
+
+	display: grid;
+	grid-template-columns: 210px 1fr;
+	gap: 20px;
+
+	height: 235px;
+    
+	
+
+	@include max($bp-mob) {
+		grid-template-columns: 90px 1fr;
+		gap: 10px;
+		padding: 10px;
+        height: 110px;
+	}
+
+	&__media {
+		background: #fff;
+		border-radius: 10px;
+		overflow: hidden;
+
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+	}
+
+	&__img {
+		width: 100%;
+		height: 100%;
+		max-height: 220px;
+		object-fit: cover;
+		transform: scale(1.001);
+
+		@include max($bp-mob) {
+			max-height: 170px;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		padding-top: 6px;
+		min-width: 0;
+	}
+
+	&__name {
+		margin: 0 0 8px;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 18px;
+		@include adaptive-font(14, 18);
+		line-height: 110%;
+		color: #222222;
+	}
+
+	&__role {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 16px;
+		@include adaptive-font(14, 16);
+		line-height: 130%;
+		color: #222222;
+		opacity: 0.9;
+	}
+
+	&__exp {
+		margin-top: auto;
+		margin-bottom: 0;
+
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 40px;
+		@include adaptive-font(18, 40);
+		line-height: 110%;
+		letter-spacing: -0.02em;
+		color: #c09b57;
+	}
+}

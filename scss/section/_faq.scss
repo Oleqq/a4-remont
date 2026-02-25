@@ -60,9 +60,11 @@
 	}
 
 	&__q {
-		font-weight: 900;
+		font-weight: 700;
 		@include adaptive-font(18, 24);
-		line-height: 1.15;
+		line-height: 130%;
+		color: #222;
+		
 	}
 
 	&__icon {
@@ -87,17 +89,18 @@
 		overflow: hidden;
 		padding: 0 20px 0;
         @include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
+		@include adaptive-value(padding-left, 20px, 10px, $bp-desktop, $bp-mob);
 		opacity: 0;
 		transform: translateY(-6px);
 		transition: opacity 0.25s $easing, transform 0.25s $easing;
         
-        
+       
 	}
 
 	&__content p {
 		margin: 0;
 		padding: 0 0 18px;
-		opacity: 0.92;
+		
 		line-height: 1.35;
         @include adaptive-font(14, 18);
 	}

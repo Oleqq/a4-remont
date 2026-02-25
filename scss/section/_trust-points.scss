@@ -1,0 +1,322 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.trust-points {
+	padding: 60px 0;
+	background: #f3eee8;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 60px;
+	}
+
+    .section__title {
+        margin-bottom: 10px;
+    }
+
+	&__head {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 48px;
+		@include adaptive-value(gap, 48px, 18px, $bp-desktop, $bp-mob);
+		align-items: start;
+		margin-bottom: 22px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+			gap: 14px;
+			margin-bottom: 16px;
+		}
+        @include max($bp-mob) {
+            margin-bottom: 100px;
+        }
+	}
+
+	&__intro {
+		min-width: 0;
+	}
+
+	&__heading {
+		min-width: 0;
+
+		@include max($bp-tablet) {
+			margin-top: 6px;
+		}
+	}
+
+	&__heading-text {
+		margin: 10px 0 0;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 24px;
+		@include adaptive-font(18, 24);
+		line-height: 120%;
+		color: #222222;
+		max-width: 520px;
+	}
+
+	&__stage {
+		display: grid;
+		gap: 60px;
+        @include adaptive-value(gap, 60px, 20px, $bp-desktop, $bp-mob);
+
+        @include max($bp-tablet) {
+            gap: 350px;
+        }
+        @include max($bp-mob) {
+            gap: 0px;
+        }
+	}
+
+	&__hero {
+		position: relative;
+		border-radius: 10px;
+		
+		
+	}
+
+	&__media {
+		border-radius: 10px;
+		overflow: visible;
+		
+        position: relative;
+	}
+
+	&__img {
+		width: 100%;
+		height: auto;
+		display: block;
+		aspect-ratio: 1200 / 560;
+		object-fit: cover;
+        border-radius: 10px;
+
+        @include max($bp-tablet) {
+            aspect-ratio:  780 / 620;
+        }
+        @include max($bp-mob) {
+            aspect-ratio: 320 / 430;
+        }
+	}
+
+	&__badge {
+        position: absolute;
+        left: 28px;
+        top: 28px;
+
+        width: 460px;
+        max-width: calc(100% - 56px);
+
+        background: #efe6d6;
+        border-radius: 10px;
+        padding: 20px;
+        @include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+        
+
+        @include max($bp-tablet) {
+            left: 20px;
+            top: 20px;
+            
+            width: 520px;
+            max-width: calc(100% - 40px);
+            background-position: right 14px center;
+            background-size: 44px auto;
+        }
+
+        @include max($bp-mob) {
+            left: 10px;
+            top: 10px;
+			width: 100%;
+            background-position: right 12px center;
+            background-size: 40px auto;
+			 max-width: calc(100% - 20px);
+        }
+    }
+
+	&__badge-title {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 22px;
+		@include adaptive-font(18, 24);
+		line-height: 120%;
+		letter-spacing: 0.02em;
+		color: #222222;
+		text-transform: uppercase;
+	}
+
+	&__badge-sub {
+		
+		font-family: $font-family;
+		font-weight: 900;
+		font-size: 20px;
+		@include adaptive-font(18, 24);
+		line-height: 120%;
+		letter-spacing: 0.02em;
+		color: #c09b57;
+		text-transform: uppercase;
+	}
+
+	&__badge-check {
+		position: absolute;
+		right: 18px;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 96px;
+		height: 96px;
+		
+		
+        background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2277%22%20height%3D%2259%22%20viewBox%3D%220%200%2077%2059%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M24.6883%2042.4869L65.4327%201.89213C66.6988%200.630707%2068.3102%200%2070.2668%200C72.2235%200%2073.8348%200.630707%2075.1009%201.89213C76.367%203.15354%2077%204.75899%2077%206.70845C77%208.65792%2076.367%2010.2634%2075.1009%2011.5248L29.5224%2056.9359C28.1413%2058.312%2026.5299%2059%2024.6883%2059C22.8468%2059%2021.2354%2058.312%2019.8543%2056.9359L1.8991%2039.0466C0.633032%2037.7852%200%2036.1798%200%2034.2303C0%2032.2808%200.633032%2030.6754%201.8991%2029.414C3.16517%2028.1526%204.77653%2027.5219%206.73318%2027.5219C8.68983%2027.5219%2010.3012%2028.1526%2011.5673%2029.414L24.6883%2042.4869Z%22%20fill%3D%22%23C09B57%22/%3E%3C/svg%3E");
+
+        background-repeat: no-repeat;
+        background-position: right 18px center;
+        background-size: 62px auto;
+
+		
+		@media (max-width:467px) {
+			width: 64px;
+			height: 64px;
+			background-size: 42px;
+			background-position: right 0px center;
+		}
+	}
+
+	&__cards {
+		position: absolute;
+		
+		
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+		width: 620px;
+		max-width: calc(100% - 56px);
+
+        position: absolute;
+        top: 350px;
+        right: 20px;
+        @include adaptive-value(right, 20px, 10px, $bp-desktop, $bp-mob);
+
+        @media (max-width:1279px) and (min-width: 992px) {
+            position: unset;
+            margin: 20px auto 0;
+        }
+
+		@include max($bp-tablet) {
+			position: absolute;
+			width: 100%;
+			max-width: none;
+			margin-top: 14px;
+            max-width: 80%;
+            top: 600px;
+            @include adaptive-value(top, 600px, 350px, $bp-tablet, $bp-mob);
+		}
+
+		@include max($bp-mob) {
+			gap: 12px;
+            position: relative;
+            top: unset;
+            bottom: 40px;
+            right: unset;
+            max-width: 95%;
+            margin: 0 auto;
+		}
+	}
+
+	&__card {
+		position: relative;
+		border-radius: 10px;
+		padding: 20px;
+        @include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+		height: 220px;
+
+		display: flex;
+		align-items: flex-start;
+
+		@include max($bp-tablet) {
+			
+		
+		}
+
+		@include max($bp-mob) {
+			height: 200px;
+			
+		}
+	}
+
+	&__card--light {
+		background: #efe6d6;
+		color: #222222;
+	}
+
+	&__card--dark {
+		background: #222222;
+		color: #ffffff;
+	}
+
+	&__card-text {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 18px;
+		@include adaptive-font(14, 16);
+		line-height: 130%;
+		max-width: 260px;
+
+		@include max($bp-mob) {
+			max-width: none;
+		}
+	}
+
+	&__card-check {
+        position: absolute;
+        right: 16px;
+        bottom: 14px;
+
+        width: 64px;
+        height: 64px;
+        border-radius: 999px;
+        
+
+        background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2252%22%20height%3D%2240%22%20viewBox%3D%220%200%2052%2040%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M16.6321%2028.6227L44.081%201.2747C44.9339%200.424897%2046.0195%200%2047.3376%200C48.6558%200%2049.7413%200.424897%2050.5943%201.2747C51.4472%202.12449%2051.8737%203.20605%2051.8737%204.51938C51.8737%205.8327%2051.4472%206.91427%2050.5943%207.76406L19.8888%2038.3568C18.9583%2039.2838%2017.8728%2039.7474%2016.6321%2039.7474C15.3915%2039.7474%2014.306%2039.2838%2013.3755%2038.3568L1.27939%2026.3051C0.426463%2025.4553%200%2024.3737%200%2023.0604C0%2021.7471%200.426463%2020.6655%201.27939%2019.8157C2.13232%2018.9659%203.21787%2018.541%204.53604%2018.541C5.8542%2018.541%206.93975%2018.9659%207.79268%2019.8157L16.6321%2028.6227Z%22%20fill%3D%22%23C09B57%22/%3E%3C/svg%3E");
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50px auto;
+
+		@media (max-width:467px) {
+			width: 44px;
+    		height: 44px;
+			background-size: 32px;
+		}
+    }
+
+	&__foot {
+		padding: 0;
+	}
+
+	&__note {
+		max-width: 560px;
+
+		@include max($bp-tablet) {
+			margin-top: 14px;
+		}
+
+		p {
+			margin: 0 0 10px;
+			font-family: $font-family;
+			font-weight: 400;
+			font-size: 18px;
+			@include adaptive-font(14, 18);
+			line-height: 130%;
+			color: #222222;
+		}
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
