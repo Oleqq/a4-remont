@@ -1,0 +1,70 @@
+section.process-steps
+	.process-steps__container._container
+		.process-steps__top
+			h2.section__title.process-steps__title Этапы работы
+			.process-steps__intro
+				p.section__subtitle.process-steps__subtitle
+					| Мы не беремся за ремонт без четкого плана. Мы выстроили процесс просто и понятно.
+					| Вам не нужно тратить выходные на поездки на стройку. Путь к вашему жилью мечты состоит из пяти простых шагов:
+
+		.process-steps__slider.swiper(data-process-steps)
+			.process-steps__wrapper.swiper-wrapper
+				article.process-steps__item.swiper-slide
+					.process-steps__head
+						span.process-steps__count 1/5
+						.process-steps__media
+							picture
+								//- подставишь свои srcset/webp
+								img(src="img/process-steps/step-1.jpg" alt="Замер и расчет" width="280" height="180" loading="lazy")
+					.process-steps__body
+						h3.process-steps__name Замер и расчет
+						p.process-steps__text Обсуждаем идеи и фиксируем стоимость работ.
+
+				article.process-steps__item.swiper-slide
+					.process-steps__head
+						span.process-steps__count 2/5
+						.process-steps__media
+							picture
+								img(src="img/process-steps/step-2.jpg" alt="Договор" width="280" height="180" loading="lazy")
+					.process-steps__body
+						h3.process-steps__name Договор
+						p.process-steps__text Закрепляем сроки, гарантии, смету, этапы ремонта.
+
+				article.process-steps__item.process-steps__item--accent.swiper-slide
+					.process-steps__head
+						span.process-steps__count 3/5
+						.process-steps__media
+							picture
+								img(src="img/process-steps/step-3.jpg" alt="Снабжение" width="280" height="180" loading="lazy")
+					.process-steps__body
+						h3.process-steps__name Снабжение
+						p.process-steps__text Закупаем и доставляем отделочные материалы.
+
+				article.process-steps__item.process-steps__item--accent.process-steps__item--wide.swiper-slide
+					.process-steps__head
+						span.process-steps__count 4/5
+						.process-steps__media
+							picture
+								img(src="img/process-steps/step-4.jpg" alt="Ремонт" width="560" height="360" loading="lazy")
+					.process-steps__body
+						h3.process-steps__name Ремонт
+						p.process-steps__text Проводим все работы под надзором прораба с фотоотчетами.
+
+				article.process-steps__item.swiper-slide
+					.process-steps__head
+						span.process-steps__count 5/5
+						.process-steps__media
+							picture
+								img(src="img/process-steps/step-5.jpg" alt="Приемка" width="280" height="180" loading="lazy")
+					.process-steps__body
+						h3.process-steps__name Приемка
+						p.process-steps__text Сдаем чистый объект, проверяя исправность каждой розетки.
+
+			//- можно оставить, не мешает: покажем только на <=650
+			.process-steps__pagination
+
+		.process-steps__bottom
+			p.process-steps__note
+				| Такая последовательность исключает хаос и неожиданные траты.
+				| Мы передаем вам ключи только тогда, когда вы лично убедились в стопроцентном качестве выполненного ремонта.
+			a.btn--grey.btn.process-steps__btn(href="#") Заказать ремонт

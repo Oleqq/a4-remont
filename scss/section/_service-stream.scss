@@ -1,0 +1,284 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.service-stream {
+	padding: 60px 0;
+	background: #f3eee8;
+
+    overflow: hidden;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 60px;
+	}
+
+	&__head {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 56px;
+		@include adaptive-value(gap, 56px, 18px, $bp-desktop, $bp-mob);
+		align-items: start;
+		margin-bottom: 18px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+			gap: 12px;
+			margin-bottom: 14px;
+		}
+	}
+
+	&__lead {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 18px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: #222222;
+		max-width: 560px;
+	}
+
+	&__block {
+        margin-bottom: 60px;
+        @include adaptive-value(margin-bottom, 60px, 40px, $bp-desktop, $bp-mob);
+
+		@include max($bp-tablet) {
+			
+		}
+	}
+
+	&__top {
+		background: #222222;
+		border-radius: 10px;
+		padding: 20px;
+        @include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 400px);
+		gap: 18px;
+		align-items: center;
+
+        height: 175px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+			gap: 20px;
+            height: 100%;
+            padding-bottom: 20px;
+		}
+
+
+        &-left {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+	}
+
+	&__top-title {
+		margin: 0 0 10px;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 18px;
+		@include adaptive-font(18, 24);
+		line-height: 120%;
+		color: #c09b57;
+	}
+
+	&__top-text {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 14px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: rgba(255, 255, 255, 0.88);
+		max-width: 640px;
+	}
+
+	&__top-right {
+		display: flex;
+		justify-content: flex-end;
+
+		@include max($bp-tablet) {
+			justify-content: flex-start;
+            padding-left: 50px;
+		}
+	}
+    &__quote {
+        margin: 0;
+        font-family: $font-family;
+        font-weight: 700;
+        font-size: 14px;
+        @include adaptive-font(14, 24);
+        line-height: 130%;
+        color: #c09b57;
+        max-width: 400px;
+        text-align: left;
+
+        position: relative;
+
+        @include max($bp-tablet) {
+            max-width: 220px;
+        }
+        
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: -68px;
+            top: -14px;
+            width: 57px;
+            height: 42px;
+            background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2257%22%20height%3D%2242%22%20viewBox%3D%220%200%2057%2042%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0%2026.2691C0%2018.7855%201.84865%2012.8291%205.39189%208.55273C8.93513%204.27636%2014.173%201.37455%2021.1054%200V7.78909C15.8676%209.31637%2012.4784%2012.2182%2010.7838%2016.0364C9.85946%2018.0218%209.3973%2020.16%209.55135%2022.2982H21.4135V42H0V26.2691ZM35.5865%2026.2691C35.5865%2018.7855%2037.5892%2012.6764%2041.1324%208.55273C44.8297%204.27636%2050.0676%201.37455%2056.6919%200V7.78909C51.6081%209.31637%2048.2189%2012.2182%2046.5243%2016.1891C45.4459%2018.3273%2044.9838%2020.3127%2045.2919%2022.2982H57V42H35.5865V26.2691Z%22%20fill%3D%22%23C09B57%22%20fill-opacity%3D%220.1%22/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 57px 42px;
+            pointer-events: none;
+
+            @include max($bp-tablet) {
+                width: 32px;
+                height: 24px;
+                background-size: 32px 24px;
+
+                left: -44px;
+                top: 2px;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0px;
+            bottom: -14px;
+            width: 57px;
+            height: 42px;
+            background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2257%22%20height%3D%2242%22%20viewBox%3D%220%200%2057%2042%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M57%2015.7309C57%2023.2145%2055.1514%2029.1709%2051.6081%2033.4473C48.0649%2037.7236%2042.827%2040.6255%2035.8946%2042L35.8946%2034.2109C41.1324%2032.6836%2044.5216%2029.7818%2046.2162%2025.9636C47.1405%2023.9782%2047.6027%2021.84%2047.4487%2019.7018L35.5865%2019.7018L35.5865%20-1.87203e-06L57%200L57%2015.7309ZM21.4135%2015.7309C21.4135%2023.2145%2019.4108%2029.3236%2015.8676%2033.4473C12.1703%2037.7236%206.93243%2040.6254%200.308105%2042L0.308106%2034.2109C5.39189%2032.6836%208.78108%2029.7818%2010.4757%2025.8109C11.5541%2023.6727%2012.0162%2021.6873%2011.7081%2019.7018L5.76407e-06%2019.7018L7.48645e-06%20-4.9831e-06L21.4135%20-3.11107e-06L21.4135%2015.7309Z%22%20fill%3D%22%23C09B57%22%20fill-opacity%3D%220.1%22/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 57px 42px;
+            pointer-events: none;
+
+            @include max($bp-tablet) {
+                width: 32px;
+                height: 24px;
+                background-size: 32px 24px;
+
+                right: -14px;
+                bottom: 0px;
+            }
+        }
+    }
+
+	&__body {
+		margin-top: 20px;
+        @include adaptive-value(margin-top, 20px, 10px, $bp-desktop, $bp-mob);
+		position: relative;
+	}
+
+	&__slider {
+		min-width: 0;
+        
+        
+		.swiper-slide {
+			height: auto;
+		}
+
+		@include min($bp-tablet) {
+			.swiper-wrapper {
+				// display: grid;
+				// grid-template-columns: repeat(3, minmax(0, 1fr));
+				// gap: 10px;
+			}
+
+			.swiper-slide {
+				width: auto;
+			}
+		}
+	}
+
+	&__nav {
+		display: grid;
+			grid-template-columns: 56px 1fr 56px;
+			align-items: center;
+			gap: 14px;
+			margin-top: 14px;
+
+		@include max($bp-tablet) {
+			
+		}
+	}
+
+	&__btn {
+		width: 56px;
+		height: 56px;
+		border-radius: 999px;
+		border: 0;
+		background: #c09b57;
+		color: #fff;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		@include hover-desktop {
+			transform: translateY(-2px);
+		}
+
+		&.is-disabled,
+		&[disabled] {
+			opacity: 0.5;
+			cursor: default;
+			transform: none;
+		}
+
+		@include max($bp-mob) {
+			width: 44px;
+			height: 44px;
+		}
+	}
+
+	&__scrollbar-wrap {
+		display: none;
+		margin-top: 22px;
+		@include adaptive-value(margin-top, 22px, 12px, $bp-desktop, $bp-mob);
+        display: flex;
+			justify-content: center;
+			padding-bottom: 0;
+			margin-top: 0;
+
+		@include max($bp-tablet) {
+			
+		}
+	}
+
+	&__scrollbar {
+		width: min(520px, 70%);
+		height: 8px !important;
+		border-radius: 999px;
+		background: rgba(192, 155, 87, 0.22);
+		position: relative;
+        bottom: 24px !important;
+
+        width: 250px !important;
+        margin: 0 auto;
+        left: 0;
+		right: 0;
+
+		@include max($bp-tablet) {
+	
+		}
+
+		@include max(467px) {
+			width: 50% !important;
+		}
+
+		.swiper-scrollbar-drag {
+			height: 8px;
+			border-radius: 999px;
+			background: #222222;
+		}
+	}
+}

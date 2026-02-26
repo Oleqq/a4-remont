@@ -68,9 +68,9 @@ export function initOfferSliders() {
 			watchOverflow: true,
 			navigation: { prevEl: prev, nextEl: next },
 			breakpoints: {
-				0: { slidesPerView: 1, spaceBetween: 12 },
-				650: { slidesPerView: 2, spaceBetween: 14 },
-				991: { slidesPerView: 3, spaceBetween: 18 },
+				0: { slidesPerView: 1, spaceBetween: 10 },
+				650: { slidesPerView: 2, spaceBetween: 10 },
+				991: { slidesPerView: 3, spaceBetween: 10 },
 			},
 		});
 	});

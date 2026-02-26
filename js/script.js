@@ -13,6 +13,10 @@ import { initTeamPreview } from './section/team-preview.js';
 
 import { initFeedbackShowcase } from './section/feedback-showcase.js';
 
+import { initServiceStream } from './section/service-stream.js';
+
+import { initProcessSteps } from './section/process-steps.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 	initBurger();
 	initHeaderDropdown();
@@ -29,5 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	initTeamPreview();
 
 	initFeedbackShowcase();
+
+	initServiceStream();
+	initProcessSteps();
 
 });
