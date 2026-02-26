@@ -1,0 +1,139 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.service-repair-types {
+	padding: 56px 0 70px;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 44px;
+	}
+
+	overflow: hidden;
+
+	&__top {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 14px 34px;
+		align-items: start;
+		margin-bottom: 20px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+			gap: 5px;
+			margin-bottom: 10px;
+		}
+	}
+
+	&__lead {
+		max-width: 680px;
+	}
+
+	&__slider {
+		min-width: 0;
+		overflow: hidden;
+
+		@include max($bp-tablet) {
+			overflow: visible;
+		}
+	}
+
+	&__track {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 10px;
+
+		@include max($bp-tablet) {
+			display: flex;
+			gap: 0;
+		}
+
+		// @include max($bp-mob) {
+		// 	display: grid;
+		// 	grid-template-columns: 1fr;
+		// 	gap: 10px;
+		// }
+	}
+
+	&__slide {
+		height: auto;
+	}
+
+	.benefits-card {
+		min-height: 600px;
+		@include adaptive-value(min-height, 600px, 450px, $bp-desktop, $bp-mob);
+		background: #efe6d6;
+		border-radius: 10px;
+		display: grid;
+		grid-template-rows: auto auto 1fr;
+		gap: 12px;
+		height: 100%;
+		padding-top: 20px;
+		@include adaptive-value(padding-top, 20px, 10px, $bp-desktop, $bp-mob);
+
+		
+	}
+
+	.benefits-card__head {
+		flex-direction: column-reverse;
+    	display: flex;
+		grid-template-columns: 1fr auto;
+		align-items: start;
+		gap: 10px;
+		padding: 0 20px;
+		@include adaptive-value(padding-left, 20px, 10px, $bp-desktop, $bp-mob);
+		@include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
+	}
+
+	.benefits-card__title {
+		max-width: 360px;
+	}
+
+	.benefits-card__text {
+		padding: 0 20px;
+		@include adaptive-value(padding-left, 20px, 10px, $bp-desktop, $bp-mob);
+		@include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
+	}
+
+	.benefits-card__media {
+		align-self: end;
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		padding: 0 0 0 10px;
+	}
+
+	.benefits-card__img {
+		display: block;
+		width: 100%;
+		max-width: 90%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	&__bottom {
+		display: flex;
+		justify-content: center;
+		margin-top: 24px;
+
+		@include max($bp-tablet) {
+			margin-top: 18px;
+		}
+
+		@include max($bp-mob) {
+			margin-top: 14px;
+		}
+	}
+
+	&__btn {
+		min-width: 420px;
+
+		@include max($bp-mob) {
+			min-width: 0;
+			width: 100%;
+		}
+	}
+}

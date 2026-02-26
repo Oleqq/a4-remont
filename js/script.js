@@ -17,6 +17,8 @@ import { initServiceStream } from './section/service-stream.js';
 
 import { initProcessSteps } from './section/process-steps.js';
 import { initServiceArguments } from './section/service-arguments.js';
+import { initServiceRepairTypes } from './section/service-repair-types.js';
+import { initServiceOrderSteps } from './section/service-order-steps.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	initBurger();
@@ -38,5 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initServiceStream();
 	initProcessSteps();
 	initServiceArguments();
+	initServiceRepairTypes();
+	initServiceOrderSteps();
 
 });

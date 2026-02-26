@@ -1,0 +1,110 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.service-housing-types {
+	padding: 56px 0 70px;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 44px;
+	}
+
+	&__top {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 18px 34px;
+		align-items: start;
+		margin-bottom: 20px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+			gap: 5px;
+			margin-bottom: 10px;
+		}
+	}
+
+	&__lead {
+		max-width: 720px;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 10px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__card {
+		position: relative;
+		border-radius: 10px;
+		overflow: hidden;
+		min-height: 700px;
+		background: #d9d9d9;
+
+		@include max($bp-tablet) {
+			min-height: 520px;
+		}
+
+		@include max($bp-mob) {
+			min-height: 420px;
+		}
+	}
+
+	&__badge {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		right: 20px;
+		z-index: 2;
+		background: #222;
+		border-radius: 10px;
+		padding: 20px;
+		@include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+
+		height: 175px;
+
+		@include max($bp-mob) {
+			top: 10px;
+			left: 10px;
+			right: 10px;
+		}
+	}
+
+	.service-stream__top-left {
+		display: block;
+	}
+
+	.service-stream__top-title {
+		margin: 0 0 8px;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 24px;
+		@include adaptive-font(18, 24);
+		line-height: 120%;
+		color: #c09b57;
+	}
+
+	.service-stream__top-text {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 18px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: #f2f2f2;
+		max-width: 640px;
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
