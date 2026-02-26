@@ -1,0 +1,155 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.work-single-result {
+	padding: 140px 0 70px;
+
+	@include max($bp-tablet) {
+		padding: 100px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 240px 0 44px;
+	}
+
+	&__container {
+		position: relative;
+		min-height: 900px;
+		padding-top: 94px;
+
+		@include max($bp-tablet) {
+			min-height: 700px;
+			padding-top: 54px;
+		}
+
+		@include max($bp-mob) {
+			min-height: 574px;
+			padding-top: 20px;
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 100%;
+		
+		
+
+		
+	}
+
+	&__bg-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+	}
+
+	&__company {
+		top: -100px;
+		bottom: auto;
+		left: 50%;
+		transform: translateX(-50%) translateY(16px);
+		opacity: 0;
+		width: min(920px, calc(100% - 80px));
+		padding: 110px;
+		@include adaptive-value(padding, 110px, 20px, $bp-desktop, $bp-mob);
+		border-radius: 10px;
+		transition: transform 0.4s $easing, box-shadow 0.3s $easing, opacity 0.4s $easing;
+		position: absolute;
+
+		@include max($bp-tablet) {
+			width: calc(100% - 182px);
+		}
+
+		@include max($bp-mob) {
+			position: relative;
+			left: auto;
+			top: -250px;
+			transform: translateY(16px);
+			width: 100%;
+			
+			margin: 0 auto;
+		}
+
+		@include hover-desktop {
+			box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+		}
+	}
+
+	&.animated &__company {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+
+		@include max($bp-mob) {
+			transform: translateY(0);
+		}
+	}
+
+	&__title {
+		margin: 0 0 10px;
+	}
+
+	&__text {
+		display: grid;
+		gap: 12px;
+
+		@include max($bp-mob) {
+			max-height: 270px;
+			overflow: hidden;
+			position: relative;
+			transition: max-height 0.3s $easing;
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 56px;
+				background: linear-gradient(180deg, rgba(239, 230, 214, 0) 0%, #efe6d6 86%);
+				pointer-events: none;
+			}
+
+			&.is-expanded {
+				max-height: 1200px;
+
+				&::after {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__more {
+		display: none;
+		margin-top: 2px;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		font-family: $font-family;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 130%;
+		color: #c09b57;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+
+		@include max($bp-mob) {
+			display: inline-flex;
+		}
+	}
+
+	&__logo {
+		margin: 40px 0 0px;
+		@include adaptive-value(margin-top, 40px, 20px, $bp-desktop, $bp-mob);
+		
+		
+
+		svg, img {
+			@include adaptive-value(width, 430px, 220px, $bp-desktop, $bp-mob);
+		}
+	}
+}

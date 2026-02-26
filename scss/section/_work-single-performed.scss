@@ -1,0 +1,258 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.work-single-performed {
+	padding: 56px 0 70px;
+	overflow: hidden;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 44px;
+	}
+
+	&__top {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 10px 40px;
+		align-items: start;
+		margin-bottom: 20px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+			gap: 10px 40px;
+			margin-bottom: 40px;
+		}
+		@include max($bp-mob) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__main-media {
+		border-radius: 10px;
+		overflow: hidden;
+		background: #d9d9d9;
+		min-height: 340px;
+		margin: 0;
+
+		aspect-ratio: 650 / 550;
+
+		@include max($bp-tablet) {
+			order: 2;
+		}
+	}
+
+	&__main-image,
+	&__secondary-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.35s $easing;
+	}
+
+	&__main-media:hover &__main-image,
+	&__secondary-media:hover &__secondary-image {
+		transform: scale(1.03);
+	}
+
+	&__content {
+		@include max($bp-tablet) {
+			order: 1;
+		}
+	}
+
+	&__title {
+		margin: 0 0 10px;
+	}
+
+	&__text {
+		margin: 0;
+
+		& + & {
+			margin-top: 20px;
+			@include adaptive-value(margin-top, 20px, 10px, $bp-desktop, $bp-mob);
+		}
+
+		&--strong {
+			font-weight: 700;
+			font-size: 18px;
+			@include adaptive-font(14, 18);
+		}
+	}
+
+	&__middle {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 40px;
+		margin-bottom: 30px;
+		@include adaptive-value(margin-bottom, 30px, 20px, $bp-desktop, $bp-mob);
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__list {
+		
+		@include min($bp-tablet) {
+			padding-top: 10px;
+		}
+	}
+
+	&__list-title {
+		margin: 0 0 10px;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 18px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: #222;
+	}
+
+	&__items {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		counter-reset: work-item;
+		display: grid;
+		gap: 10px;
+	}
+
+	&__item {
+		position: relative;
+		padding-left: 32px;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 18px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: #222;
+		transition: transform 0.22s $easing;
+		counter-increment: work-item;
+
+		@include hover-desktop {
+			transform: translateX(2px);
+		}
+
+		&::before {
+			content: counter(work-item) " /";
+			position: absolute;
+			left: 0;
+			top: 0;
+			color: #c09b57;
+			font-weight: 700;
+		}
+	}
+
+	&__secondary-media {
+		border-radius: 10px;
+		overflow: hidden;
+		background: #d9d9d9;
+		min-height: 380px;
+		margin: 0;
+
+		aspect-ratio: 650 / 550;
+	}
+
+	&__gallery {
+		position: relative;
+	}
+
+	&__slider {
+		min-width: 0;
+
+		.swiper-slide {
+			height: auto;
+		}
+	}
+
+	&__thumb {
+		margin: 0;
+		border-radius: 10px;
+		overflow: hidden;
+		background: #d9d9d9;
+		aspect-ratio: 310 / 330;
+		transition: transform 0.24s $easing, box-shadow 0.24s $easing;
+
+		@include hover-desktop {
+			transform: translateY(-2px);
+			box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+		}
+	}
+
+	&__thumb-image {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	&__nav {
+		display: grid;
+		grid-template-columns: 56px 1fr 56px;
+		align-items: center;
+		gap: 14px;
+		margin-top: 14px;
+	}
+
+	&__btn {
+		width: 56px;
+		height: 56px;
+		border-radius: 999px;
+		border: 0;
+		background: #c09b57;
+		color: #fff;
+		cursor: pointer;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s $easing, opacity 0.2s $easing;
+
+		@include hover-desktop {
+			transform: translateY(-2px);
+		}
+
+		&.is-disabled,
+		&[disabled] {
+			opacity: 0.5;
+			cursor: default;
+			transform: none;
+		}
+
+		@include max($bp-mob) {
+			width: 44px;
+			height: 44px;
+		}
+	}
+
+	&__scrollbar-wrap {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__scrollbar {
+		width: 250px !important;
+		height: 8px !important;
+		border-radius: 999px;
+		background: rgba(192, 155, 87, 0.22);
+
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		bottom: 16px !important;
+		@include adaptive-value(bottom, 24px, 16px, $bp-desktop, $bp-mob);
+
+		@include max(467px) {
+			width: 56% !important;
+		}
+
+		.swiper-scrollbar-drag {
+			height: 8px;
+			border-radius: 999px;
+			background: #222;
+		}
+	}
+}

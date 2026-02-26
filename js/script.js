@@ -19,6 +19,10 @@ import { initProcessSteps } from './section/process-steps.js';
 import { initServiceArguments } from './section/service-arguments.js';
 import { initServiceRepairTypes } from './section/service-repair-types.js';
 import { initServiceOrderSteps } from './section/service-order-steps.js';
+import { initWorksPortfolio } from './section/works-portfolio.js';
+import { initWorkSingleHero } from './section/work-single-hero.js';
+import { initWorkSinglePerformed } from './section/work-single-performed.js';
+import { initWorkSingleResult } from './section/work-single-result.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	initBurger();
@@ -42,5 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	initServiceArguments();
 	initServiceRepairTypes();
 	initServiceOrderSteps();
+	initWorksPortfolio();
+	initWorkSingleHero();
+	initWorkSinglePerformed();
+	initWorkSingleResult();
 
 });
