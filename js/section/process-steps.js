@@ -10,14 +10,17 @@ export function initProcessSteps() {
 
 		let swiper = null;
 
-		const needSwiper = () => window.matchMedia('(max-width: 650px)').matches;
+		const mediaQuery = window.matchMedia('(max-width: 650px)');
+		const needSwiper = () => mediaQuery.matches;
 
 		const init = () => {
 			if (swiper) return;
 
+			const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 			// eslint-disable-next-line no-undef
 			swiper = new Swiper(slider, {
-				speed: 600,
+				speed: isReducedMotion ? 0 : 600,
 				watchOverflow: true,
 				spaceBetween: 16,
 				slidesPerView: 1,
