@@ -16,6 +16,7 @@ import { initFeedbackShowcase } from './section/feedback-showcase.js';
 import { initServiceStream } from './section/service-stream.js';
 
 import { initProcessSteps } from './section/process-steps.js';
+import { initServiceArguments } from './section/service-arguments.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	initBurger();
@@ -36,5 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	initServiceStream();
 	initProcessSteps();
+	initServiceArguments();
 
 });

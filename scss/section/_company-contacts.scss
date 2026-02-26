@@ -3,7 +3,7 @@
 
 .company-contacts {
 	padding: 60px 0;
-	background: #f3eee8;
+
 
 	@include max($bp-tablet) {
 		padding: 44px 0 60px;
@@ -23,12 +23,13 @@
 		gap: 52px;
 		@include adaptive-value(gap, 52px, 18px, $bp-desktop, $bp-mob);
 		align-items: start;
-		margin-bottom: 26px;
+		margin-bottom: 40px;
+		@include adaptive-value(margin-bottom, 40px, 20px, $bp-desktop, $bp-mob);
 
 		@include max($bp-tablet) {
 			grid-template-columns: 1fr;
 			gap: 14px;
-			margin-bottom: 18px;
+			margin-bottom: 20px;
 		}
 	}
 

@@ -1,13 +1,12 @@
 export function initProcessSteps() {
-	const blocks = document.querySelectorAll('[data-process-steps]');
-	if (!blocks.length) return;
+	const sliders = document.querySelectorAll(
+		'[data-process-steps-slider], .process-steps__slider[data-process-steps]'
+	);
+	if (!sliders.length) return;
 
 	const raf2 = (cb) => requestAnimationFrame(() => requestAnimationFrame(cb));
 
-	blocks.forEach((block) => {
-		const slider = block.querySelector('[data-process-steps-slider]');
-		if (!slider) return;
-
+	sliders.forEach((slider) => {
 		let swiper = null;
 
 		const needSwiper = () => window.matchMedia('(max-width: 650px)').matches;
@@ -20,7 +19,7 @@ export function initProcessSteps() {
 				speed: 600,
 				watchOverflow: true,
 				spaceBetween: 16,
-				slidesPerView: 1,
+				slidesPerView: 1.5,
 				updateOnWindowResize: true,
 				observeParents: true,
 				observer: true,

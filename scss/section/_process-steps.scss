@@ -3,7 +3,7 @@
 
 .process-steps {
 	padding: 60px 0;
-	background: #f3eee8;
+
 	overflow: hidden;
 
 	@include max($bp-tablet) {
@@ -17,15 +17,15 @@
 	&__top {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-		gap: 56px;
-		@include adaptive-value(gap, 56px, 18px, $bp-desktop, $bp-mob);
+		gap: 40px;
+		@include adaptive-value(gap, 40px, 10px, $bp-desktop, $bp-mob);
 		align-items: start;
-		margin-bottom: 18px;
+		margin-bottom: 40px;
 
 		@include max($bp-tablet) {
 			grid-template-columns: 1fr;
-			gap: 12px;
-			margin-bottom: 14px;
+			gap: 10px;
+			margin-bottom: 20px;
 		}
 	}
 
@@ -42,6 +42,7 @@
 
 	&__slider {
 		min-width: 0;
+		overflow: visible;
 
 		.swiper-slide {
 			height: auto;
@@ -57,7 +58,7 @@
 	&__wrapper {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 18px;
+		gap: 10px;
 
 		@include max($bp-tablet) {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -75,13 +76,15 @@
 	}
 
 	&__item {
-		background: #efe6d6;
+		background: #ede4d2;
 		border-radius: 10px;
 		padding: 20px;
 		@include adaptive-value(padding, 20px, 12px, $bp-desktop, $bp-mob);
 		display: flex;
 		flex-direction: column;
-		min-height: 280px;
+		min-height: 210px;
+
+		position: relative;
 
 		@include max($bp-tablet) {
 			min-height: 260px;
@@ -106,6 +109,8 @@
 	&__item--wide {
 		grid-column: span 2;
 
+		
+
 		@include max($bp-tablet) {
 			grid-column: auto;
 		}
@@ -116,7 +121,8 @@
 		grid-template-columns: minmax(0, 1fr) minmax(0, 180px);
 		gap: 14px;
 		align-items: start;
-		margin-bottom: 16px;
+		margin-bottom: 150px;
+		@include adaptive-value(margin-bottom, 150px, 20px, $bp-desktop, $bp-mob);
 	}
 
 	&__count {
@@ -163,7 +169,7 @@
 
 	&__bottom {
 		margin-top: 20px;
-		@include adaptive-value(margin-top, 20px, 10px, $bp-desktop, $bp-mob);
+		@include adaptive-value(margin-top, 40px, 20px, $bp-desktop, $bp-mob);
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
 		gap: 18px;
