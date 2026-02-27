@@ -1,0 +1,34 @@
+section.cta-banner-secondary
+	.cta-banner-secondary__container._container
+		article.cta-banner-secondary__card
+			.cta-banner-secondary__grid
+				.cta-banner-secondary__media
+					img.cta-banner-secondary__people(
+						src="images/cta-banner-people-2.png"
+						alt="Мастера A4 Ремонт"
+						title="Мастера A4 Ремонт"
+						width="820"
+						height="720"
+						loading="lazy"
+					)
+
+				.cta-banner-secondary__content
+					h2.cta-banner-secondary__title Остались вопросы?
+					p.cta-banner-secondary__subtitle
+						| Когда интерьеру необходима качественная перезагрузка, обратитесь к экспертам за детальным разбором. Мы поможем насладиться преображением жилья, превратив капитальный или косметический ремонт в понятный алгоритм действий. Наша команда наполнит ваше пространство истинным комфортом и гармонией.
+
+					form.cta-banner-secondary__form(action="#" method="post")
+						.cta-banner-secondary__fields
+							label.cta-banner-secondary__field
+								span.visually-hidden Телефон
+								input.cta-banner-secondary__input(type="tel" name="phone" placeholder="+7 ( _ _ _ ) _ _ _ - _ _ - _ _" inputmode="tel" autocomplete="tel")
+							button.cta-banner-secondary__submit(type="submit") Перезвоните мне
+
+						label.cta-banner-secondary__agree
+							input.cta-banner-secondary__checkbox(type="checkbox" name="agree" checked)
+							span.cta-banner-secondary__agree-ui(aria-hidden="true")
+							span.cta-banner-secondary__agree-text
+								| Я даю согласие на 
+								a(href="#") обработку персональных данных
+								|  и соглашаюсь с <br>
+								a(href="#") политикой конфиденциальности

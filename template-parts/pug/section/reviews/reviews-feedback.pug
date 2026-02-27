@@ -1,0 +1,42 @@
+section.reviews-feedback(
+	data-reviews-photos
+	data-initial-desktop="8"
+	data-initial-tablet="6"
+	data-initial-mobile="4"
+	data-load-desktop="4"
+	data-load-tablet="3"
+	data-load-mobile="2"
+	data-reviews-video
+)
+	.reviews-feedback__container._container
+		h1.section__title.reviews-feedback__title Отзывы на ремонтные работы и дизайн проекты
+
+		- const photoItems = Array.from({ length: 20 }, (_, i) => i + 1)
+		.reviews-feedback__photos-grid
+			each item in photoItems
+				a.reviews-feedback__photo-item(href="#" data-review-photo-item aria-label=`Открыть фото-отзыв ${item}`)
+					span.reviews-feedback__photo-icon(aria-hidden="true")
+
+		.reviews-feedback__photos-bottom
+			button.btn.btn--grey.reviews-feedback__photos-more(type="button" data-reviews-photos-more) Смотреть больше отзывов
+
+		.reviews-feedback__video
+			h2.section__title.reviews-feedback__video-title Видео-отзывы
+
+			.reviews-feedback__video-slider.swiper(data-reviews-video-slider)
+				.swiper-wrapper
+					- const videoItems = Array.from({ length: 6 }, (_, i) => i + 1)
+					each item in videoItems
+						.swiper-slide
+							a.reviews-feedback__video-item(href="#" aria-label=`Смотреть видео-отзыв ${item}`)
+								span.reviews-feedback__video-icon(aria-hidden="true")
+
+			.reviews-feedback__video-nav
+				button.reviews-feedback__video-btn.reviews-feedback__video-btn--prev(type="button" aria-label="Предыдущий слайд")
+					span.reviews-feedback__video-btn-icon.reviews-feedback__video-btn-icon--prev(aria-hidden="true")
+
+				.reviews-feedback__video-scrollbar-wrap
+					.reviews-feedback__video-scrollbar.swiper-scrollbar
+
+				button.reviews-feedback__video-btn.reviews-feedback__video-btn--next(type="button" aria-label="Следующий слайд")
+					span.reviews-feedback__video-btn-icon.reviews-feedback__video-btn-icon--next(aria-hidden="true")

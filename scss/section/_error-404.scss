@@ -1,0 +1,82 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.error-404 {
+	padding: 56px 0 70px;
+	min-height: calc(100vh - 220px);
+	display: flex;
+	align-items: center;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+		min-height: auto;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 44px;
+	}
+
+	&__inner {
+		max-width: 740px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		max-width: 500px;
+		height: auto;
+		margin: 0 auto 20px;
+		object-fit: contain;
+
+		@include max($bp-mob) {
+			max-width: 320px;
+			margin-bottom: 16px;
+		}
+	}
+
+	&__title {
+		margin: 0 0 10px;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 50px;
+		@include adaptive-font(25, 50);
+		line-height: 100%;
+		text-transform: uppercase;
+		color: #c09b57;
+	}
+
+	&__text {
+		margin: 0 auto;
+		max-width: 700px;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 38px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: #222;
+	}
+
+	&__actions {
+		display: flex;
+		justify-content: center;
+		gap: 12px;
+		margin-top: 20px;
+	
+
+		@include max($bp-mob) {
+			flex-direction: column;
+		}
+	}
+
+	&__btn {
+		min-width: 310px;
+
+		@include max($bp-mob) {
+			min-width: 0;
+			width: 100%;
+		}
+	}
+}
+

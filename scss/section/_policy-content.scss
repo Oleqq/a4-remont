@@ -1,0 +1,77 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.policy-content {
+	padding: 56px 0 70px;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 60px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 44px;
+	}
+
+	&__inner {
+		max-width: 1340px;
+	}
+
+	&__title {
+		margin: 0 0 10px;
+		text-transform: uppercase;
+		font-size: 50px;
+		@include adaptive-font(25, 50);
+	}
+
+	&__subtitle {
+		margin: 0 0 10px;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 56px;
+		@include adaptive-font(24, 56);
+		line-height: 120%;
+		color: #c09b57;
+	}
+
+	&__text {
+		margin-bottom: 40px;
+		@include adaptive-value(margin-bottom, 40px, 40px, $bp-desktop, $bp-mob);
+
+		p {
+			margin: 0;
+			font-family: $font-family;
+			font-weight: 400;
+			font-size: 18px;
+			@include adaptive-font(14, 18);
+			line-height: 130%;
+			color: #222;
+		}
+
+		p + p {
+			margin-top: 10px;
+		}
+	}
+
+	&__list {
+		margin: 0 0 20px;
+		padding-left: 20px;
+		display: grid;
+		gap: 6px;
+
+		list-style: disc;
+
+		li {
+			font-family: $font-family;
+			font-weight: 400;
+			font-size: 18px;
+			@include adaptive-font(14, 18);
+			line-height: 130%;
+			color: #222;
+		}
+
+		li::marker {
+			color: #c09b57;
+		}
+	}
+}
+

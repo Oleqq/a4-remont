@@ -1,0 +1,112 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.faq-hero {
+	padding: 56px 0 24px;
+
+	@include max($bp-tablet) {
+		padding: 44px 0 20px;
+	}
+
+	@include max($bp-mob) {
+		padding: 30px 0 14px;
+	}
+
+	&__title {
+		margin: 0 0 20px;
+		text-transform: uppercase;
+		max-width: 1160px;
+		font-size: 50px;
+		@include adaptive-font(25, 50);
+	}
+
+	&__media {
+		position: relative;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1320 / 515;
+		object-fit: cover;
+
+		@include max($bp-tablet) {
+			aspect-ratio: 775 / 515;
+		}
+
+		@include max(467px) {
+			aspect-ratio: 320 / 400;
+		}
+	}
+
+	&__note {
+		position: absolute;
+		top: 14px;
+		left: 14px;
+		max-width: 330px;
+		border-radius: 10px;
+		padding: 20px;
+		@include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+		background: rgba(34, 34, 34, 0.96);
+		color: #f6f6f6;
+		z-index: 2;
+		pointer-events: none;
+
+		p {
+			margin: 0;
+			font-family: $font-family;
+			font-weight: 400;
+			font-size: 18px;
+			@include adaptive-font(14, 18);
+			line-height: 130%;
+			color: #f6f6f6;
+		}
+
+		@include max($bp-tablet) {
+			max-width: 290px;
+		}
+
+		@include max($bp-mob) {
+			top: auto;
+			left: 10px;
+			right: 10px;
+			bottom: 10px;
+			max-width: none;
+		}
+	}
+
+	&__badge {
+		position: absolute;
+		right: 14px;
+		bottom: 14px;
+		width: 84px;
+		height: 84px;
+		border-radius: 10px;
+		background: #c09b57;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 66px;
+		line-height: 1;
+		color: #EDE4D2;
+		z-index: 3;
+		user-select: none;
+		pointer-events: none;
+
+		@include max($bp-mob) {
+			top: 10px;
+			left: 10px;
+			right: auto;
+			bottom: auto;
+			width: 54px;
+			height: 54px;
+			font-size: 40px;
+		}
+	}
+}
+

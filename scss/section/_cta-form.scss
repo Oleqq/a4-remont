@@ -208,6 +208,10 @@
 
 	&__submit {
 		width: 100%;
-		max-width: 420px;
+		
+
+		@include min($bp-tablet) {
+			max-width: 310px;
+		}
 	}
 }

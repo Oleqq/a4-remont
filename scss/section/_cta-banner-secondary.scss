@@ -87,6 +87,7 @@
 		flex-direction: column;
 		min-width: 0;
             max-width: 615px;
+			    width: 50%;
         @include adaptive-value(max-width, 615px, 420px, 1279px, $bp-tablet);
 
         @include max($bp-tablet) {
@@ -114,7 +115,7 @@
 		@include adaptive-font(14, 18);
 		line-height: 130%;
 		color: rgba(255, 255, 255, 0.92);
-		max-width: 640px;
+		max-width: 515px;
 
 		@include max($bp-mob) {
 			margin-bottom: 20px;
