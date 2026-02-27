@@ -23,6 +23,8 @@
 @use "section/why-us";
 
 @use "section/news-preview";
+@use "section/news-single-hero";
+@use "section/news-single-content";
 
 @use "section/faq";
 
@@ -68,8 +70,13 @@
 @use "section/service-order-steps";
 @use "section/service-why-order";
 @use "section/service-payment-banner";
+
+
 @use "section/works-portfolio";
 @use "section/cta-form";
+
+
+
 @use "section/work-single-hero";
 @use "section/work-single-performed";
 @use "section/work-single-result";

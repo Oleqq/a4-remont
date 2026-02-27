@@ -13,6 +13,13 @@
 		padding: 32px 0 44px;
 	}
 
+
+	&-2 {
+		.cta-banner__people {
+			max-height: 600px;
+		}
+	}
+
     &__content {
         height: auto;
         display: flex;
@@ -186,7 +193,7 @@
 	}
 
 	&__checkbox {
-		/* доступно для клавиатуры и скринридеров */
+	
 		position: absolute;
 		opacity: 0;
 		width: 1px;
@@ -212,7 +219,7 @@
 		transition: transform 0.2s $easing, box-shadow 0.2s $easing;
 	}
 
-	/* галочка (data-uri), появляется только когда checked */
+	
 	&__agree-ui::after {
 		content: "";
 		width: 18px;
@@ -226,18 +233,18 @@
 		background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2218%22%20height%3D%2213%22%20viewBox%3D%220%200%2018%2013%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1.25%206.25L6.25079%2011.25L16.25%201.25%22%20stroke%3D%22%23222222%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
 	}
 
-	/* checked -> показать галку */
+	
 	&__checkbox:checked + &__agree-ui::after {
 		opacity: 1;
 		transform: scale(1);
 	}
 
-	/* focus-visible -> обводка по ui */
+	
 	&__checkbox:focus-visible + &__agree-ui {
 		box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35), 0 0 0 4px rgba(0, 0, 0, 0.15);
 	}
 
-	/* disabled (на будущее) */
+	
 	&__checkbox:disabled + &__agree-ui {
 		opacity: 0.6;
 		filter: grayscale(0.2);
@@ -271,8 +278,8 @@
 		flex-wrap: wrap;
 		align-items: center;
         
-        margin-top: 40px;
-        @include adaptive-value(margin-top, 40px, 20px, $bp-desktop, $bp-mob);
+        margin-top: 80px;
+        @include adaptive-value(margin-top, 80px, 20px, $bp-desktop, $bp-mob);
 
 		@include max($bp-mob) {
 			display: grid;

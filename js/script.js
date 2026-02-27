@@ -20,6 +20,7 @@ import { initServiceArguments } from './section/service-arguments.js';
 import { initServiceRepairTypes } from './section/service-repair-types.js';
 import { initServiceOrderSteps } from './section/service-order-steps.js';
 import { initWorksPortfolio } from './section/works-portfolio.js';
+import { initNewsPreview } from './section/news-preview.js';
 import { initWorkSingleHero } from './section/work-single-hero.js';
 import { initWorkSinglePerformed } from './section/work-single-performed.js';
 import { initWorkSingleResult } from './section/work-single-result.js';
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	initServiceRepairTypes();
 	initServiceOrderSteps();
 	initWorksPortfolio();
+	initNewsPreview();
 	initWorkSingleHero();
 	initWorkSinglePerformed();
 	initWorkSingleResult();

@@ -1,0 +1,80 @@
+﻿section.news-preview(
+	data-news-preview
+	data-initial-desktop="3"
+	data-initial-tablet="3"
+	data-initial-mobile="3"
+	data-load-desktop="3"
+	data-load-tablet="3"
+	data-load-mobile="3"
+)
+	.news-preview__container._container
+		.news-preview__top
+			h2.section__title.news-preview__title Новости и статьи в сфере ремонта и дизайна
+			p.section__subtitle.news-preview__lead
+				| В нашем блоге — полезные статьи о ремонте и дизайне: разбираем нюансы перепланировки,
+				| выбираем материалы и находим стильные решения для любого бюджета.
+
+		.news-preview__grid
+			a.news-card(href="#" aria-label="Читать статью про визуальное увеличение пространства")
+				.news-card__media
+					img.news-card__img(
+						src="images/sovremennyi-i-elegantnyi-inter-er-gostinoi-s-abstraktnym-iskusstvom 1 (6).png"
+						alt="Маленькая квартира — большие возможности"
+						title="Маленькая квартира — большие возможности"
+						width="560"
+						height="420"
+						loading="lazy"
+					)
+					.news-card__top
+						.news-card__tags
+							span.news-card__tag Ремонт
+							span.news-card__tag Дизайн интерьера
+						span.news-card__read Читать
+				.news-card__content
+					time.news-card__date(datetime="2026-01-03") 03.01.26
+					h3.news-card__title Маленькая квартира — большие возможности: 7 приемов визуального увеличения пространства
+					p.news-card__text Маленькая квартира легко трансформируется в открытое пространство. Вам нужно лишь использовать пару простых хитростей.
+
+			a.news-card(href="#" aria-label="Читать статью про график этапов ремонта")
+				.news-card__media
+					img.news-card__img(
+						src="images/sovremennyi-i-elegantnyi-inter-er-gostinoi-s-abstraktnym-iskusstvom 1 (4).png"
+						alt="Сколько времени занимает каждый этап ремонта"
+						title="Сколько времени занимает каждый этап ремонта"
+						width="560"
+						height="420"
+						loading="lazy"
+					)
+					.news-card__top
+						.news-card__tags
+							span.news-card__tag Ремонт
+							span.news-card__tag Дизайн интерьера
+						span.news-card__read Читать
+				.news-card__content
+					time.news-card__date(datetime="2026-01-14") 14.01.26
+					h3.news-card__title Сколько времени занимает каждый этап ремонта: реальный график с пояснениями
+					p.news-card__text Любой качественный ремонт требует четкого понимания сроков на каждом отдельном этапе. Правильно спланированный процесс позволяет избежать простоев бригады и лишних финансовых трат.
+
+			a.news-card(href="#" aria-label="Читать статью про приемку ремонта")
+				.news-card__media
+					img.news-card__img(
+						src="images/sovremennyi-i-elegantnyi-inter-er-gostinoi-s-abstraktnym-iskusstvom 1 (5).png"
+						alt="Что проверить при приемке ремонта"
+						title="Что проверить при приемке ремонта"
+						width="560"
+						height="420"
+						loading="lazy"
+					)
+					.news-card__top
+						.news-card__tags
+							span.news-card__tag Ремонт
+							span.news-card__tag Дизайн интерьера
+						span.news-card__read Читать
+				.news-card__content
+					time.news-card__date(datetime="2026-01-21") 21.01.26
+					h3.news-card__title Что проверить при приемке ремонта: чек-лист из 20 пунктов
+					p.news-card__text Финальный осмотр квартиры после ремонта требует от владельца предельной концентрации и системного подхода к каждой детали интерьера.
+
+			
+		.news-preview__bottom
+			button.btn.btn--primary.news-preview__more(type="button" data-news-more) Больше новостей
