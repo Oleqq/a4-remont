@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A4 Ремонт</title>
-    <link rel="stylesheet" href="css/vendor/swiper-bundle.css">
-    <link rel="stylesheet" href="css/style.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/css/vendor/swiper-bundle.css">
+    <link rel="stylesheet" href="/css/style.css"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
@@ -361,6 +361,44 @@
         </div>
       </section>
     </main>
+    <div class="popup-form" data-popup-form aria-hidden="true">
+      <div class="popup-form__dialog" data-popup-panel role="dialog" aria-modal="true" aria-labelledby="popup-form-title">
+        <button class="popup-form__close" type="button" data-popup-close aria-label="Закрыть">×</button>
+        <div class="popup-form__grid">
+          <div class="popup-form__info">
+            <h2 class="popup-form__title" id="popup-form-title">Готовы преобразить<br>своё пространство?</h2>
+            <p class="popup-form__lead">
+              Давайте обсудим ваш проект! Оставьте свои
+              контакты в форме ниже и наша команда
+              свяжется с вами для уточнения деталей
+            </p><img class="popup-form__logo" src="images/popup-logo.svg" alt="Логотип A4 Ремонт" title="Логотип A4 Ремонт" width="319" height="170" loading="lazy">
+          </div>
+          <form class="popup-form__form cta-form__form" action="#" method="post">
+            <label class="cta-form__field"><span class="visually-hidden">Ваше имя</span>
+              <input class="cta-form__input" type="text" name="name" placeholder="Ваше имя" autocomplete="name">
+            </label>
+            <label class="cta-form__field"><span class="visually-hidden">Телефон</span>
+              <input class="cta-form__input" type="tel" name="phone" placeholder="+7 000 000 00 00" inputmode="tel" autocomplete="tel">
+            </label>
+            <label class="cta-form__field"><span class="visually-hidden">E-mail</span>
+              <input class="cta-form__input" type="email" name="email" placeholder="E-mail" autocomplete="email">
+            </label>
+            <label class="cta-form__field"><span class="visually-hidden">Сообщение</span>
+              <textarea class="cta-form__textarea" name="message" rows="5" placeholder="Сообщение"></textarea>
+            </label>
+            <label class="cta-form__agree">
+              <input class="cta-form__checkbox" type="checkbox" name="agree" checked><span class="cta-form__agree-ui" aria-hidden="true"></span><span class="cta-form__agree-text">
+                Я даю согласие на
+                 <a href="#">обработку персональных данных</a> и соглашаюсь
+                с <a href="#">политикой конфиденциальности</a></span>
+            </label>
+            <div class="popup-form__actions">
+              <button class="btn btn--grey cta-form__submit" type="submit">Отправить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <footer class="footer">
       <div class="footer__container _container">
         <div class="footer__top">
@@ -420,7 +458,7 @@
         </div>
       </div>
     </footer>
-    <script src="js/vendor/swiper-bundle.js"></script>
-    <script type="module" src="js/script.js"></script>
+    <script src="/js/vendor/swiper-bundle.js"></script>
+    <script type="module" src="/js/script.js"></script>
   </body>
 </html>

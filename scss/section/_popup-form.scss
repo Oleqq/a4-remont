@@ -1,0 +1,176 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+body.popup-open {
+	overflow: hidden;
+}
+
+.popup-form {
+	position: fixed;
+	inset: 0;
+	z-index: 1200;
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.35);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 0.24s $easing, visibility 0.24s $easing;
+
+	@include max($bp-mob) {
+		padding: 10px;
+	}
+
+	&.is-open {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	&__dialog {
+		width: min(100%, 1100px);
+		max-height: calc(100vh - 40px);
+		overflow: auto;
+		border-radius: 10px;
+		background: #efe6d6;
+		position: relative;
+		padding: 40px;
+		@include adaptive-value(padding, 40px, 10px, $bp-desktop, $bp-mob);
+		box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+		transform: translateY(12px) scale(0.98);
+		transition: transform 0.28s $easing;
+	}
+
+	&.is-open &__dialog {
+		transform: translateY(0) scale(1);
+	}
+
+	&__close {
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		border: 0;
+		background: transparent;
+		width: 36px;
+		height: 36px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		font-family: $font-family;
+		font-size: 32px;
+		line-height: 1;
+		color: #222;
+		transition: transform 0.2s $easing, opacity 0.2s $easing;
+
+		@include hover-desktop {
+			transform: rotate(90deg);
+			opacity: 0.75;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+		gap: 40px 40px;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		cursor:default;
+
+		@include max($bp-tablet) {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) auto;
+			align-items: start;
+			column-gap: 20px;
+			row-gap: 8px;
+		}
+	}
+
+	&__title {
+		margin: 0 0 10px;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 32px;
+		@include adaptive-font(22, 32);
+		line-height: 120%;
+		color: #c09b57;
+
+		@include max($bp-tablet) {
+			grid-column: 1 / 2;
+		}
+	}
+
+	&__lead {
+		margin: 0;
+		max-width: 430px;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 18px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: #222;
+
+		@include max($bp-tablet) {
+			grid-column: 1 / 2;
+		}
+	}
+
+	&__logo {
+		display: block;
+		width: 100%;
+		max-width: 175px;
+		height: auto;
+		margin-top: auto;
+		object-fit: contain;
+
+		@include max($bp-tablet) {
+			grid-column: 2 / 3;
+			grid-row: 1 / span 2;
+			max-width: 200px;
+		}
+
+		@include max($bp-mob) {
+			max-width: 100px;
+		}
+	}
+
+	&__form {
+		display: grid;
+		gap: 10px;
+	}
+
+	&__actions {
+		display: flex;
+		justify-content: center;
+		margin-top: 10px;
+
+		.cta-form__submit {
+			width: 100%;
+			max-width: 430px;
+
+			@include max($bp-mob) {
+				max-width: 100%;
+			}
+		}
+	}
+
+	.cta-form__textarea {
+		min-height: 120px;
+		max-height: 160px;
+	}
+
+	.cta-form__agree-text {
+		max-width: 100%;
+	}
+}
+

@@ -1,0 +1,27 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.payment-delivery-cases {
+	margin-top: 100px;
+	@include adaptive-value(margin-top, 100px, 60px, $bp-desktop, $bp-mob);
+
+	&__container {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: 20px;
+		align-items: start;
+
+		@include max($bp-mob-lg) {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+	}
+
+	&__title {
+		margin: 0;
+	}
+
+	&__text {
+		margin: 0;
+	}
+}

@@ -1,0 +1,56 @@
+div.popup-form(data-popup-form aria-hidden="true")
+	.popup-form__dialog(data-popup-panel role="dialog" aria-modal="true" aria-labelledby="popup-form-title")
+		button.popup-form__close(type="button" data-popup-close aria-label="Закрыть") ×
+
+		.popup-form__grid
+			.popup-form__info
+				h2#popup-form-title.popup-form__title
+					| Готовы преобразить
+					br
+					| своё пространство?
+
+				p.popup-form__lead
+					| Давайте обсудим ваш проект! Оставьте свои
+					| контакты в форме ниже и наша команда
+					| свяжется с вами для уточнения деталей
+
+				img.popup-form__logo(
+					src="images/popup-logo.svg"
+					alt="Логотип A4 Ремонт"
+					title="Логотип A4 Ремонт"
+					width="319"
+					height="170"
+					loading="lazy"
+				)
+
+			form.popup-form__form.cta-form__form(action="#" method="post")
+				label.cta-form__field
+					span.visually-hidden Ваше имя
+					input.cta-form__input(type="text" name="name" placeholder="Ваше имя" autocomplete="name")
+
+				label.cta-form__field
+					span.visually-hidden Телефон
+					input.cta-form__input(type="tel" name="phone" placeholder="+7 000 000 00 00" inputmode="tel" autocomplete="tel")
+
+				label.cta-form__field
+					span.visually-hidden E-mail
+					input.cta-form__input(type="email" name="email" placeholder="E-mail" autocomplete="email")
+
+				label.cta-form__field
+					span.visually-hidden Сообщение
+					textarea.cta-form__textarea(name="message" rows="5" placeholder="Сообщение")
+
+				label.cta-form__agree
+					input.cta-form__checkbox(type="checkbox" name="agree" checked)
+					span.cta-form__agree-ui(aria-hidden="true")
+					span.cta-form__agree-text
+						| Я даю согласие на
+						| 
+						a(href="#") обработку персональных данных
+						|  и соглашаюсь
+						| с 
+						a(href="#") политикой конфиденциальности
+
+				.popup-form__actions
+					button.btn.btn--grey.cta-form__submit(type="submit") Отправить
+

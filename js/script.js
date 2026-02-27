@@ -1,5 +1,6 @@
 import { initBurger } from './modules/burger.js';
 import { initHeaderDropdown } from './modules/header-dropdown.js';
+import { initPopupForm } from './modules/popup-form.js';
 
 import { initSectionAnimation } from './modules/section-animation.js';
 
@@ -29,6 +30,7 @@ import { initWorkSingleResult } from './section/work-single-result.js';
 document.addEventListener('DOMContentLoaded', () => {
 	initBurger();
 	initHeaderDropdown();
+	initPopupForm();
 
 	initSectionAnimation();
 

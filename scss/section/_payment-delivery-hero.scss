@@ -1,0 +1,58 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.payment-delivery-hero {
+	padding-top: 40px;
+
+	
+
+	&__card {
+		border-radius: 10px;
+		background: #c09b57;
+		padding: 40px;
+		@include adaptive-value(padding, 40px, 10px, $bp-desktop, $bp-mob);
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+		gap: 20px 40px;
+		align-items: start;
+
+		@include max($bp-tablet) {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 700;
+		font-size: 72px;
+		@include adaptive-font(25, 50);
+		line-height: 110%;
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+	&__text {
+		margin: 0;
+		font-family: $font-family;
+		font-weight: 400;
+		font-size: 18px;
+		@include adaptive-font(14, 18);
+		line-height: 130%;
+		color: #fff;
+	}
+
+	&__btn {
+		margin-top: 20px;
+		width: 310px;
+		white-space: nowrap;
+		@include adaptive-font(16, 18);
+		@include max($bp-mob) {
+			width: 100%;
+		}
+	}
+}

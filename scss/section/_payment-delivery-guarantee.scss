@@ -1,0 +1,61 @@
+@use "../global/vars" as *;
+@use "../global/mixins" as *;
+
+.payment-delivery-guarantee {
+	margin-top: 120px;
+	@include adaptive-value(margin-top, 120px, 60px, $bp-desktop, $bp-mob);
+
+	&__media {
+		position: relative;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+
+	&__image {
+		display: block;
+		width: 100%;
+		height: auto;
+		min-height: 420px;
+		object-fit: cover;
+
+		@include max($bp-tablet) {
+			min-height: 520px;
+		}
+
+		@include max($bp-mob) {
+			min-height: 360px;
+		}
+	}
+
+	&__card {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		max-width: 560px;
+		border-radius: 10px;
+		background: rgba(243, 236, 230, 0.96);
+		padding: 40px;
+		@include adaptive-value(padding, 40px, 10px, $bp-desktop, $bp-mob);
+
+		@include max($bp-mob) {
+			right: 10px;
+			left: 10px;
+			top: 10px;
+			max-width: none;
+		}
+	}
+
+	&__title {
+		margin: 0 0 10px;
+	}
+
+	&__lead {
+		margin: 0;
+
+		max-width: 450px;
+
+		b, strong {
+			font-weight: 700;
+		}
+	}
+}
