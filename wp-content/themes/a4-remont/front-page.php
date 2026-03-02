@@ -20,6 +20,8 @@ while ( have_posts() ) :
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</header>
 
+			<h1>#ГОЛОДНЫЙ</h1>
+
 			<div class="entry-content">
 				<?php the_content(); ?>
 			</div>

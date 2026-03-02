@@ -1,0 +1,17 @@
+{
+  "name": "a4-remont",
+  "private": true,
+  "scripts": {
+    "studio:sync": "node ./scripts/studio-live.js --once",
+    "studio:sync:local": "node ./scripts/studio-live.js --config ./.studio.local.json --once",
+    "studio:live": "node ./scripts/studio-live.js",
+    "studio:live:plugins": "node ./scripts/studio-live.js --syncPlugins",
+    "studio:live:local": "node ./scripts/studio-live.js --config ./.studio.local.json",
+    "studio:live:local:plugins": "node ./scripts/studio-live.js --config ./.studio.local.json --syncPlugins"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "chokidar": "^4.0.3",
+    "fs-extra": "^11.3.2"
+  }
+}
