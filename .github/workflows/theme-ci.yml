@@ -1,0 +1,72 @@
+name: Theme CI
+
+on:
+  push:
+    branches:
+      - main
+      - start-wp-development
+    paths:
+      - ".github/workflows/theme-ci.yml"
+      - "wp-content/**"
+  pull_request:
+    paths:
+      - ".github/workflows/theme-ci.yml"
+      - "wp-content/**"
+
+env:
+  THEME_SLUG: a4-remont
+  THEME_DIR: wp-content/themes/a4-remont
+  PLUGINS_DIR: wp-content/plugins
+
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Install PHP and zip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y php-cli zip
+
+      - name: Verify required theme files
+        run: |
+          test -f "${THEME_DIR}/style.css"
+          test -f "${THEME_DIR}/index.php"
+
+      - name: Lint PHP files
+        run: |
+          mapfile -d '' files < <(find "${THEME_DIR}" "${PLUGINS_DIR}" -type f -name '*.php' -print0)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No PHP files found."
+            exit 0
+          fi
+
+          for file in "${files[@]}"; do
+            php -l "$file"
+          done
+
+      - name: Build deploy artifacts
+        run: |
+          mkdir -p dist
+          (
+            cd wp-content/themes
+            zip -qr "../../dist/${THEME_SLUG}.zip" "${THEME_SLUG}" -x "*.gitkeep"
+          )
+          (
+            cd "${PLUGINS_DIR}"
+            if find . -mindepth 1 ! -name '.gitkeep' | grep -q .; then
+              zip -qr "../../dist/managed-plugins.zip" . -x "*.gitkeep"
+            else
+              echo "No managed plugins to package."
+            fi
+          )
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: wordpress-deliverables
+          path: dist/
+          if-no-files-found: error

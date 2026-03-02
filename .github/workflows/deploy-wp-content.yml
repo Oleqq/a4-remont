@@ -1,0 +1,108 @@
+name: Deploy WordPress Artifacts
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: GitHub environment that stores deploy secrets
+        required: true
+        type: choice
+        default: production
+        options:
+          - staging
+          - production
+      deploy_plugins:
+        description: Also deploy managed custom plugins from the repository
+        required: true
+        type: boolean
+        default: false
+
+env:
+  THEME_SLUG: a4-remont
+  THEME_DIR: wp-content/themes/a4-remont
+  PLUGINS_DIR: wp-content/plugins
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    concurrency:
+      group: deploy-${{ inputs.environment }}
+      cancel-in-progress: false
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Install rsync and ssh
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync openssh-client
+
+      - name: Validate deploy secrets
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          required=(DEPLOY_HOST DEPLOY_USER DEPLOY_PATH DEPLOY_SSH_KEY)
+          for variable in "${required[@]}"; do
+            if [ -z "${!variable}" ]; then
+              echo "::error::${variable} is not configured for the selected environment."
+              exit 1
+            fi
+          done
+
+      - name: Configure SSH
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "${DEPLOY_PORT:-22}" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy theme
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          REMOTE_THEME_PATH="${DEPLOY_PATH%/}/wp-content/themes/${THEME_SLUG}"
+          ssh -p "${DEPLOY_PORT:-22}" "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${REMOTE_THEME_PATH}'"
+          rsync -az --delete \
+            -e "ssh -p ${DEPLOY_PORT:-22}" \
+            --exclude '.gitkeep' \
+            "${THEME_DIR}/" "${DEPLOY_USER}@${DEPLOY_HOST}:${REMOTE_THEME_PATH}/"
+
+      - name: Deploy managed plugins
+        if: ${{ inputs.deploy_plugins }}
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          shopt -s nullglob
+          plugin_dirs=("${PLUGINS_DIR}"/*/)
+
+          if [ "${#plugin_dirs[@]}" -eq 0 ]; then
+            echo "No managed plugin directories found."
+            exit 0
+          fi
+
+          for plugin_dir in "${plugin_dirs[@]}"; do
+            plugin_name="$(basename "${plugin_dir}")"
+            remote_plugin_path="${DEPLOY_PATH%/}/wp-content/plugins/${plugin_name}"
+
+            ssh -p "${DEPLOY_PORT:-22}" "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${remote_plugin_path}'"
+            rsync -az --delete \
+              -e "ssh -p ${DEPLOY_PORT:-22}" \
+              --exclude '.gitkeep' \
+              "${plugin_dir}" "${DEPLOY_USER}@${DEPLOY_HOST}:${remote_plugin_path}/"
+          done

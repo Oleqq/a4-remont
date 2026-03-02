@@ -1,0 +1,20 @@
+/*
+Theme Name: A4 Remont
+Theme URI: https://example.com/
+Author: DS-ART
+Author URI: https://ds-art.ru/
+Description: Custom service-site theme for the A4 Remont project.
+Version: 0.1.0
+Requires at least: 6.6
+Tested up to: 6.8
+Requires PHP: 8.1
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: a4-remont
+Domain Path: /languages
+*/
+
+/*
+ * WordPress needs this file in the theme root.
+ * Runtime styles are enqueued from /assets/css/.
+ */
