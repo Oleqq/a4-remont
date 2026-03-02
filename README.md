@@ -1,27 +1,235 @@
 # A4 Remont
 
-WordPress project repository with two layers:
+Эта ветка, `start-wp-development`, является текущей базовой веткой для интеграции проекта в WordPress.
 
-- `static/` keeps the source static build and reference markup.
-- `wp-content/` keeps the deployable theme and custom plugins.
+Репозиторий использует `repo-first` подход для WordPress-разработки:
 
-## Structure
+- `static/` хранит исходную статическую сборку и референсную верстку
+- `wp-content/` хранит deployable-слой WordPress: тему и проектные плагины
+- WordPress Studio используется как локальный runtime
+- GitHub Actions используется для CI-проверок и контролируемого деплоя
 
-- `wp-content/themes/a4-remont` is the active project theme.
-- `wp-content/plugins` is reserved for project plugins.
+## 🎯 Текущая цель ветки
 
-## GitHub Actions
+Задача этой ветки: превратить существующую статическую сборку в WordPress-ready архитектуру с:
 
-- `Theme CI` validates PHP syntax and builds zip artifacts for the theme and managed custom plugins.
-- `Deploy WordPress Artifacts` performs manual SSH/rsync deployment from GitHub Actions.
+- чистой базой темы на основе `_s`
+- поддержкой ACF Flexible Content
+- локальной разработкой через WordPress Studio
+- безопасным live-sync потоком для разработки темы
+- GitHub-based CI/CD для доставки темы
 
-## Deployment strategy
+## 🗂️ Структура репозитория
 
-- The theme is always deployed to `wp-content/themes/a4-remont`.
-- Custom plugins are deployed only when `deploy_plugins=true`.
-- The workflow does not sync the whole `wp-content` directory, so it does not touch uploads or third-party plugins.
+```text
+.
+|-- static/                         # исходная статическая сборка
+|-- wp-content/
+|   |-- themes/
+|   |   `-- a4-remont/             # активная WordPress-тема
+|   `-- plugins/                   # только проектные плагины
+|-- scripts/
+|   |-- sync-studio-site.ps1       # ручной sync-хелпер для Studio
+|   `-- studio-live.js             # live sync + BrowserSync workflow
+|-- .github/workflows/
+|   |-- theme-ci.yml               # валидация и упаковка
+|   `-- deploy-wp-content.yml      # ручной production deployment
+`-- .studio.local.example.json     # шаблон локального machine-config
+```
 
-## Required GitHub environment secrets
+## 🧱 Архитектура темы
+
+Активная тема находится в `wp-content/themes/a4-remont`.
+
+Текущий baseline темы включает:
+
+- модульный bootstrap через `functions.php` и `inc/*`
+- `theme.json`
+- поддержку ACF local JSON через `acf-json/`
+- рендер flexible-секций через `template-parts/section`
+- assets, разделенные на `assets/css`, `assets/js`, `assets/img`
+
+## 💻 Локальная разработка
+
+### ✅ Требования
+
+- WordPress Studio
+- Node.js 18+
+- npm
+
+### ⚙️ Первичная настройка
+
+1. Создай локальный сайт в WordPress Studio.
+2. Держи этот репозиторий вне папки сайта Studio.
+3. Создай локальный конфиг для своей машины:
+
+```powershell
+Copy-Item .\.studio.local.example.json .\.studio.local.json
+```
+
+4. Отредактируй `.studio.local.json` и укажи свои локальные значения:
+
+```json
+{
+  "studioSitePath": "C:\\Users\\<user>\\Studio\\<your-site-folder>",
+  "studioUrl": "http://localhost:8881",
+  "themeSlug": "a4-remont",
+  "browserPort": 3000,
+  "syncPlugins": false
+}
+```
+
+5. Установи локальные зависимости:
+
+```powershell
+npm install
+```
+
+### 🛠️ Локальные команды
+
+Разовый sync темы в сайт Studio:
+
+```powershell
+npm run studio:sync:local
+```
+
+Live-разработка темы с auto-sync и BrowserSync:
+
+```powershell
+npm run studio:live:local
+```
+
+Live-разработка темы и проектных плагинов:
+
+```powershell
+npm run studio:live:local:plugins
+```
+
+Общий/manual режим без локального конфига:
+
+```powershell
+npm run studio:live -- --studioSitePath "C:\Users\<user>\Studio\<site>" --studioUrl "http://localhost:8881"
+```
+
+### 🔁 Как работает live-режим
+
+Когда запущен `studio:live:local`:
+
+- файлы темы отслеживаются прямо в этом репозитории
+- измененные файлы копируются в сайт Studio
+- BrowserSync проксирует сайт Studio на отдельный локальный порт
+- браузер автоматически перезагружает страницу после изменений
+
+Важно:
+
+- используй URL BrowserSync, который выводится в терминале, обычно это `http://localhost:3000`
+- raw URL Studio, обычно `http://localhost:8881`, остается тем же сайтом, но без автообновления страницы
+
+## 🚀 Модель CI/CD
+
+В проекте уже есть рабочий baseline для CI/CD.
+
+### 🧪 CI
+
+Workflow: `/.github/workflows/theme-ci.yml`
+
+Что он делает:
+
+- запускается на push в `main` и `start-wp-development`
+- валидирует обязательные файлы темы
+- запускает `php -l` для PHP-файлов темы и project-managed plugins
+- собирает zip-артефакты темы и управляемых плагинов
+
+### 📦 CD
+
+Workflow: `/.github/workflows/deploy-wp-content.yml`
+
+Что он делает:
+
+- запускается вручную через GitHub Actions
+- деплоит только `wp-content/themes/a4-remont`
+- опционально деплоит только проектные плагины из `wp-content/plugins`
+- не трогает uploads
+- не трогает сторонние плагины
+- не трогает базу данных
+
+## 📌 Что CI/CD деплоит, а что нет
+
+### ✅ Деплоится через git и CI/CD
+
+- PHP, CSS, JS и изображения темы
+- `theme.json`
+- `acf-json`
+- кастомные template parts
+- проектные плагины, которые лежат в этом репозитории
+- код регистрации CPT, если он находится в теме или проектных плагинах
+
+### ❌ Не деплоится через текущий CI/CD
+
+- страницы, записи и CPT entries
+- значения ACF-полей, сохраненные в контенте
+- загруженные медиафайлы в `wp-content/uploads`
+- меню, виджеты, options, users
+- live-контент базы данных
+
+Это сделано специально. Текущий CI/CD pipeline деплоит код, а не контент.
+
+## 🗃️ Модель контента и базы данных
+
+Для этого проекта WordPress нужно воспринимать как две отдельные сущности.
+
+### 🧩 Слой кода
+
+Хранится в git:
+
+- тема
+- проектные плагины
+- ACF JSON
+- PHP-шаблоны и логика
+- код регистрации CPT
+
+### 📝 Слой контента
+
+Хранится в WordPress database и uploads:
+
+- содержимое страниц
+- значения Flexible Content
+- записи CPT
+- файлы медиабиблиотеки
+- editor-managed настройки
+
+## 🛫 Рекомендуемый workflow релиза
+
+### Во время разработки
+
+- интегрируй статическую верстку локально в тему WordPress
+- собирай ACF Flexible Content layouts
+- создавай CPT и поддерживающую их логику
+- используй Studio для разработки и тестирования
+
+### Первый релиз
+
+Если локальный WordPress-сайт уже содержит реальный стартовый контент, медиа и значения ACF:
+
+1. задеплой код темы на сервер
+2. один раз мигрируй initial database и uploads
+3. активируй нужные плагины на live-сайте
+
+### После первого релиза
+
+Дальше используй простое правило:
+
+- код деплоится через CI/CD
+- контент ведется на staging/live WordPress, а не из локального Studio
+
+## 🔐 Настройка GitHub deployment
+
+Создай GitHub environments:
+
+- `staging`
+- `production`
+
+Обязательные environment secrets:
 
 - `DEPLOY_HOST`
 - `DEPLOY_PORT`
@@ -29,84 +237,17 @@ WordPress project repository with two layers:
 - `DEPLOY_PATH`
 - `DEPLOY_SSH_KEY`
 
-## Recommended setup
+Что они значат:
 
-1. Create `staging` and `production` environments in GitHub.
-2. Add the deploy secrets to each environment.
-3. Put approval rules on `production`.
-4. Keep only project-owned plugins inside `wp-content/plugins` in this repository.
+- `DEPLOY_HOST`: хост или IP сервера
+- `DEPLOY_PORT`: SSH-порт, обычно `22`
+- `DEPLOY_USER`: SSH-пользователь для деплоя
+- `DEPLOY_PATH`: абсолютный путь до WordPress root на сервере
+- `DEPLOY_SSH_KEY`: приватный SSH-ключ, который будет использовать GitHub Actions
 
-## Local development with WordPress Studio
+## 📎 Заметки
 
-Recommended workflow for this repository:
-
-1. Create a new local site in WordPress Studio.
-2. Keep this Git repository outside the Studio folder and edit code here.
-3. Create your local machine config from [.studio.local.example.json](/c:/dev/a4-remont/.studio.local.example.json).
-4. Sync the project theme into the Studio site.
-
-One-time sync:
-
-```powershell
-npm run studio:sync:local
-```
-
-Shared/manual one-time sync is still available:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\sync-studio-site.ps1 -StudioSitePath "C:\Users\<user>\Studio\<your-site-folder>"
-```
-
-After that, open the Studio site and activate the `a4-remont` theme in WP Admin.
-
-Note: Studio can break `theme.json` reads when a theme is attached through a symlink or junction. Direct sync is the safer approach.
-
-### Live development mode
-
-Install local tooling once:
-
-```powershell
-npm install
-```
-
-Recommended local command:
-
-```powershell
-npm run studio:live:local
-```
-
-What this does:
-
-- performs an initial sync of the theme into the Studio site
-- watches theme files in this repository
-- copies changed files into the Studio site on save
-- reloads the browser automatically through BrowserSync
-
-Important: during live development open the BrowserSync URL printed in the terminal, usually `http://localhost:3000`, not the raw Studio URL.
-
-If you also want to sync project plugins in live mode:
-
-```powershell
-npm run studio:live:local:plugins
-```
-
-If you need the shared/manual form without local config:
-
-```powershell
-npm run studio:live -- --studioSitePath "C:\Users\<user>\Studio\<your-site-folder>" --studioUrl "http://localhost:8881"
-```
-
-## Project model
-
-This repository uses a repo-first WordPress theme workflow:
-
-- `static/` is the source static build layer
-- `wp-content/` is the deployable WordPress layer
-- WordPress Studio is the local runtime
-- GitHub Actions provide CI for validation/build and CD for controlled deployment
-
-In practice, this is a hybrid setup:
-
-- local development uses Studio + file sync/live reload
-- delivery uses GitHub-based CI/CD
-- production deploys only managed WordPress artifacts from the repository
+- `.studio.local.json` привязан к конкретной машине и игнорируется git
+- `.studio.local.example.json` является общим шаблоном для команды
+- не используй symlink/junction для темы внутри WordPress Studio, direct sync надежнее
+- держи внутри `wp-content/plugins` только проектные плагины, которыми ты реально управляешь из этого репозитория
