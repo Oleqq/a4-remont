@@ -22,8 +22,8 @@
 		padding: 40px;
 		@include adaptive-value(padding, 40px, 20px, $bp-desktop, $bp-mob);
 		display: grid;
-		grid-template-columns: minmax(0, 50%) minmax(0, 50%);
-		gap: 20px;
+		    grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+		gap: 5px;
 		align-items: end;
 		height: 340px;
 		position: relative;

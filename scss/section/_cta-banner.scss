@@ -45,7 +45,13 @@
 		}
 		
 		.cta-banner__agree-ui {
+			border-color: #c09b57;
+			background: transparent;
+		}
+
+		.cta-banner__checkbox:checked + .cta-banner__agree-ui {
 			background: #c09b57;
+			border-color: #c09b57;
 		}
 
 		.cta-banner__agree-ui::after {
@@ -99,11 +105,11 @@
 		}
 
 		@include max($bp-tablet) {
-			padding-top: 68px;
+			padding-top: 20px;
 		}
 
 		@include max($bp-mob) {
-			
+			padding-top: 68px;
 		}
 	}
 
@@ -159,6 +165,8 @@
         @include adaptive-font(22, 40);
         line-height: 130%;
         color: #fff;
+
+		    max-width: 400px;
 	}
 
 	&__subtitle {
@@ -184,6 +192,10 @@
 		grid-template-columns: minmax(0, 360px) minmax(0, 260px);
 		gap: 10px;
 		align-items: center;
+
+		@include max($bp-tablet) {
+			grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+		}
 
 		@include max($bp-mob) {
 			grid-template-columns: 1fr;
@@ -271,14 +283,15 @@
 	&__agree-ui {
 		width: 34px;
 		height: 34px;
+		border: 4px solid rgba(255, 255, 255, 0.95);
 		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.95);
+		background: transparent;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		color: #1b1b1b;
 		position: relative;
-		transition: transform 0.2s $easing, box-shadow 0.2s $easing;
+		transition: transform 0.2s $easing, box-shadow 0.2s $easing, background-color 0.2s $easing, border-color 0.2s $easing;
 	}
 
 	
@@ -293,6 +306,11 @@
 		background-position: center;
 		background-size: 18px 13px;
 		background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2218%22%20height%3D%2213%22%20viewBox%3D%220%200%2018%2013%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1.25%206.25L6.25079%2011.25L16.25%201.25%22%20stroke%3D%22%23222222%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
+	}
+
+	&__checkbox:checked + &__agree-ui {
+		background: rgba(255, 255, 255, 0.95);
+		border-color: rgba(255, 255, 255, 0.95);
 	}
 
 	
@@ -378,6 +396,10 @@
     	
         // @include adaptive-value(top, 40px, 20px, $bp-tablet, $bp-mob);
 
+		@media (max-width:991px) and (min-width:768px) {
+			height: 550px;
+		}
+
 		@include min($bp-tablet) {
 			position: absolute;
 			right: 0;
@@ -402,6 +424,12 @@
 		display: flex;
 		object-fit: contain;
 
+		@media (max-width:991px) and (min-width:768px) {
+			height: 100%;
+			width: 675px;
+			object-fit: cover;
+			max-width: unset;
+		}
 		@include max($bp-mob) {
 			max-width: 420px;
 		}

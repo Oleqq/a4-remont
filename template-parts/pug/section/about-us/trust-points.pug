@@ -11,7 +11,13 @@ section.trust-points#trust-points
 		.trust-points__stage
 			.trust-points__hero
 				.trust-points__media
-					img.trust-points__img(src="images/specs.png" alt="Команда специалистов" width="1200" height="560" loading="lazy")
+					picture
+						source(
+							media="(max-width: 467px)"
+							srcset="images/Frame-17554.png"
+							type="image/png"
+						)
+						img.trust-points__img(src="images/specs.png" alt="Команда специалистов" width="1200" height="560" loading="lazy")
 
 				.trust-points__badge
 					p.trust-points__badge-title СТРАХОВКА ОТДЕЛКИ

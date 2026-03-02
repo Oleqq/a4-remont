@@ -64,8 +64,8 @@
 		left: 50%;
 		transform: translateX(-50%);
 		width: min(760px, 100%);
-		background: #efe6d6;
-		border-radius: 18px;
+		background: #ede4d2;
+		border-radius: 10px;
 		padding: 110px;
         @include adaptive-value(padding, 110px, 20px, $bp-desktop, $bp-mob);
 		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
@@ -79,8 +79,12 @@
 			max-width: 90%;
 		}
 
+		@include max(834px) {
+			max-width: 650px;
+		}
+
 		@include max($bp-mob) {
-			
+			max-width: 90%;
 		}
         @media (max-width:467px) {
             
@@ -103,7 +107,7 @@
 	&__company-strong {
 		margin: 0 0 20px;
         @include adaptive-value(margin-bottom, 20px, 10px, $bp-desktop, $bp-mob);
-		font-weight: 800;
+		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.02em;
 		font-size: 18px;
@@ -128,6 +132,17 @@
 		height: 62px;
 		display: flex;
 		align-items: center;
+
+		svg, img {
+
+			@include max($bp-tablet) {
+				width: 340px;
+			}
+
+			@include max(467px) {
+				width: 235px;
+			}
+		}
 	}
 
 	&__company-btn {
@@ -226,6 +241,12 @@
 			transform: translateX(22px);
 		}
 	}
+	@include max(467px) {
+
+		.review-card--2 {
+			transform: translateX(80px);
+		}
+	}
 
 	&__actions {
 		margin-top: 18px;
@@ -263,26 +284,32 @@
 	display: grid;
 	gap: 10px;
 
-    @include max($bp-tablet) {
+    @include max($bp-mob) {
         width: 93%;
     }
+	@include max(467px) {
+		width: 75%;
+	}
 
-    &--2{
+    // &--2{
         
-        @media (max-width:991px) and (min-width:467px) {
-            right: 36px;
-            @include adaptive-value(right, 36px, 12px, 991px, 467px);
-            position: relative;
-        }
-    }
-    &--3 {
+    //     @media (max-width:991px) and (min-width:467px) {
+    //         right: 36px;
+    //         @include adaptive-value(right, 36px, 12px, 991px, 467px);
+    //         position: relative;
+    //     }
+	// 	@media (max-width:467px) {
+	// 		        transform: translateX(92px);
+	// 	}
+    // }
+    // &--3 {
 
-        @media (max-width:991px) and (min-width:467px) {
-            left: 36px;
-            @include adaptive-value(left, 36px, 12px, 991px, 467px);
-            position: relative;
-        }
-    }
+    //     @media (max-width:991px) and (min-width:467px) {
+    //         left: 36px;
+    //         @include adaptive-value(left, 36px, 12px, 991px, 467px);
+    //         position: relative;
+    //     }
+    // }
 
 	&__top {
 		display: grid;

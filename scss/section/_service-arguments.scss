@@ -2,11 +2,11 @@
 @use "../global/mixins" as *;
 
 .service-arguments {
-	padding: 56px 0 72px;
+	padding: 60px 0;
 	overflow: hidden;
 
 	@include max($bp-tablet) {
-		padding: 48px 0 60px;
+		padding: 50px 0;
 	}
 
 	@include max($bp-mob) {
@@ -208,5 +208,12 @@
 		text-transform: uppercase;
 		color: #222;
 
+	}
+}
+
+
+body > main > section.service-arguments.animated > div > div.service-arguments__slider.swiper > div > div:nth-child(1) > article > div.benefits-card__head > h3 {
+	@include min($bp-tablet + 1px) {
+		white-space: nowrap;
 	}
 }

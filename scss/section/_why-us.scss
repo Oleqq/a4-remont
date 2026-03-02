@@ -3,7 +3,7 @@
 
 .why-us {
 	
-	padding: 56px 0 70px;
+	padding: 60px 0;
 
     overflow: hidden;
 
@@ -15,11 +15,11 @@
 	}
  
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 50px 0;
 	}
 
 	@include max($bp-mob) {
-		padding: 32px 0 0px;
+		padding: 30px 0;
 	}
 
 	&__top {
@@ -52,6 +52,7 @@
 .why-card {
 	background: #fcf7f1;
 	border-radius: 10px;
+	border: 1px solid rgba(198, 161, 90, 0.12);
 	padding: 20px;
     @include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
 	height: 100%;
@@ -60,8 +61,49 @@
 	display: grid;
 	grid-template-rows: auto auto 1fr;
 	gap: 12px;
+	cursor: default;
 
 	height: 100%;
+	position: relative;
+	isolation: isolate;
+	box-shadow: 0 14px 30px rgba(34, 34, 34, 0.05);
+	transition:
+		transform 0.42s $easing,
+		box-shadow 0.42s $easing,
+		border-color 0.42s $easing,
+		opacity 0.55s $easing,
+		filter 0.55s $easing;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: -72px;
+		left: -54px;
+		width: 210px;
+		height: 210px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(198, 161, 90, 0.2) 0%, rgba(198, 161, 90, 0) 72%);
+		opacity: 0.42;
+		transition: transform 0.48s $easing, opacity 0.48s $easing;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 16px;
+		right: 16px;
+		bottom: 0;
+		height: 1px;
+		background: linear-gradient(90deg, rgba(198, 161, 90, 0) 0%, rgba(198, 161, 90, 0.34) 50%, rgba(198, 161, 90, 0) 100%);
+		opacity: 0.46;
+		transform: scaleX(0.92);
+		transform-origin: center;
+		transition: opacity 0.34s $easing, transform 0.34s $easing;
+		pointer-events: none;
+	}
+
     @include max($bp-mob) {
         max-height: 300px;
     }
@@ -79,12 +121,44 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		position: relative;
+		z-index: 1;
+		box-shadow: 0 12px 22px rgba(198, 161, 90, 0.22);
+		transition: transform 0.34s $easing, box-shadow 0.34s $easing, background-color 0.34s $easing;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: -6px;
+			border-radius: inherit;
+			border: 1px solid rgba(198, 161, 90, 0.28);
+			opacity: 0;
+			transform: scale(0.8);
+			transition: transform 0.34s $easing, opacity 0.34s $easing;
+		}
 	}
 
 	&__title {
 		@include adaptive-font(18, 24);
 		font-weight: 700;
 		margin: 0;
+		position: relative;
+		z-index: 1;
+		transition: color 0.28s $easing, transform 0.34s $easing;
+
+		height: 62px;
+
+		@include max(1199px) {
+			height: 100px;
+		}
+		
+		@include max($bp-tablet) {
+			height: 62px;
+		}
+
+		@include max($bp-mob) {
+			height: 48px;
+		}
 	}
 
 	&__text {
@@ -96,6 +170,9 @@
 		@include adaptive-font(14, 18);
 		line-height: 130%;
 		color: #313131;
+		position: relative;
+		z-index: 1;
+		transition: color 0.28s $easing, transform 0.34s $easing, opacity 0.28s $easing;
 	}
 
 	&--image {
@@ -103,7 +180,13 @@
 		height: 100%;
         display: flex;
         width: 100%;
-		
+		background: #efe6d6;
+
+		&::before,
+		&::after {
+			left: 0;
+			right: 0;
+		}
 	}
 
 	&__img {
@@ -111,9 +194,101 @@
 		height: 100%;
 		object-fit: cover;
 		display: block;
+		transition: transform 0.6s $easing, filter 0.34s $easing;
 
 		@include max($bp-tablet) {
 			
+		}
+	}
+}
+
+.why-us {
+	.why-card {
+		opacity: 0;
+		transform: translateY(30px) scale(0.975);
+		filter: blur(10px);
+	}
+
+	&.animated .why-card {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: blur(0);
+	}
+
+	@include hover-desktop {
+		.why-card:hover {
+			transition:
+				transform 0.2s $easing,
+				box-shadow 0.2s $easing,
+				border-color 0.2s $easing,
+				opacity 0.55s $easing,
+				filter 0.55s $easing;
+			transform: translateY(-8px);
+			border-color: rgba(198, 161, 90, 0.28);
+			box-shadow: 0 26px 42px rgba(34, 34, 34, 0.12), 0 0 0 3px rgba(198, 161, 90, 0.1);
+		}
+
+		.why-card:hover::before {
+			transition-duration: 0.2s;
+			opacity: 0.72;
+			transform: scale(1.06);
+		}
+
+		.why-card:hover::after {
+			transition-duration: 0.2s;
+			opacity: 1;
+			transform: scaleX(1);
+		}
+
+		.why-card:hover .why-card__icon {
+			transition-duration: 0.2s;
+			transform: translateY(-2px) scale(1.06) rotate(4deg);
+			box-shadow: 0 16px 26px rgba(198, 161, 90, 0.28);
+		}
+
+		.why-card:hover .why-card__icon::before {
+			transition-duration: 0.2s;
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		.why-card:hover .why-card__title,
+		.why-card:hover .why-card__text {
+			transition-duration: 0.2s;
+			transform: translateY(-3px);
+		}
+
+		.why-card:hover .why-card__title {
+			transition-duration: 0.2s;
+			color: #c09b57;
+		}
+
+		.why-card:hover .why-card__text {
+			transition-duration: 0.2s;
+			color: rgba(49, 49, 49, 0.9);
+		}
+
+		.why-card--image:hover .why-card__img {
+			transition-duration: 0.2s;
+			transform: scale(1.06);
+			filter: saturate(1.03);
+		}
+	}
+
+	@include max($bp-tablet) {
+		.swiper-slide-active .why-card {
+			transform: translateY(-4px);
+			border-color: rgba(198, 161, 90, 0.22);
+			box-shadow: 0 18px 30px rgba(34, 34, 34, 0.1);
+		}
+
+		.swiper-slide-active .why-card::before {
+			opacity: 0.62;
+			transform: scale(1.04);
+		}
+
+		.swiper-slide-active .why-card .why-card__title {
+			color: #c09b57;
 		}
 	}
 }

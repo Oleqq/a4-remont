@@ -4,6 +4,7 @@ export function initPopupForm() {
 
 	const popupPanel = popup.querySelector('[data-popup-panel]');
 	const closeBtn = popup.querySelector('[data-popup-close]');
+	const headerButtons = document.querySelectorAll('.header__btn');
 	const pageBody = document.body;
 
 	let lastFocusedElement = null;
@@ -29,19 +30,26 @@ export function initPopupForm() {
 		}
 	};
 
-	document.addEventListener('click', (event) => {
-		const trigger = event.target.closest('.btn');
-		if (!trigger) return;
-		if (trigger.closest('[data-popup-form]')) return;
-		if (trigger.hasAttribute('data-popup-ignore')) return;
+	// document.addEventListener('click', (event) => {
+	// 	const trigger = event.target.closest('.btn');
+	// 	if (!trigger) return;
+	// 	if (trigger.closest('[data-popup-form]')) return;
+	// 	if (trigger.hasAttribute('data-popup-ignore')) return;
 
-		event.preventDefault();
-		openPopup();
-	});
+	// 	event.preventDefault();
+	// 	openPopup();
+	// });
 
 	if (closeBtn) {
 		closeBtn.addEventListener('click', closePopup);
 	}
+
+	headerButtons.forEach((button) => {
+		button.addEventListener('click', (event) => {
+			event.preventDefault();
+			openPopup();
+		});
+	});
 
 	popup.addEventListener('click', (event) => {
 		if (popupPanel && popupPanel.contains(event.target)) return;
@@ -53,4 +61,3 @@ export function initPopupForm() {
 		closePopup();
 	});
 }
-

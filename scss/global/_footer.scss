@@ -16,7 +16,7 @@
 
 	&__top {
 		display: grid;
-		grid-template-columns: minmax(0, 320px) minmax(0, 520px) minmax(0, 260px) minmax(0, 280px);
+		grid-template-columns: minmax(0, 320px) minmax(0, 520px) minmax(0, 260px) minmax(0, 230px);
 		gap: 15px;
 		align-items: start;
 
@@ -47,6 +47,7 @@
 
 		@include min($bp-tablet) {
 			gap: 40px;
+			
 		}
 
 	
@@ -55,6 +56,8 @@
 			grid-template-columns: auto 1fr auto;
 			align-items: center;
 			gap: 22px;
+
+			
 		}
 
 		
@@ -236,20 +239,45 @@
 	}
 
 	&__requisites {
-		background: #222;
+		background: linear-gradient(90deg, #202020 0%, #242424 100%);
 		height: 100%;
 		border-radius: 10px;
 		padding: 20px;
 		@include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+		display: grid;
+		align-content: start;
+		gap: 16px;
+		
+
+		@include min($bp-tablet + 1px) {
+			max-width: 220px;
+		}
 
 		@include max($bp-tablet) {
 			grid-area: req;
+			max-width: none;
+			height: auto;
+		
 		}
 
 		@include max($bp-mob) {
 			grid-area: req;
-			padding: 20px;
+			
 		}
+	}
+
+	&__req-layout {
+		
+	}
+
+	&__req-col {
+		min-width: 0;
+	}
+
+	&__req-grid,
+	&__req-group {
+		display: grid;
+		align-content: start;
 	}
 
 	&__req-title {
@@ -272,6 +300,10 @@
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+
+	&__req-text--address {
+		max-width: 220px;
 	}
 
 	&__bottom {
@@ -303,9 +335,10 @@
 			flex-direction: column;
 			align-items: flex-start;
 			gap: 12px;
-      max-width: 80%;
-      margin-left: auto;
-      margin-right: auto;
+			max-width: 80%;
+			margin-left: auto;
+			margin-right: auto;
+	          width: fit-content;
       
 		}
 	}
@@ -337,12 +370,108 @@
 }
 
 .footer {
+	@include max($bp-tablet) {
+		&__requisites {
+			> .footer__req-title,
+			> .footer__req-text {
+				display: grid;
+			}
+		}
+
+		&__req-layout {
+			display: grid;
+			grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.38fr);
+			gap: 24px 34px;
+			align-items: start;
+		}
+
+		&__req-col {
+			display: grid;
+			align-content: start;
+			gap: 12px;
+		}
+
+		&__req-col--details {
+			gap: 14px;
+		}
+
+		&__req-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 10px 36px;
+		}
+
+		&__req-group {
+			gap: 8px;
+		}
+
+		&__req-title {
+			margin: 0;
+			font-size: 16px;
+			line-height: 130%;
+		}
+
+		&__req-text {
+			margin: 0;
+			font-size: 14px;
+			line-height: 130%;
+		}
+
+		&__req-text--address {
+			max-width: 220px;
+			font-weight: 700;
+		}
+	}
+
+	@include max($bp-mob) {
+		&__req-layout {
+			grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+			gap: 26px 24px;
+		}
+
+		&__req-col {
+			gap: 18px;
+		}
+
+		&__req-col--details {
+			gap: 18px;
+		}
+
+		&__req-grid {
+			grid-template-columns: 1fr;
+			gap: 12px;
+		}
+
+		&__req-group {
+			gap: 8px;
+		}
+
+		&__req-title {
+			@include adaptive-font(14, 22);
+			line-height: 120%;
+		}
+
+		&__req-text {
+			@include adaptive-font(14, 18);
+			line-height: 120%;
+		}
+
+		&__req-text--address {
+			@include adaptive-font(14, 22);
+			max-width: 100%;
+		}
+	}
+}
+
+.footer {
 	&__brand {
 		@include max($bp-tablet) {
 			grid-area: brand;
 			grid-template-columns: 1fr 1fr 1fr;
 			align-items: center;
 			gap: 20px;
+
+			grid-column: 1 / -1;
+    		align-items: baseline;
 		}
 
 		@include max($bp-mob) {

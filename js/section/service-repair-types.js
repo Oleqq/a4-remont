@@ -17,7 +17,7 @@ export function initServiceRepairTypes() {
 			watchOverflow: true,
 			breakpoints: {
 				0: {
-					slidesPerView: 1.08,
+					slidesPerView: 1.33,
 					spaceBetween: 10,
 				},
 				651: {

@@ -32,15 +32,36 @@ body {
   text-align: center;
   color: #f7f7f7;
 
+  
 
   &--primary {
     background: #c09b57;
     color: #f7f7f7;
+
+    transition: .2s ease;
+
+    @include hover-desktop {
+     background: #cea75e;
+     transition: .2s ease;
+    }
+    &:active {
+      background-color: #b6914b;
+      transition: .2s ease;
+    }
   }
 
   &--grey {
     background: #222;
     color: #fff;
+
+    @include hover-desktop {
+      background: #353535;
+      transition: .2s ease;
+    }
+    &:active {
+      background-color: #222;
+      transition: .2s ease;
+    }
   }
 
   @include hover-desktop {
@@ -52,6 +73,67 @@ body {
   }
 }
 
+.cta-banner__input {
+	background: #fff;
+	color: #222;
+	border: 1.5px solid transparent;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+	&:hover,
+	&:focus,
+	&:active {
+		border-color: #c09b57;
+		outline: none;
+	}
+
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus,
+	&:-webkit-autofill:active {
+		-webkit-text-fill-color: #fff;
+		-webkit-box-shadow: 0 0 0 1000px #c1a166 inset;
+		box-shadow: 0 0 0 1000px #c1a166 inset;
+		border: 1.5px solid #c09b57;
+		caret-color: #fff;
+		transition: background-color 9999s ease-in-out 0s;
+	}
+}
+
+.cta-banner:not(.cta-banner--light) .cta-banner__submit {
+
+  @include hover-desktop {
+    transform: translateY(-2px);
+    background: #353535;
+    color: #fff;
+    transition: .2s ease;
+  }
+  &:active {
+    background: #222;
+    color: #fff;
+    transition: .2s ease;
+  }
+}
+
+.cta-banner--light .cta-banner__submit {
+
+  @include hover-desktop {
+    transform: translateY(-2px);
+    background: #cea75e;
+    color: #fff;
+    transition: .2s ease;
+  }
+  &:active {
+    background: #b6914b;
+    color: #fff;
+    transition: .2s ease;
+  }
+}
+
+.cta-banner__submit {
+  @include min($bp-tablet) {
+    max-width: 210px;
+  }
+}
 
 
 

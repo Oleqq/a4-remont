@@ -7,7 +7,7 @@
 
 	&__panel {
 		border-radius: 10px;
-		background: #efe6d6;
+		background: #ede4d2;
 		padding: 40px;
 		@include adaptive-value(padding, 40px, 10px, $bp-desktop, $bp-mob);
 	}
@@ -54,7 +54,7 @@
 
 	&__card {
 		min-height: 220px;
-		background: #fcf7f1;
+		background: #fff;
 		border-radius: 10px;
 		padding: 10px;
 		transition: transform 0.24s $easing, box-shadow 0.24s $easing;

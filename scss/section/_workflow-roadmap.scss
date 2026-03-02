@@ -6,11 +6,11 @@
 	
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 50px 0px;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 60px;
+		padding: 30px 0;
 	}
 
 	&__inner {
@@ -134,7 +134,7 @@
 
 	&__num {
 		font-family: $font-family;
-		font-weight: 800;
+		font-weight: 700;
 		font-size: 44px;
 		@include adaptive-font(32, 44);
 		line-height: 1;

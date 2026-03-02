@@ -14,6 +14,7 @@
 	}
 
     .section__title {
+		
         margin-bottom: 40px;
         @include adaptive-value(margin-bottom, 40px, 20px, $bp-desktop, $bp-mob);
     }
@@ -39,7 +40,7 @@
 }
 
 .faq-item {
-	background: #efe6d6;
+	background: #ede4d2;
 	border-radius: 10px;
 	padding: 0;
 	overflow: hidden;

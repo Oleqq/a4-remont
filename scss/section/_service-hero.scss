@@ -2,14 +2,14 @@
 @use "../global/mixins" as *;
 
 .service-hero {
-	padding: 56px 0 70px;
+	padding: 40px 0 60px;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 40px 0 50px;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 44px;
+		padding: 40px 0 30px;
 	}
 
 	&__grid {
@@ -42,8 +42,12 @@
 	}
 
 	&__title {
+		@include adaptive-font(25, 50);
 		margin: 0 0 10px;
 		text-transform: uppercase;
+		@include min($bp-tablet + 1px) {
+			white-space: nowrap;
+		}
 
 		@include max($bp-tablet) {
 			max-width: 860px;
@@ -61,8 +65,9 @@
 	}
 
 	&__btn {
-		min-width: 240px;
+		min-width: 310px;
 		width: fit-content;
+		@include adaptive-font(16, 18);
 
 		@include max($bp-mob) {
 			width: 100%;
@@ -74,8 +79,8 @@
 		grid-area: media;
 		min-width: 0;
 		align-self: end;
-		padding-top: 56px;
-		@include adaptive-value(padding-top, 56px, 20px, $bp-desktop, $bp-tablet);
+		padding-top: 45px;
+		@include adaptive-value(padding-top, 45px, 20px, $bp-desktop, $bp-tablet);
 
 		@include max($bp-tablet) {
 			padding-left: 60px;

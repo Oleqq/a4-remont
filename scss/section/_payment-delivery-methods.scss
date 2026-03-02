@@ -18,8 +18,22 @@
 	}
 
 	&__media {
+		position: relative;
+		overflow: hidden;
+		border-radius: 10px;
+		transition: transform 0.26s $easing, box-shadow 0.26s $easing;
+
 		@include max($bp-tablet) {
 			order: 2;
+		}
+
+		@include hover-desktop {
+			transform: translateY(-4px);
+			box-shadow: 0 12px 24px rgba(23, 23, 23, 0.16);
+
+			.payment-delivery-methods__image {
+				transform: scale(1.04);
+			}
 		}
 	}
 
@@ -39,6 +53,7 @@
 		min-height: 420px;
 		object-fit: cover;
 		border-radius: 10px;
+		transition: transform 0.4s $easing;
 
 		@include max($bp-tablet) {
 			min-height: 300px;
@@ -50,10 +65,12 @@
 	}
 
 	&__lead {
-		margin: 0;
+		
 		max-width: 540px;
 
-		
+		@include min($bp-tablet + 1px) {
+			margin: 0 0 20px;
+		}
 	}
 
 	&__list {
@@ -77,6 +94,8 @@
 		padding: 20px;
 		@include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
 		transition: transform 0.26s $easing, box-shadow 0.26s $easing;
+
+		cursor: default;
 
 		@include hover-desktop {
 			transform: translateY(-4px);

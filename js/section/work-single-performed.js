@@ -20,6 +20,7 @@ export function initWorkSinglePerformed() {
 			slidesPerView: 4,
 			updateOnWindowResize: true,
 			observeParents: true,
+			loop: true,
 			observer: true,
 
 			navigation: {

@@ -71,18 +71,36 @@ footer.footer
 				a.footer__policy-link(href="#") Согласие Cookies
 
 			.footer__requisites
-				p.footer__req-title Адрес:
-				p.footer__req-text 
+				.footer__req-layout
+					.footer__req-col.footer__req-col--address
+						p.footer__req-title Адрес:
+						p.footer__req-text.footer__req-text--address
+							| г. Москва, Каширский
+							br
+							| проезд, д. 7
 
-				p.footer__req-title Реквизиты:
-				p.footer__req-text
-					| ООО ______
-					br
-					| ИНН: 0000000000
-					br
-					| КПП: 0000000000000
-					br
-					| E-mail:
+					.footer__req-col.footer__req-col--details
+						p.footer__req-title Реквизиты:
+						.footer__req-grid
+							.footer__req-group
+								p.footer__req-text ООО ______
+								p.footer__req-text ИНН: 0000000000
+
+							.footer__req-group
+								p.footer__req-text КПП: 0000000000000
+								p.footer__req-text E-mail:
+				//- p.footer__req-title Адрес:
+				//- p.footer__req-text 
+
+				//- p.footer__req-title Реквизиты:
+				//- p.footer__req-text
+				//- 	| ООО ______
+				//- 	br
+				//- 	| ИНН: 0000000000
+				//- 	br
+				//- 	| КПП: 0000000000000
+				//- 	br
+				//- 	| E-mail:
 
 		.footer__bottom
 			p.footer__copy ©2026 - Официальный сайт «A4 Ремонт»

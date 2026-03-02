@@ -3,10 +3,10 @@
 
 .history-achievements {
 	
-	padding: 56px 0 70px;
+	padding: 50px 0 60px;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 50px 0 50px;
 	}
 
 	@include max($bp-mob) {
@@ -14,7 +14,7 @@
 	}
 
 	&__card {
-		background: #efe6d6;
+		background: #ede4d2;
 		border-radius: 10px;
 		padding: 40px;
         @include adaptive-value(padding, 40px, 10px, $bp-desktop, $bp-mob);
@@ -107,6 +107,10 @@
         line-height: 130%;
         color: #fff;
 		@include adaptive-font(14, 18);
+
+		@include max($bp-mob) {
+			max-width: 50%;
+		}
 	}
 
 	&__stat-value {
@@ -116,6 +120,7 @@
 		gap: 14px;
 		align-items: baseline;
         justify-content: flex-end;
+		text-transform: uppercase;
         
 	}
 
@@ -131,13 +136,19 @@
 	}
 
 	&__stat-unit {
-		font-weight: 900;
-		@include adaptive-font(22, 34);
+ 		font-family: var(--font-family);
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 110%;
+        text-transform: uppercase;
+        color: #fff;
+		@include adaptive-font(48, 64);
 		line-height: 1;
 	}
 
 	&__timeline {
-		margin-top: 26px;
+		margin-top: 60px;
+		@include adaptive-value(margin-top, 60px, 20px, $bp-desktop, $bp-mob);
 
 		svg {
 			width: 100%;

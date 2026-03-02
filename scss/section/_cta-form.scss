@@ -2,14 +2,19 @@
 @use "../global/mixins" as *;
 
 .cta-form {
-	padding: 56px 0 70px;
+	padding: 40px 0 60px;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 40px 0 60px;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 44px;
+		padding: 40px 0 60px;
+	}
+
+	.cta-form__title.inner {
+		@include adaptive-font(25, 50);
+		max-width: 100%;
 	}
 
 	&__grid {
@@ -50,7 +55,7 @@
 	}
 
 	&__right {
-		background: #efe6d6;
+		background: #ede4d2;
 		border-radius: 10px;
 		padding: 40px;
 		@include adaptive-value(padding, 40px, 10px, $bp-desktop, $bp-mob);
@@ -126,7 +131,7 @@
 		display: grid;
 		grid-template-columns: 40px minmax(0, 1fr);
 		gap: 10px;
-		align-items: start;
+		align-items: center;
 		cursor: pointer;
 		user-select: none;
 		margin-top: 6px;
@@ -148,31 +153,41 @@
 	&__agree-ui {
 		width: 40px;
 		height: 40px;
-		border-radius: 999px;
-		background: #c09b57;
+		flex: 0 0 40px;
+		border-radius: 50%;
+		border: 4px solid rgba(243, 236, 230, 0.96);
+		background: transparent;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		position: relative;
-		transition: transform 0.22s $easing, box-shadow 0.22s $easing;
+		transition: background-color 0.22s $easing, border-color 0.22s $easing, box-shadow 0.22s $easing, transform 0.22s $easing;
 
 		@include max($bp-mob) {
 			width: 34px;
 			height: 34px;
+			flex-basis: 34px;
+			border-width: 3px;
 		}
 	}
 
 	&__agree-ui::after {
 		content: "";
-		width: 16px;
-		height: 12px;
+		width: 18px;
+		height: 13px;
 		opacity: 0;
 		transform: scale(0.85);
 		transition: opacity 0.18s $easing, transform 0.18s $easing;
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: 16px 12px;
-		background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2212%22%20viewBox%3D%220%200%2016%2012%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1.2%205.8L5.8%2010.4L14.8%201.4%22%20stroke%3D%22white%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
+		background-size: 18px 13px;
+		background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2218%22%20height%3D%2213%22%20viewBox%3D%220%200%2018%2013%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1.25%206.25L6.25079%2011.25L16.25%201.25%22%20stroke%3D%22%23222222%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
+	}
+
+	&__checkbox:checked + &__agree-ui {
+		background: rgba(243, 236, 230, 0.96);
+		border-color: rgba(243, 236, 230, 0.96);
+		transform: translateY(-1px);
 	}
 
 	&__checkbox:checked + &__agree-ui::after {
@@ -181,14 +196,14 @@
 	}
 
 	&__checkbox:focus-visible + &__agree-ui {
-		box-shadow: 0 0 0 2px rgba(243, 236, 230, 1), 0 0 0 4px rgba(192, 155, 87, 0.5);
+		box-shadow: 0 0 0 2px rgba(243, 236, 230, 1), 0 0 0 5px rgba(192, 155, 87, 0.32);
 	}
 
 	&__agree-text {
 		font-family: $font-family;
 		font-weight: 400;
-		font-size: 24px;
-		@include adaptive-font(12, 15);
+		font-size: 12px;
+		@include adaptive-font(10, 12);
 		line-height: 130%;
 		color: #2a2a2a;
 		max-width: 560px;
@@ -209,7 +224,7 @@
 	&__submit {
 		width: 100%;
 		
-
+		@include adaptive-font(16, 18);
 		@include min($bp-tablet) {
 			max-width: 310px;
 		}

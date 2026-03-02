@@ -1,14 +1,21 @@
 section.work-single-result(data-work-result)
 	.work-single-result__container
 		.work-single-result__bg
-			img.about-reviews__bg-img.work-single-result__bg-img(
-				src="images/dfasfasfasfasasfsa.png"
-				alt="Интерьер после ремонта"
-				title="Интерьер после ремонта"
-				width="1600"
-				height="1200"
-				loading="lazy"
-			)
+			picture
+				source(
+					media="(max-width: 467px)"
+					srcset="images/dfdfdfdfdfdfdf.png"
+					type="image/png"
+				)
+				img.about-reviews__bg-img.work-single-result__bg-img(
+					src="images/dfasfasfasfasasfsa.png"
+					alt="Интерьер после ремонта"
+					title="Интерьер после ремонта"
+					width="1600"
+					height="1200"
+					loading="lazy"
+				)
+			
 
 		article.about-reviews__company.work-single-result__company
 			h2.about-reviews__company-title.work-single-result__title Результат работ

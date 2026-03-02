@@ -1,18 +1,24 @@
 section.payment-delivery-guarantee
 	.payment-delivery-guarantee__container._container
 		.payment-delivery-guarantee__media
-			img.payment-delivery-guarantee__image(
-				src="images/bdfbfdbfdbfdb.png"
-				alt="Гарантии на ремонт"
-				title="Гарантии на ремонт"
-				width="1320"
-				height="640"
-				loading="lazy"
-			)
+			picture
+				source(
+					media="(max-width: 467px)"
+					srcset="images/sdfsfsdfsdsdfds.png"
+					type="image/png"
+				)
+				img.payment-delivery-guarantee__image(
+					src="images/bdfbfdbfdbfdb.png"
+					alt="Гарантии на ремонт"
+					title="Гарантии на ремонт"
+					width="1320"
+					height="640"
+					loading="lazy"
+				)
 
 			article.payment-delivery-guarantee__card
 				h2.section__title.payment-delivery-guarantee__title
-					| Гарантии на ремонт
+					| Гарантии на ремонт 
 					br
 					| от нашей компании
 				p.section__subtitle.payment-delivery-guarantee__lead

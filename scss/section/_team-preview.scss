@@ -7,11 +7,11 @@
 	overflow: hidden;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 30px 0;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 60px;
+		padding: 30px 0;
 	}
 
 	&__head {
@@ -141,14 +141,15 @@
 		position: relative;
 
         @include max($bp-tablet) {
-            width: 80% !important;
+            width: 50% !important;
             margin: 0 auto;
             left: 0;
             right: 0;
+			    bottom: 34px !important;
         }
 
-        @include max(467px) {
-            width: 50% !important;
+        @include max($bp-mob) {
+           
         }
 
 		.swiper-scrollbar-drag {

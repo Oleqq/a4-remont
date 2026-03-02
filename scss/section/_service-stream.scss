@@ -2,17 +2,17 @@
 @use "../global/mixins" as *;
 
 .service-stream {
-	padding: 60px 0;
+	padding: 50px 0 60px;
 
 
     overflow: hidden;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 50px 0 50px;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 60px;
+		padding: 30px 0 0px;
 	}
 
 	&__head {
@@ -100,7 +100,11 @@
 
 	&__top-right {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: flex-start;
+		
+		@include max(1199px) {
+			justify-content: center;
+		}
 
 		@include max($bp-tablet) {
 			justify-content: flex-start;
@@ -266,7 +270,7 @@
         margin: 0 auto;
         left: 0;
 		right: 0;
-
+    	bottom: 18px !important;
 		@include max($bp-tablet) {
 	
 		}
@@ -280,5 +284,231 @@
 			border-radius: 999px;
 			background: #222222;
 		}
+	}
+
+	.offer-card {
+		height: 100%;
+		background: transparent;
+		overflow: visible;
+		border-radius: 10px;
+		display: flex;
+	}
+
+	.offer-card__title {
+		margin: 0;
+	}
+
+	.offer-card__img {
+		height: 100%;
+	}
+
+	.offer-card__link {
+		position: relative;
+		isolation: isolate;
+		height: 100%;
+		border-radius: 10px;
+		overflow: hidden;
+		background: linear-gradient(180deg, #f5ede2 0%, #efe6d6 100%);
+		border: 1px solid rgba(192, 155, 87, 0.14);
+		// box-shadow: 0 10px 24px rgba(34, 34, 34, 0.05);
+		transition: transform 0.34s $easing, box-shadow 0.34s $easing, border-color 0.34s $easing, background-color 0.34s $easing;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: -32px;
+			right: -28px;
+			width: 180px;
+			height: 180px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(192, 155, 87, 0.2) 0%, rgba(192, 155, 87, 0) 72%);
+			opacity: 0.45;
+			// transform: scale(0.92);
+			transition: transform 0.42s $easing, opacity 0.42s $easing;
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		&:focus-visible {
+			outline: none;
+			// transform: translateY(-8px);
+			border-color: rgba(192, 155, 87, 0.3);
+			box-shadow: 0 24px 42px rgba(34, 34, 34, 0.12), 0 0 0 3px rgba(192, 155, 87, 0.14);
+		}
+
+		@include hover-desktop {
+			// transform: translateY(-8px);
+			border-color: rgba(192, 155, 87, 0.3);
+			// box-shadow: 0 24px 42px rgba(34, 34, 34, 0.12);
+
+			&::after {
+				opacity: 0.7;
+				// transform: scale(1.04);
+			}
+		}
+	}
+
+	.offer-card__media,
+	.offer-card__content {
+		position: relative;
+		z-index: 1;
+	}
+
+	.offer-card__media {
+		border-radius: 10px;
+		box-shadow: 0 12px 24px rgba(34, 34, 34, 0.08);
+		transition: transform 0.42s $easing, box-shadow 0.42s $easing;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(115deg, rgba(255, 255, 255, 0) 18%, rgba(255, 255, 255, 0.3) 44%, rgba(255, 255, 255, 0) 66%);
+			transform: translateX(-155%);
+			transition: transform 0.72s $easing;
+			pointer-events: none;
+			z-index: 2;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(180deg, rgba(10, 10, 10, 0) 28%, rgba(10, 10, 10, 0.18) 100%);
+			opacity: 0.72;
+			transition: opacity 0.34s $easing;
+			pointer-events: none;
+			z-index: 1;
+		}
+	}
+
+	.offer-card__img {
+		transition: transform 0.55s $easing, filter 0.34s $easing;
+	}
+
+	.offer-card__icon {
+	
+		z-index: 3;
+		background-color: rgba(34, 34, 34, 0.94);
+		box-shadow: 0 10px 18px rgba(34, 34, 34, 0.18);
+		transition: transform 0.32s $easing, background-color 0.32s $easing, box-shadow 0.32s $easing;
+
+		right: 10px;
+    	top: 10px;
+    	position: absolute;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: -5px;
+			border-radius: inherit;
+			border: 1px solid rgba(255, 255, 255, 0.34);
+			opacity: 0;
+			transform: scale(0.82);
+			transition: transform 0.32s $easing, opacity 0.32s $easing;
+		}
+	}
+
+	.offer-card__content {
+		gap: 10px;
+		transition: transform 0.34s $easing;
+	}
+
+	.offer-card__title {
+		transition: color 0.26s $easing, transform 0.34s $easing;
+	}
+
+	.offer-card__text {
+		transition: color 0.26s $easing, transform 0.34s $easing, opacity 0.26s $easing;
+	}
+
+	.offer-card__link:focus-visible .offer-card__media {
+		transform: translateY(-2px);
+		box-shadow: 0 16px 28px rgba(34, 34, 34, 0.12);
+	}
+
+	.offer-card__link:focus-visible .offer-card__media::before {
+		transform: translateX(120%);
+	}
+
+	.offer-card__link:focus-visible .offer-card__img {
+		transform: scale(1.08) rotate(0.8deg);
+		filter: saturate(1.05);
+	}
+
+	.offer-card__link:focus-visible .offer-card__icon {
+		background-color: #c09b57;
+		transform: translateY(-2px) scale(1.06) rotate(4deg);
+		box-shadow: 0 14px 24px rgba(192, 155, 87, 0.3);
+	}
+
+	.offer-card__link:focus-visible .offer-card__icon::before {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.offer-card__link:focus-visible .offer-card__content {
+		transform: translateY(-3px);
+	}
+
+	.offer-card__link:focus-visible .offer-card__title {
+		color: #c09b57;
+		transform: translateY(-1px);
+	}
+
+	.offer-card__link:focus-visible .offer-card__text {
+		color: rgba(34, 34, 34, 0.86);
+		transform: translateY(-1px);
+	}
+
+	@include hover-desktop {
+		.offer-card__link:hover .offer-card__media {
+			transform: translateY(-2px);
+			box-shadow: 0 16px 28px rgba(34, 34, 34, 0.12);
+		}
+
+		.offer-card__link:hover .offer-card__media::before {
+			transform: translateX(120%);
+		}
+
+		.offer-card__link:hover .offer-card__img {
+			transform: scale(1.08) rotate(0.8deg);
+			filter: saturate(1.05);
+		}
+
+		.offer-card__link:hover .offer-card__icon {
+			background-color: #c09b57;
+			transform: translateY(-2px) scale(1.06) rotate(4deg);
+			box-shadow: 0 14px 24px rgba(192, 155, 87, 0.3);
+		}
+
+		.offer-card__link:hover .offer-card__icon::before {
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		.offer-card__link:hover .offer-card__content {
+			transform: translateY(-3px);
+		}
+
+		.offer-card__link:hover .offer-card__title {
+			color: #c09b57;
+			transform: translateY(-1px);
+		}
+
+		.offer-card__link:hover .offer-card__text {
+			color: rgba(34, 34, 34, 0.86);
+			transform: translateY(-1px);
+		}
+	}
+}
+
+#service-stream > div > div:nth-child(3) > div.service-stream__top > div.service-stream__top-right > p::after {
+	@include min($bp-tablet + 1px) {
+		right: -72px;
+    	bottom: -40px;
+	}
+	@include max($bp-tablet) {
+		right: -50px;
 	}
 }

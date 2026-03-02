@@ -3,14 +3,21 @@ section.faq-hero
 		h1.section__title.faq-hero__title Ответы на вопросы по ремонту и дизайну
 
 		.faq-hero__media
-			img.faq-hero__image(
-				src="images/svdsvsvsdvsdvsdvd.png"
-				alt="Ответы на вопросы о ремонте"
-				title="Ответы на вопросы о ремонте"
-				width="1380"
-				height="540"
-				loading="lazy"
-			)
+			picture
+				source(
+					media="(max-width: 467px)"
+					srcset="images/fdbdfbdfbdbdfbfd.png"
+					type="image/png"
+				)
+				img.faq-hero__image(
+					src="images/svdsvsvsdvsdvsdvd.png"
+					alt="Ответы на вопросы о ремонте"
+					title="Ответы на вопросы о ремонте"
+					width="1380"
+					height="540"
+					loading="lazy"
+				)
+			
 
 			.faq-hero__note
 				p
@@ -19,4 +26,3 @@ section.faq-hero
 					| коробку в уютное семейное пространство.
 
 			span.faq-hero__badge(aria-hidden="true") ?
-

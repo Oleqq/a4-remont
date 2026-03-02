@@ -2,14 +2,14 @@
 @use "../global/mixins" as *;
 
 .policy-content {
-	padding: 56px 0 70px;
+	padding: 40px 0 60px;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 40px 0 60px;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 44px;
+		padding: 40px 0 10px;
 	}
 
 	&__inner {
@@ -27,8 +27,8 @@
 		margin: 0 0 10px;
 		font-family: $font-family;
 		font-weight: 700;
-		font-size: 56px;
-		@include adaptive-font(24, 56);
+		font-size: 40px;
+		@include adaptive-font(22, 40);
 		line-height: 120%;
 		color: #c09b57;
 	}

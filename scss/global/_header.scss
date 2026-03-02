@@ -20,7 +20,7 @@
       justify-content: space-between;
     }
     @include max($bp-mob) {
-      height: 48px;
+      height: 52px;
       
     }
 	}
@@ -119,6 +119,12 @@
 		// @include max($bp-tablet) {
 		// 	display: none;
 		// }
+
+		&-txt {
+			@include max($bp-mob) {
+				font-size: 18px;
+			}
+		}
 	}
 
 	&__phone-ic {
@@ -164,7 +170,7 @@
 		border-radius: 999px;
 		outline: none;
     border: none;
-		background: #ede4d2;
+		// background: #ede4d2;
 		align-items: center;
 		justify-content: center;
 		gap: 4px;
@@ -350,9 +356,9 @@
 		justify-content: space-between;
 		padding: 0 20px;
 
-    @include max($bp-mob) {
-      height: 48px;
-    }
+		@include max($bp-mob) {
+		height: 52px;
+		}
 	}
 
 	&__close {
@@ -398,6 +404,7 @@
     color: #fff;
 		font-size: 32px;
     @include adaptive-font(20, 32);
+		padding: 0;
 		background: transparent;
 		border: 0;
 		cursor: pointer;
@@ -419,7 +426,7 @@
 
 	&__dropdown {
 		display: none;
-		margin-top: 18px;
+		margin-top: 0;
 	}
 
 	&__item--has-sub._open .header-mob__dropdown {
@@ -554,6 +561,12 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+
+		svg {
+			rect {
+				fill: #c09b57;
+			}
+		}
 	}
 
 	&__btn {
@@ -750,10 +763,12 @@
 	&__dropdown {
 		display: grid;
 		grid-template-rows: 0fr;
+		padding-top: 0;
 		opacity: 0;
 		transform: translateY(-6px);
 		transition:
 			grid-template-rows 0.38s $easing,
+			padding-top 0.38s $easing,
 			opacity 0.30s $easing,
 			transform 0.30s $easing;
 	}
@@ -764,6 +779,7 @@
 
 	&__item--has-sub._open &__dropdown {
 		grid-template-rows: 1fr;
+		padding-top: 18px;
 		opacity: 1;
 		transform: translateY(0);
 	}
@@ -775,4 +791,21 @@
 	&__item--has-sub._open &__col {
 		transform: translateY(0);
 	}
+}
+
+span.header__phone-ic > svg > rect {
+	@include max ($bp-mob) {
+		fill: #c09b57;
+	}
+}
+span.header__phone-ic  {
+	width: 22px;
+	height: 22px;
+	
+}
+
+span.header__phone-ic svg  {
+	width: 22px;
+	height: 22px;
+	
 }

@@ -2,15 +2,16 @@
 @use "../global/mixins" as *;
 
 .service-order-steps {
-	padding: 56px 0 70px;
 	overflow: hidden;
 
+	padding: 60px 0;
+
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 50px 0;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 44px;
+		padding: 30px 0;
 	}
 
 	&__top {
@@ -33,11 +34,7 @@
 
 	&__slider {
 		min-width: 0;
-		overflow: hidden;
-
-		@include max($bp-tablet) {
-			overflow: visible;
-		}
+		overflow: visible;
 	}
 
 	&__track {
@@ -94,11 +91,12 @@
 }
 
 .service-order-step {
-	background: #efe6d6;
+	background: #ede4d2;
 	border-radius: 10px;
-	height: 340px;
-	@include adaptive-value(height, 340px, 310px, $bp-desktop, $bp-mob);
+	height: 100%;
+	// @include adaptive-value(height, 255px, 310px, $bp-desktop, $bp-mob);
 	overflow: hidden;
+	border: 1px solid rgba(192, 155, 87, 0.12);
 	display: grid;
 	grid-template-columns: auto minmax(0, 1fr);
 	grid-template-rows: auto 1fr;
@@ -107,6 +105,46 @@
 	@include adaptive-value(row-gap, 30px, 10px, $bp-desktop, $bp-mob);
 	align-content: start;
 	position: relative;
+	isolation: isolate;
+	box-shadow: 0 14px 30px rgba(34, 34, 34, 0.05);
+	transition:
+		transform 0.42s $easing,
+		box-shadow 0.42s $easing,
+		border-color 0.42s $easing,
+		background-color 0.42s $easing,
+		opacity 0.55s $easing,
+		filter 0.55s $easing;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: -68px;
+		right: -38px;
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgba(192, 155, 87, 0.18) 0%, rgba(192, 155, 87, 0) 72%);
+		opacity: 0.36;
+		transition: transform 0.42s $easing, opacity 0.42s $easing;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		left: 20px;
+		right: 20px;
+		bottom: 0;
+		height: 1px;
+		background: linear-gradient(90deg, rgba(192, 155, 87, 0) 0%, rgba(192, 155, 87, 0.38) 50%, rgba(192, 155, 87, 0) 100%);
+		opacity: 0.42;
+		transform: scaleX(0.9);
+		transform-origin: center;
+		transition: transform 0.34s $easing, opacity 0.34s $easing;
+		pointer-events: none;
+		z-index: 1;
+	}
 
 	@include max($bp-tablet) {
 		height: 230px;
@@ -126,6 +164,9 @@
 		@include adaptive-value(padding-left, 20px, 10px, $bp-desktop, $bp-mob);
 		@include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
 		margin-bottom: 0;
+		position: relative;
+		z-index: 1;
+		transition: transform 0.34s $easing, color 0.28s $easing, opacity 0.28s $easing;
 	}
 
 	&__title {
@@ -140,6 +181,9 @@
 		@include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
 		padding-top: 20px;
 		@include adaptive-value(padding-top, 20px, 10px, $bp-desktop, $bp-mob);
+		position: relative;
+		z-index: 1;
+		transition: transform 0.34s $easing, color 0.28s $easing;
 	}
 
 	&__text {
@@ -151,7 +195,90 @@
 		height: fit-content;
 		padding-left: 20px;
 		padding-right: 20px;
+		padding-bottom: 20px;
 		@include adaptive-value(padding-left, 20px, 10px, $bp-desktop, $bp-mob);
 		@include adaptive-value(padding-right, 20px, 10px, $bp-desktop, $bp-mob);
+		@include adaptive-value(padding-bottom, 20px, 10px, $bp-desktop, $bp-mob);
+		position: relative;
+		z-index: 1;
+		transition: transform 0.34s $easing, color 0.28s $easing, opacity 0.28s $easing;
+	}
+}
+
+.service-order-steps {
+	.service-order-step {
+		opacity: 0;
+		transform: translateY(28px) scale(0.975);
+		filter: blur(10px);
+	}
+
+	&.animated .service-order-step {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: blur(0);
+	}
+
+	@include hover-desktop {
+		.service-order-step:hover {
+			transition:
+				transform 0.32s $easing,
+				box-shadow 0.32s $easing,
+				border-color 0.32s $easing,
+				background-color 0.32s $easing,
+				opacity 0.55s $easing,
+				filter 0.55s $easing;
+			transform: scale(1.01);
+			border-color: rgba(192, 155, 87, 0.26);
+			background: linear-gradient(180deg, #ede4d2 0%, #f2e8d9 100%);
+			box-shadow: 0 24px 40px rgba(34, 34, 34, 0.12), 0 0 0 3px rgba(192, 155, 87, 0.1);
+		}
+
+		.service-order-step:hover::before {
+			transition-duration: 0.32s;
+			opacity: 0.7;
+			transform: scale(1.08);
+		}
+
+		.service-order-step:hover::after {
+			transition-duration: 0.32s;
+			opacity: 1;
+			transform: scaleX(1);
+		}
+
+		.service-order-step:hover .service-order-step__num {
+			transition-duration: 0.32s;
+			transform: scale(1.04);
+			color: rgba(192, 155, 87, 0.56);
+		}
+
+		.service-order-step:hover .service-order-step__title,
+		.service-order-step:hover .service-order-step__text {
+			transition-duration: 0.32s;
+		}
+
+		.service-order-step:hover .service-order-step__title {
+			color: #c09b57;
+		}
+
+		.service-order-step:hover .service-order-step__text {
+			opacity: 0.94;
+		}
+	}
+
+	@include max($bp-tablet) {
+		.swiper-slide-active .service-order-step {
+			transform: scale(1.005);
+			border-color: rgba(192, 155, 87, 0.22);
+			box-shadow: 0 18px 30px rgba(34, 34, 34, 0.1);
+		}
+
+		.swiper-slide-active .service-order-step::before {
+			opacity: 0.58;
+			transform: scale(1.04);
+		}
+
+		.swiper-slide-active .service-order-step .service-order-step__title {
+			color: #c09b57;
+		}
 	}
 }

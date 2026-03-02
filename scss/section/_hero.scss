@@ -3,15 +3,17 @@
 
 .hero {
 
-  padding: 40px 0 40px;
+  padding: 40px 0 50px;
 
   @include max($bp-tablet) {
-    padding: 42px 0 56px;
+    padding: 40px 0 50px;
   }
   
   @include max($bp-mob) {
-    padding: 30px 0 44px;
+    padding: 30px 0;
   }
+
+
 
   &__grid {
     display: grid;
@@ -53,6 +55,14 @@
     height: fit-content;
 
     margin-bottom: 10px;
+
+    @media (max-width:1024px) and (min-width:834px) {
+      font-size: 50px;
+    }
+
+    @include max(834px) {
+      @include adaptive-value(font-size, 50px, 25px, 834px, $bp-mob);
+    }
   }
 
   &__text {
@@ -65,6 +75,8 @@
     @include adaptive-font(14, 18);
     line-height: 130%;
     color: #222;
+
+   
   }
 
   &__bottom {
@@ -94,11 +106,17 @@
       flex-wrap: wrap;
     }
 
+    @include max($bp-tablet) {
+      display: grid;
+              grid-template-columns: repeat(2, minmax(0, 50%));
+    }
+
     @include max($bp-mob-lg) {
       gap: 10px;
     }
 
     @include max($bp-mob) {
+      display: flex;
       flex-direction: column;
       gap: 10px;
     }
@@ -108,7 +126,12 @@
     width: 310px;
     white-space: nowrap;
     border-radius: 999px;
+    @include adaptive-font(16, 18);
    
+    @include max($bp-tablet) {
+      max-width: 100%;
+      width: 100%;
+    }
 
     @include max($bp-mob-lg) {
 
@@ -130,6 +153,10 @@
     overflow: hidden;
     background: #ddd;
     height: 100%;
+
+    @include max($bp-mob) {
+      aspect-ratio: 320 / 330;
+    }
   }
 
   &__slide {
@@ -206,6 +233,22 @@
     .swiper-pagination-bullet-active {
       background: rgba(255, 255, 255, 0.95);
       transform: scale(1.1);
+    }
+  }
+
+
+
+
+  // about-us
+  &.hero-about-us {
+
+    .hero__img, .hero__slider {
+      @include max($bp-tablet) {
+        aspect-ratio: 775 / 550;
+      }
+      @include max ($bp-mob) {
+        aspect-ratio: 320 / 225;
+      }
     }
   }
 }

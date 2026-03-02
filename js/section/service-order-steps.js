@@ -13,7 +13,7 @@ export function initServiceOrderSteps() {
 		swiperInstance = new Swiper(root, {
 			speed: 600,
 			spaceBetween: 10,
-			slidesPerView: 1.18,
+			slidesPerView: 1.33,
 			watchOverflow: true,
 			breakpoints: {
 				651: {

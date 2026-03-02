@@ -2,14 +2,14 @@
 @use "../global/mixins" as *;
 
 .faq-secondary {
-	padding: 32px 0 70px;
+	padding: 40px 0;
 
 	@include max($bp-tablet) {
-		padding: 24px 0 60px;
+		padding: 40px 0;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 44px;
+		padding: 30px 0;
 	}
 
 	&__list {
@@ -99,7 +99,7 @@
 		transform: translateY(-8px);
 		
 		pointer-events: none;
-		transition: max-height 0.5s $easing, opacity 0.5s $easing, transform 0.33s $easing;
+		transition: max-height .5s $easing, opacity .66s $easing, transform 0.5s $easing;
 
 		@include max($bp-tablet) {
 			width: calc(100% - 80px);
@@ -118,6 +118,8 @@
 		background: #222;
 		padding: 20px;
 		@include adaptive-value(padding, 20px, 10px, $bp-desktop, $bp-mob);
+
+
 
 		&::before {
 			content: "";
@@ -153,7 +155,7 @@
 			opacity: 1;
 			transform: translateY(0);
 			pointer-events: auto;
-			transition: max-height 0.5s $easing, opacity 0.5s $easing, transform 0.33s $easing;
+			transition: max-height 1s $easing, opacity 1s $easing, transform 1s $easing;
 		}
 
 		.faq-secondary__icon::after {

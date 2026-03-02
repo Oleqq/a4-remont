@@ -115,6 +115,7 @@ export function initReviewsFeedback() {
 	const swiper = new Swiper(slider, {
 		speed: 600,
 		watchOverflow: true,
+		loop: true,
 		spaceBetween: 10,
 		slidesPerView: 4,
 		updateOnWindowResize: true,

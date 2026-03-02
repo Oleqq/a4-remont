@@ -12,7 +12,7 @@ export function initWhyUs() {
 		swiperInstance = new Swiper(root, {
 			slidesPerView: 2.5,
 			spaceBetween: 14,
-			speed: 600,
+			// speed: 600,
 			watchOverflow: true,
 			breakpoints: {
 				0: { slidesPerView: 1.25 },

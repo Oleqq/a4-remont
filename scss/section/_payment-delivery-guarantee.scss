@@ -4,6 +4,23 @@
 .payment-delivery-guarantee {
 	margin-top: 120px;
 	@include adaptive-value(margin-top, 120px, 60px, $bp-desktop, $bp-mob);
+	--payment-delivery-guarantee-inline: 60px;
+
+	@media (max-width: 1400px) {
+		--payment-delivery-guarantee-inline: 20px;
+	}
+
+	@media (max-width: 650px) {
+		--payment-delivery-guarantee-inline: 16px;
+	}
+
+	&__container {
+		@include min($bp-tablet + 1px) {
+			max-width: none;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
 
 	&__media {
 		position: relative;
@@ -24,16 +41,17 @@
 
 		@include max($bp-mob) {
 			min-height: 360px;
+			aspect-ratio: 320 / 480;
 		}
 	}
 
 	&__card {
 		position: absolute;
 		top: 20px;
-		left: 20px;
+		left: calc((100vw - min(100vw, #{$container-max})) / 2 + var(--payment-delivery-guarantee-inline));
 		max-width: 560px;
 		border-radius: 10px;
-		background: rgba(243, 236, 230, 0.96);
+		background: #f3ece6;
 		padding: 40px;
 		@include adaptive-value(padding, 40px, 10px, $bp-desktop, $bp-mob);
 
@@ -47,6 +65,13 @@
 
 	&__title {
 		margin: 0 0 10px;
+
+		@include max($bp-mob) {
+			max-width: 90%;
+			br {
+				display: none;
+			}
+		}
 	}
 
 	&__lead {

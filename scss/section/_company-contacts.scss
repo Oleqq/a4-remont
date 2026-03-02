@@ -6,16 +6,23 @@
 
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 60px 0;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 60px;
+		padding: 30px 0;
+	}
+
+	&.contacts-page {
+		.company-contacts__cols {
+			display: flex;
+		}
 	}
 
 	&__head {
 		margin-bottom: 18px;
 	}
+
 
 	&__cols {
 		display: grid;

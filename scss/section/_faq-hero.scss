@@ -2,22 +2,22 @@
 @use "../global/mixins" as *;
 
 .faq-hero {
-	padding: 56px 0 24px;
+	padding: 40px 0 40px;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 20px;
+		padding: 40px 0 40px;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 14px;
+		padding: 40px 0px 30px;
 	}
 
 	&__title {
 		margin: 0 0 20px;
 		text-transform: uppercase;
-		max-width: 1160px;
+		max-width: 100%;
 		font-size: 50px;
-		@include adaptive-font(25, 50);
+		@include adaptive-font(26, 50);
 	}
 
 	&__media {
@@ -82,8 +82,8 @@
 		position: absolute;
 		right: 14px;
 		bottom: 14px;
-		width: 84px;
-		height: 84px;
+		width: 100px;
+		height: 100px;
 		border-radius: 10px;
 		background: #c09b57;
 		display: inline-flex;
@@ -103,8 +103,8 @@
 			left: 10px;
 			right: auto;
 			bottom: auto;
-			width: 54px;
-			height: 54px;
+			width: 50px;
+			height: 50px;
 			font-size: 40px;
 		}
 	}

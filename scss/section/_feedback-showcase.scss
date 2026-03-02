@@ -7,11 +7,11 @@
 	overflow: hidden;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 50px 0;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 60px;
+		padding: 30px 0;
 	}
 	
 	.review-card {
@@ -20,6 +20,79 @@
 		width: 100% !important;
 
 		background: #ede4d2;
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		box-shadow: 0 16px 32px rgba(34, 34, 34, 0.06);
+		border: 1px solid rgba(192, 155, 87, 0.12);
+		transition:
+			transform 0.42s $easing,
+			box-shadow 0.42s $easing,
+			border-color 0.42s $easing,
+			background-color 0.42s $easing,
+			opacity 0.55s $easing,
+			filter 0.55s $easing;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -68px;
+			left: -40px;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background: radial-gradient(circle, rgba(192, 155, 87, 0.2) 0%, rgba(192, 155, 87, 0) 72%);
+			opacity: 0.38;
+			transition: transform 0.42s $easing, opacity 0.42s $easing;
+			pointer-events: none;
+			z-index: 0;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: 20px;
+			right: 20px;
+			bottom: 0;
+			height: 1px;
+			background: linear-gradient(90deg, rgba(192, 155, 87, 0) 0%, rgba(192, 155, 87, 0.34) 50%, rgba(192, 155, 87, 0) 100%);
+			opacity: 0.42;
+			transform: scaleX(0.9);
+			transform-origin: center;
+			transition: transform 0.34s $easing, opacity 0.34s $easing;
+			pointer-events: none;
+			z-index: 1;
+		}
+	}
+
+	.review-card__top,
+	.review-card__name,
+	.review-card__text,
+	.review-card__date,
+	.review-card__stars {
+		position: relative;
+		z-index: 1;
+	}
+
+	.review-card__top,
+	.review-card__text,
+	.review-card__date {
+		transition: transform 0.34s $easing, color 0.28s $easing, opacity 0.28s $easing;
+	}
+
+	.review-card__name {
+		transition: transform 0.34s $easing, color 0.28s $easing;
+	}
+
+	.review-card__stars {
+		transition: transform 0.34s $easing, filter 0.34s $easing;
+	}
+
+	.review-card__stars-icon,
+	.review-card__stars-icon svg {
+		display: block;
+		transform-origin: left center;
+		transition: transform 0.34s $easing, filter 0.34s $easing;
 	}
 
 	&__head {
@@ -91,6 +164,89 @@
 		min-width: 0;
 	}
 
+	.review-card {
+		opacity: 0;
+		transform: translateY(30px) scale(0.975);
+		filter: blur(10px);
+	}
+
+	&.animated .review-card {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: blur(0);
+	}
+
+	@include hover-desktop {
+		.review-card:hover {
+			transition:
+				transform 0.32s $easing,
+				box-shadow 0.32s $easing,
+				border-color 0.32s $easing,
+				background-color 0.32s $easing,
+				opacity 0.55s $easing,
+				filter 0.55s $easing;
+			transform: scale(1.01);
+			border-color: rgba(192, 155, 87, 0.28);
+			background: linear-gradient(180deg, #ede4d2 0%, #f4ebdc 100%);
+			box-shadow: 0 28px 44px rgba(34, 34, 34, 0.14), 0 0 0 3px rgba(192, 155, 87, 0.1);
+		}
+
+		.review-card:hover::before {
+			transition-duration: 0.32s;
+			opacity: 0.72;
+			transform: scale(1.08);
+		}
+
+		.review-card:hover::after {
+			transition-duration: 0.32s;
+			opacity: 1;
+			transform: scaleX(1);
+		}
+
+		.review-card:hover .review-card__top,
+		.review-card:hover .review-card__text,
+		.review-card:hover .review-card__date {
+			transition-duration: 0.32s;
+		}
+
+		.review-card:hover .review-card__name {
+			transition-duration: 0.32s;
+			color: #c09b57;
+		}
+
+		.review-card:hover .review-card__stars {
+			transition-duration: 0.32s;
+			filter: drop-shadow(0 10px 16px rgba(246, 195, 67, 0.22));
+		}
+
+		.review-card:hover .review-card__stars-icon,
+		.review-card:hover .review-card__stars-icon svg {
+			transition-duration: 0.32s;
+			transform: scale(1.02);
+		}
+
+		.review-card:hover .review-card__date {
+			opacity: 0.82;
+		}
+	}
+
+	@include max($bp-mob) {
+		.swiper-slide-active .review-card {
+			transform: scale(1.005);
+			border-color: rgba(192, 155, 87, 0.22);
+			box-shadow: 0 18px 30px rgba(34, 34, 34, 0.1);
+		}
+
+		.swiper-slide-active .review-card::before {
+			opacity: 0.58;
+			transform: scale(1.04);
+		}
+
+		.swiper-slide-active .review-card .review-card__name {
+			color: #c09b57;
+		}
+	}
+
 	&__footer {
 		margin-top: 40px;
 		@include adaptive-value(margin-top, 40px, 20px, $bp-desktop, $bp-mob);
@@ -101,7 +257,7 @@
 	}
 
 	&__cta {
-		width: 420px;
+		width: 310px;
 
 		@include max($bp-tablet) {
 			width: 100%;

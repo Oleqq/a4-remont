@@ -174,3 +174,27 @@ body.popup-open {
 	}
 }
 
+
+.popup-form {
+	.cta-form__agree-ui {
+		width: 40px;
+		height: 40px;
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 40px;
+		flex: 0 0 40px;
+		border-radius: 50%;
+		border: 4px solid #C09B57;
+	}
+
+	.cta-form__checkbox:checked + .cta-form__agree-ui {
+		background: #C09B57;
+		border-color: #C09B57;
+		-webkit-transform: translateY(-1px);
+		transform: translateY(-1px);
+	}
+
+	.cta-form__agree-ui::after {
+		content: "";
+		background-image: url("data:image/svg+xml,%3Csvg width='18' height='13' viewBox='0 0 18 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.25 6.25L6.25079 11.25L16.25 1.25' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	}
+}

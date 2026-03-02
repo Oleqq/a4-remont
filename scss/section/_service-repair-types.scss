@@ -2,17 +2,17 @@
 @use "../global/mixins" as *;
 
 .service-repair-types {
-	padding: 56px 0 70px;
+	padding: 60px 0;
+	overflow: hidden;
 
 	@include max($bp-tablet) {
-		padding: 44px 0 60px;
+		padding: 50px 0;
 	}
 
 	@include max($bp-mob) {
-		padding: 30px 0 44px;
+		padding: 30px 0;
 	}
 
-	overflow: hidden;
 
 	&__top {
 		display: grid;
@@ -34,11 +34,7 @@
 
 	&__slider {
 		min-width: 0;
-		overflow: hidden;
-
-		@include max($bp-tablet) {
-			overflow: visible;
-		}
+		overflow: visible;
 	}
 
 	&__track {
@@ -109,9 +105,108 @@
 	.benefits-card__img {
 		display: block;
 		width: 100%;
-		max-width: 90%;
+		max-width: 100%;
 		height: auto;
 		object-fit: contain;
+	}
+
+	.benefits-card {
+		opacity: 0;
+		transform: translateY(32px) scale(0.975);
+		filter: blur(10px);
+	}
+
+	&.animated .benefits-card {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: blur(0);
+	}
+
+	@include hover-desktop {
+		.benefits-card:hover {
+			transition:
+				transform 0.32s $easing,
+				box-shadow 0.32s $easing,
+				border-color 0.32s $easing,
+				background-color 0.32s $easing,
+				opacity 0.55s $easing,
+				filter 0.55s $easing;
+			transform: scale(1.01);
+			border-color: rgba(192, 155, 87, 0.34);
+			background: linear-gradient(180deg, #efe6d6 0%, #f5ecdd 100%);
+			box-shadow: 0 28px 46px rgba(34, 34, 34, 0.14), 0 0 0 3px rgba(192, 155, 87, 0.12);
+		}
+
+		.benefits-card:hover::before {
+			transition-duration: 0.32s;
+			opacity: 0.78;
+			transform: scale(1.08) translate(-4px, 4px);
+		}
+
+		.benefits-card:hover::after {
+			transition-duration: 0.32s;
+			opacity: 1;
+			transform: scaleX(1);
+		}
+
+		.benefits-card:hover .benefits-card__head,
+		.benefits-card:hover .benefits-card__text {
+			transition-duration: 0.32s;
+		}
+
+		.benefits-card:hover .benefits-card__title {
+			transition-duration: 0.32s;
+			color: #c09b57;
+		}
+
+		.benefits-card:hover .benefits-card__mark {
+			transition-duration: 0.32s;
+			transform: scale(1.12) rotate(10deg);
+			box-shadow: 0 0 0 10px rgba(192, 155, 87, 0.08);
+		}
+
+		.benefits-card:hover .benefits-card__mark::before {
+			transition-duration: 0.32s;
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		.benefits-card:hover .benefits-card__mark::after {
+			transition-duration: 0.32s;
+			transform: scale(1.08);
+		}
+
+		.benefits-card:hover .benefits-card__media {
+			transition-duration: 0.32s;
+		}
+
+		.benefits-card:hover .benefits-card__media::before {
+			transition-duration: 0.32s;
+			transform: translateX(125%);
+		}
+
+		.benefits-card:hover .benefits-card__img {
+			transition-duration: 0.32s;
+			transform: scale(1.08) translateX(-8px);
+			filter: saturate(1.04) drop-shadow(0 20px 24px rgba(34, 34, 34, 0.12));
+		}
+	}
+
+	@include max($bp-tablet) {
+		.swiper-slide-active .benefits-card {
+			transform: scale(1.005);
+			border-color: rgba(192, 155, 87, 0.22);
+			box-shadow: 0 18px 30px rgba(34, 34, 34, 0.1);
+		}
+
+		.swiper-slide-active .benefits-card::before {
+			opacity: 0.62;
+			transform: scale(1.04);
+		}
+
+		.swiper-slide-active .benefits-card .benefits-card__title {
+			color: #c09b57;
+		}
 	}
 
 	&__bottom {
