@@ -1,0 +1,384 @@
+.service-repair-types {
+  padding: 60px 0;
+  overflow: hidden;
+}
+@media (max-width: 991px) {
+  .service-repair-types {
+    padding: 50px 0;
+  }
+}
+@media (max-width: 650px) {
+  .service-repair-types {
+    padding: 30px 0;
+  }
+}
+.service-repair-types__top {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px 34px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  margin-bottom: 20px;
+}
+@media (max-width: 991px) {
+  .service-repair-types__top {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+}
+.service-repair-types__lead {
+  max-width: 680px;
+}
+.service-repair-types__slider {
+  min-width: 0;
+  overflow: visible;
+}
+.service-repair-types__track {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 10px minmax(0, 1fr) 10px minmax(0, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+@media (max-width: 991px) {
+  .service-repair-types__track {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 0;
+  }
+}
+.service-repair-types__slide {
+  height: auto;
+}
+.service-repair-types .benefits-card {
+  min-height: 600px;
+}
+@media (min-width: 1200px) {
+  .service-repair-types .benefits-card {
+    min-height: 600px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (min-height: clamp(28.125pxrem, calc(272.7272727273px + 27.2727272727 * 1vw), 37.5pxrem)) {
+    .service-repair-types .benefits-card {
+      min-height: clamp(28.125pxrem, calc(272.7272727273px + 27.2727272727 * 1vw), 37.5pxrem);
+    }
+  }
+  @supports not (min-height: clamp(28.125pxrem, calc(272.7272727273px + 27.2727272727 * 1vw), 37.5pxrem)) {
+    .service-repair-types .benefits-card {
+      min-height: calc(450px + (100vw - 650px) * 0.2727272727);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-repair-types .benefits-card {
+    min-height: 450px;
+  }
+}
+.service-repair-types .benefits-card {
+  background: #efe6d6;
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 12px auto 12px 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 12px;
+  height: 100%;
+  padding-top: 20px;
+}
+@media (min-width: 1200px) {
+  .service-repair-types .benefits-card {
+    padding-top: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-top: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card {
+      padding-top: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding-top: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card {
+      padding-top: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-repair-types .benefits-card {
+    padding-top: 10px;
+  }
+}
+.service-repair-types .benefits-card__head {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-columns: 1fr 10px auto;
+  grid-template-columns: 1fr auto;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  gap: 10px;
+  padding: 0 20px;
+}
+@media (min-width: 1200px) {
+  .service-repair-types .benefits-card__head {
+    padding-left: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card__head {
+      padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card__head {
+      padding-left: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-repair-types .benefits-card__head {
+    padding-left: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .service-repair-types .benefits-card__head {
+    padding-right: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card__head {
+      padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card__head {
+      padding-right: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-repair-types .benefits-card__head {
+    padding-right: 10px;
+  }
+}
+.service-repair-types .benefits-card__title {
+  max-width: 360px;
+}
+.service-repair-types .benefits-card__text {
+  padding: 0 20px;
+}
+@media (min-width: 1200px) {
+  .service-repair-types .benefits-card__text {
+    padding-left: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card__text {
+      padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card__text {
+      padding-left: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-repair-types .benefits-card__text {
+    padding-left: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .service-repair-types .benefits-card__text {
+    padding-right: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card__text {
+      padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-repair-types .benefits-card__text {
+      padding-right: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-repair-types .benefits-card__text {
+    padding-right: 10px;
+  }
+}
+.service-repair-types .benefits-card__media {
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  padding: 0 0 0 10px;
+}
+.service-repair-types .benefits-card__img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.service-repair-types .benefits-card {
+  opacity: 0;
+  -webkit-transform: translateY(32px) scale(0.975);
+          transform: translateY(32px) scale(0.975);
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+}
+.service-repair-types.animated .benefits-card {
+  opacity: 1;
+  -webkit-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
+  -webkit-filter: blur(0);
+          filter: blur(0);
+}
+@media (min-width: 1200px) {
+  .service-repair-types:hover .benefits-card:hover {
+    -webkit-transition: border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), -webkit-box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), -webkit-box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.32s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), filter 0.55s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), -webkit-box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
+    border-color: rgba(192, 155, 87, 0.34);
+    background: -webkit-gradient(linear, left top, left bottom, from(#efe6d6), to(#f5ecdd));
+    background: linear-gradient(180deg, #efe6d6 0%, #f5ecdd 100%);
+    -webkit-box-shadow: 0 28px 46px rgba(34, 34, 34, 0.14), 0 0 0 3px rgba(192, 155, 87, 0.12);
+            box-shadow: 0 28px 46px rgba(34, 34, 34, 0.14), 0 0 0 3px rgba(192, 155, 87, 0.12);
+  }
+  .service-repair-types:hover .benefits-card:hover::before {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+    opacity: 0.78;
+    -webkit-transform: scale(1.08) translate(-4px, 4px);
+            transform: scale(1.08) translate(-4px, 4px);
+  }
+  .service-repair-types:hover .benefits-card:hover::after {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+  .service-repair-types:hover .benefits-card:hover .benefits-card__head,
+  .service-repair-types:hover .benefits-card:hover .benefits-card__text {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+  }
+  .service-repair-types:hover .benefits-card:hover .benefits-card__title {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+    color: #c09b57;
+  }
+  .service-repair-types:hover .benefits-card:hover .benefits-card__mark {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+    -webkit-transform: scale(1.12) rotate(10deg);
+            transform: scale(1.12) rotate(10deg);
+    -webkit-box-shadow: 0 0 0 10px rgba(192, 155, 87, 0.08);
+            box-shadow: 0 0 0 10px rgba(192, 155, 87, 0.08);
+  }
+  .service-repair-types:hover .benefits-card:hover .benefits-card__mark::before {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .service-repair-types:hover .benefits-card:hover .benefits-card__mark::after {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+    -webkit-transform: scale(1.08);
+            transform: scale(1.08);
+  }
+  .service-repair-types:hover .benefits-card:hover .benefits-card__media {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+  }
+  .service-repair-types:hover .benefits-card:hover .benefits-card__media::before {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+    -webkit-transform: translateX(125%);
+            transform: translateX(125%);
+  }
+  .service-repair-types:hover .benefits-card:hover .benefits-card__img {
+    -webkit-transition-duration: 0.32s;
+            transition-duration: 0.32s;
+    -webkit-transform: scale(1.08) translateX(-8px);
+            transform: scale(1.08) translateX(-8px);
+    -webkit-filter: saturate(1.04) drop-shadow(0 20px 24px rgba(34, 34, 34, 0.12));
+            filter: saturate(1.04) drop-shadow(0 20px 24px rgba(34, 34, 34, 0.12));
+  }
+}
+@media (max-width: 991px) {
+  .service-repair-types .swiper-slide-active .benefits-card {
+    -webkit-transform: scale(1.005);
+            transform: scale(1.005);
+    border-color: rgba(192, 155, 87, 0.22);
+    -webkit-box-shadow: 0 18px 30px rgba(34, 34, 34, 0.1);
+            box-shadow: 0 18px 30px rgba(34, 34, 34, 0.1);
+  }
+  .service-repair-types .swiper-slide-active .benefits-card::before {
+    opacity: 0.62;
+    -webkit-transform: scale(1.04);
+            transform: scale(1.04);
+  }
+  .service-repair-types .swiper-slide-active .benefits-card .benefits-card__title {
+    color: #c09b57;
+  }
+}
+.service-repair-types__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 24px;
+}
+@media (max-width: 991px) {
+  .service-repair-types__bottom {
+    margin-top: 18px;
+  }
+}
+@media (max-width: 650px) {
+  .service-repair-types__bottom {
+    margin-top: 14px;
+  }
+}
+.service-repair-types__btn {
+  min-width: 420px;
+}
+@media (max-width: 650px) {
+  .service-repair-types__btn {
+    min-width: 0;
+    width: 100%;
+  }
+}

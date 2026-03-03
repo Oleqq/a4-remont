@@ -1,0 +1,334 @@
+.company-contacts {
+  padding: 60px 0;
+}
+@media (max-width: 991px) {
+  .company-contacts {
+    padding: 60px 0;
+  }
+}
+@media (max-width: 650px) {
+  .company-contacts {
+    padding: 30px 0;
+  }
+}
+.company-contacts.contacts-page .company-contacts__cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.company-contacts__head {
+  margin-bottom: 18px;
+}
+.company-contacts__cols {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 52px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 52px;
+}
+@media (min-width: 1200px) {
+  .company-contacts__cols {
+    gap: 52px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (gap: clamp(1.125pxrem, calc(-22.1818181818px + 6.1818181818 * 1vw), 3.25pxrem)) {
+    .company-contacts__cols {
+      gap: clamp(1.125pxrem, calc(-22.1818181818px + 6.1818181818 * 1vw), 3.25pxrem);
+    }
+  }
+  @supports not (gap: clamp(1.125pxrem, calc(-22.1818181818px + 6.1818181818 * 1vw), 3.25pxrem)) {
+    .company-contacts__cols {
+      gap: calc(18px + (100vw - 650px) * 0.0618181818);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .company-contacts__cols {
+    gap: 18px;
+  }
+}
+.company-contacts__cols {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  margin-bottom: 40px;
+}
+@media (min-width: 1200px) {
+  .company-contacts__cols {
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-bottom: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .company-contacts__cols {
+      margin-bottom: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem);
+    }
+  }
+  @supports not (margin-bottom: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .company-contacts__cols {
+      margin-bottom: calc(20px + (100vw - 650px) * 0.0363636364);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .company-contacts__cols {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 991px) {
+  .company-contacts__cols {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+}
+.company-contacts__cols--wide {
+  -ms-grid-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+.company-contacts__text {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 130%;
+  color: #222222;
+  max-width: 720px;
+}
+.company-contacts__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 10px minmax(0, 1fr) 10px minmax(0, 1fr) 10px auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 10px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+@media (min-width: 1199px) {
+  .company-contacts__grid {
+    height: 100px;
+  }
+}
+@media (max-width: 1199px) {
+  .company-contacts__grid {
+    -ms-grid-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-auto-rows: 92px;
+  }
+}
+@media (max-width: 650px) {
+  .company-contacts__grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+}
+.company-contacts__card {
+  border: 1px solid rgba(34, 34, 34, 0.65);
+  border-radius: 10px;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 18px;
+  padding: 20px;
+}
+@media (min-width: 1200px) {
+  .company-contacts__card {
+    padding: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .company-contacts__card {
+      padding: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .company-contacts__card {
+      padding: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .company-contacts__card {
+    padding: 10px;
+  }
+}
+.company-contacts__card {
+  text-decoration: none;
+  -webkit-transition: border-color 0.22s ease, background-color 0.22s ease, -webkit-transform 0.22s ease, -webkit-box-shadow 0.22s ease;
+  transition: border-color 0.22s ease, background-color 0.22s ease, -webkit-transform 0.22s ease, -webkit-box-shadow 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.22s ease, -webkit-transform 0.22s ease, -webkit-box-shadow 0.22s ease;
+}
+@media (min-width: 1200px) {
+  .company-contacts__card:hover {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+    border-color: rgba(192, 155, 87, 0.85);
+  }
+}
+.company-contacts__card:active {
+  -webkit-transform: translateY(1px) scale(0.99);
+          transform: translateY(1px) scale(0.99);
+}
+.company-contacts__card:focus-visible {
+  outline: 2px solid rgba(192, 155, 87, 0.9);
+  outline-offset: 3px;
+}
+.company-contacts__value {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 120%;
+  color: #222222;
+  -webkit-transition: color 0.22s ease;
+  transition: color 0.22s ease;
+}
+.company-contacts__icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  -webkit-transition: -webkit-transform 0.22s ease, -webkit-filter 0.22s ease, -webkit-box-shadow 0.22s ease;
+  transition: -webkit-transform 0.22s ease, -webkit-filter 0.22s ease, -webkit-box-shadow 0.22s ease;
+  transition: transform 0.22s ease, filter 0.22s ease, box-shadow 0.22s ease;
+  transition: transform 0.22s ease, filter 0.22s ease, box-shadow 0.22s ease, -webkit-transform 0.22s ease, -webkit-filter 0.22s ease, -webkit-box-shadow 0.22s ease;
+}
+.company-contacts__card:hover .company-contacts__icon {
+  -webkit-transform: translateY(-1px) scale(1.03);
+          transform: translateY(-1px) scale(1.03);
+  -webkit-filter: brightness(0.98);
+          filter: brightness(0.98);
+}
+.company-contacts__icon svg, .company-contacts__icon img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (min-width: 1200px) {
+  .company-contacts__icon svg, .company-contacts__icon img {
+    width: 44px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (width: clamp(2.25pxrem, calc(26.5454545455px + 1.4545454545 * 1vw), 2.75pxrem)) {
+    .company-contacts__icon svg, .company-contacts__icon img {
+      width: clamp(2.25pxrem, calc(26.5454545455px + 1.4545454545 * 1vw), 2.75pxrem);
+    }
+  }
+  @supports not (width: clamp(2.25pxrem, calc(26.5454545455px + 1.4545454545 * 1vw), 2.75pxrem)) {
+    .company-contacts__icon svg, .company-contacts__icon img {
+      width: calc(36px + (100vw - 650px) * 0.0145454545);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .company-contacts__icon svg, .company-contacts__icon img {
+    width: 36px;
+  }
+}
+.company-contacts__social {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 92px 10px 92px 10px 92px;
+  grid-template-columns: 92px 92px 92px;
+  gap: 10px;
+}
+@media (max-width: 1199px) {
+  .company-contacts__social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media (max-width: 991px) {
+  .company-contacts__social {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/3;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  .company-contacts__social {
+    grid-column: auto;
+    grid-row: auto;
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.company-contacts__soc {
+  border-radius: 10px;
+  background: #c09b57;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 92px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 0.22s ease, -webkit-box-shadow 0.22s ease, -webkit-filter 0.22s ease;
+  transition: -webkit-transform 0.22s ease, -webkit-box-shadow 0.22s ease, -webkit-filter 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease, -webkit-transform 0.22s ease, -webkit-box-shadow 0.22s ease, -webkit-filter 0.22s ease;
+}
+@media (max-width: 1199px) {
+  .company-contacts__soc {
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .company-contacts__soc:hover {
+    -webkit-transform: translateY(-2px);
+            transform: translateY(-2px);
+    -webkit-filter: brightness(0.97);
+            filter: brightness(0.97);
+    -webkit-box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+  }
+}
+.company-contacts__soc:active {
+  -webkit-transform: translateY(1px) scale(0.99);
+          transform: translateY(1px) scale(0.99);
+}
+.company-contacts__soc:focus-visible {
+  outline: 2px solid rgba(192, 155, 87, 0.9);
+  outline-offset: 3px;
+}
+.company-contacts__soc-ico {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  -webkit-transition: background-color 0.22s ease, -webkit-transform 0.22s ease;
+  transition: background-color 0.22s ease, -webkit-transform 0.22s ease;
+  transition: transform 0.22s ease, background-color 0.22s ease;
+  transition: transform 0.22s ease, background-color 0.22s ease, -webkit-transform 0.22s ease;
+}
+.company-contacts__soc:hover .company-contacts__soc-ico {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+.company-contacts__card--addr .company-contacts__value {
+  font-weight: 700;
+}

@@ -1,0 +1,380 @@
+.workflow-roadmap {
+  padding: 60px 0;
+  background: #f3eee8;
+}
+@media (max-width: 991px) {
+  .workflow-roadmap {
+    padding: 44px 0 60px;
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap {
+    padding: 30px 0 60px;
+  }
+}
+.workflow-roadmap__inner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 44%) 56px minmax(0, 56%);
+  grid-template-columns: minmax(0, 44%) minmax(0, 56%);
+  gap: 56px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__inner {
+    gap: 56px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (gap: clamp(1.375pxrem, calc(-18.1818181818px + 6.1818181818 * 1vw), 3.5pxrem)) {
+    .workflow-roadmap__inner {
+      gap: clamp(1.375pxrem, calc(-18.1818181818px + 6.1818181818 * 1vw), 3.5pxrem);
+    }
+  }
+  @supports not (gap: clamp(1.375pxrem, calc(-18.1818181818px + 6.1818181818 * 1vw), 3.5pxrem)) {
+    .workflow-roadmap__inner {
+      gap: calc(22px + (100vw - 650px) * 0.0618181818);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__inner {
+    gap: 22px;
+  }
+}
+.workflow-roadmap__inner {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__inner {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+.workflow-roadmap__left {
+  min-width: 0;
+}
+.workflow-roadmap__text {
+  margin-top: 12px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__text {
+    margin-top: 12px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-top: clamp(0.625pxrem, calc(7.6363636364px + 0.3636363636 * 1vw), 0.75pxrem)) {
+    .workflow-roadmap__text {
+      margin-top: clamp(0.625pxrem, calc(7.6363636364px + 0.3636363636 * 1vw), 0.75pxrem);
+    }
+  }
+  @supports not (margin-top: clamp(0.625pxrem, calc(7.6363636364px + 0.3636363636 * 1vw), 0.75pxrem)) {
+    .workflow-roadmap__text {
+      margin-top: calc(10px + (100vw - 650px) * 0.0036363636);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__text {
+    margin-top: 10px;
+  }
+}
+.workflow-roadmap__text p {
+  margin: 0 0 14px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__text p {
+    margin-bottom: 14px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-bottom: clamp(0.75pxrem, calc(9.6363636364px + 0.3636363636 * 1vw), 0.875pxrem)) {
+    .workflow-roadmap__text p {
+      margin-bottom: clamp(0.75pxrem, calc(9.6363636364px + 0.3636363636 * 1vw), 0.875pxrem);
+    }
+  }
+  @supports not (margin-bottom: clamp(0.75pxrem, calc(9.6363636364px + 0.3636363636 * 1vw), 0.875pxrem)) {
+    .workflow-roadmap__text p {
+      margin-bottom: calc(12px + (100vw - 650px) * 0.0036363636);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__text p {
+    margin-bottom: 12px;
+  }
+}
+.workflow-roadmap__text p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 130%;
+  color: #222222;
+}
+.workflow-roadmap__text p:last-child {
+  margin-bottom: 0;
+}
+.workflow-roadmap__cta {
+  margin-top: 34px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__cta {
+    margin-top: 34px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-top: clamp(1.25pxrem, calc(3.4545454545px + 2.5454545455 * 1vw), 2.125pxrem)) {
+    .workflow-roadmap__cta {
+      margin-top: clamp(1.25pxrem, calc(3.4545454545px + 2.5454545455 * 1vw), 2.125pxrem);
+    }
+  }
+  @supports not (margin-top: clamp(1.25pxrem, calc(3.4545454545px + 2.5454545455 * 1vw), 2.125pxrem)) {
+    .workflow-roadmap__cta {
+      margin-top: calc(20px + (100vw - 650px) * 0.0254545455);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__cta {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__cta {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__cta {
+    width: 100%;
+  }
+}
+.workflow-roadmap__right {
+  min-width: 0;
+}
+.workflow-roadmap__subtitle {
+  margin: 0 0 18px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__subtitle {
+    margin-bottom: 18px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-bottom: clamp(0.875pxrem, calc(9.2727272727px + 0.7272727273 * 1vw), 1.125pxrem)) {
+    .workflow-roadmap__subtitle {
+      margin-bottom: clamp(0.875pxrem, calc(9.2727272727px + 0.7272727273 * 1vw), 1.125pxrem);
+    }
+  }
+  @supports not (margin-bottom: clamp(0.875pxrem, calc(9.2727272727px + 0.7272727273 * 1vw), 1.125pxrem)) {
+    .workflow-roadmap__subtitle {
+      margin-bottom: calc(14px + (100vw - 650px) * 0.0072727273);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__subtitle {
+    margin-bottom: 14px;
+  }
+}
+.workflow-roadmap__subtitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  font-size: clamp(18px, 0.5555555556vw + 16px, 24px);
+  line-height: 120%;
+  color: #222222;
+  max-width: 640px;
+}
+.workflow-roadmap__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__list {
+    gap: 14px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (gap: clamp(0.75pxrem, calc(9.6363636364px + 0.3636363636 * 1vw), 0.875pxrem)) {
+    .workflow-roadmap__list {
+      gap: clamp(0.75pxrem, calc(9.6363636364px + 0.3636363636 * 1vw), 0.875pxrem);
+    }
+  }
+  @supports not (gap: clamp(0.75pxrem, calc(9.6363636364px + 0.3636363636 * 1vw), 0.875pxrem)) {
+    .workflow-roadmap__list {
+      gap: calc(12px + (100vw - 650px) * 0.0036363636);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__list {
+    gap: 12px;
+  }
+}
+.workflow-roadmap__item {
+  background: #efe6d6;
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 72px 18px minmax(0, 1fr);
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 18px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__item {
+    -ms-grid-columns: 60px 12px minmax(0, 1fr);
+    grid-template-columns: 60px minmax(0, 1fr);
+    gap: 12px;
+  }
+}
+.workflow-roadmap__num {
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  font-size: clamp(32px, 1.1111111111vw + 28px, 44px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #c09b57;
+}
+.workflow-roadmap__label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 130%;
+  color: #222222;
+  max-width: 560px;
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__left {
+    display: -ms-grid;
+    display: grid;
+  }
+  .workflow-roadmap__right {
+    margin-top: 10px;
+  }
+  .workflow-roadmap__cta {
+    margin-top: 22px;
+  }
+}
+
+.workflow-roadmap__item {
+  background: #efe6d6;
+  border-radius: 10px;
+  min-height: 64px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__item {
+    min-height: 64px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (min-height: clamp(3.625pxrem, calc(50.9090909091px + 1.0909090909 * 1vw), 4pxrem)) {
+    .workflow-roadmap__item {
+      min-height: clamp(3.625pxrem, calc(50.9090909091px + 1.0909090909 * 1vw), 4pxrem);
+    }
+  }
+  @supports not (min-height: clamp(3.625pxrem, calc(50.9090909091px + 1.0909090909 * 1vw), 4pxrem)) {
+    .workflow-roadmap__item {
+      min-height: calc(58px + (100vw - 650px) * 0.0109090909);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__item {
+    min-height: 58px;
+  }
+}
+.workflow-roadmap__item {
+  padding: 16px 22px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 72px minmax(0, 1fr);
+  grid-template-columns: 72px minmax(0, 1fr);
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__item {
+    -webkit-column-gap: 18px;
+       -moz-column-gap: 18px;
+            column-gap: 18px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports ((-moz-column-gap: clamp(0.75pxrem, calc(4.9090909091px + 1.0909090909 * 1vw), 1.125pxrem)) or (column-gap: clamp(0.75pxrem, calc(4.9090909091px + 1.0909090909 * 1vw), 1.125pxrem))) {
+    .workflow-roadmap__item {
+      -webkit-column-gap: clamp(0.75pxrem, calc(4.9090909091px + 1.0909090909 * 1vw), 1.125pxrem);
+         -moz-column-gap: clamp(0.75pxrem, calc(4.9090909091px + 1.0909090909 * 1vw), 1.125pxrem);
+              column-gap: clamp(0.75pxrem, calc(4.9090909091px + 1.0909090909 * 1vw), 1.125pxrem);
+    }
+  }
+  @supports not ((-moz-column-gap: clamp(0.75pxrem, calc(4.9090909091px + 1.0909090909 * 1vw), 1.125pxrem)) or (column-gap: clamp(0.75pxrem, calc(4.9090909091px + 1.0909090909 * 1vw), 1.125pxrem))) {
+    .workflow-roadmap__item {
+      -webkit-column-gap: calc(12px + (100vw - 650px) * 0.0109090909);
+         -moz-column-gap: calc(12px + (100vw - 650px) * 0.0109090909);
+              column-gap: calc(12px + (100vw - 650px) * 0.0109090909);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__item {
+    -webkit-column-gap: 12px;
+       -moz-column-gap: 12px;
+            column-gap: 12px;
+  }
+}
+.workflow-roadmap__item {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.workflow-roadmap__num {
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+  font-size: 44px;
+  font-size: clamp(32px, 1.1111111111vw + 28px, 44px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #c09b57;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.workflow-roadmap__label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 130%;
+  color: #222222;
+  max-width: 560px;
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__item {
+    -ms-grid-columns: 64px minmax(0, 1fr);
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+}

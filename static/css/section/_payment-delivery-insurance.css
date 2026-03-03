@@ -1,0 +1,173 @@
+.payment-delivery-insurance {
+  margin-top: 100px;
+  padding-bottom: 70px;
+}
+@media (min-width: 1200px) {
+  .payment-delivery-insurance {
+    margin-top: 100px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-top: clamp(3.75pxrem, calc(12.7272727273px + 7.2727272727 * 1vw), 6.25pxrem)) {
+    .payment-delivery-insurance {
+      margin-top: clamp(3.75pxrem, calc(12.7272727273px + 7.2727272727 * 1vw), 6.25pxrem);
+    }
+  }
+  @supports not (margin-top: clamp(3.75pxrem, calc(12.7272727273px + 7.2727272727 * 1vw), 6.25pxrem)) {
+    .payment-delivery-insurance {
+      margin-top: calc(60px + (100vw - 650px) * 0.0727272727);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .payment-delivery-insurance {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 991px) {
+  .payment-delivery-insurance {
+    padding-bottom: 60px;
+  }
+}
+@media (max-width: 650px) {
+  .payment-delivery-insurance {
+    padding-bottom: 44px;
+  }
+}
+.payment-delivery-insurance__card {
+  margin: 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  background: #c09b57;
+  padding: 40px;
+}
+@media (min-width: 1200px) {
+  .payment-delivery-insurance__card {
+    padding: 40px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .payment-delivery-insurance__card {
+      padding: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem);
+    }
+  }
+  @supports not (padding: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .payment-delivery-insurance__card {
+      padding: calc(20px + (100vw - 650px) * 0.0363636364);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .payment-delivery-insurance__card {
+    padding: 20px;
+  }
+}
+.payment-delivery-insurance__card {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 52%) 5px minmax(0, 48%);
+  grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+  gap: 5px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  height: 340px;
+  position: relative;
+}
+@media (max-width: 991px) {
+  .payment-delivery-insurance__card {
+    -ms-grid-columns: minmax(0, 50%) minmax(0, 50%);
+    grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+    max-width: calc(100% - 130px);
+  }
+}
+@media (max-width: 650px) {
+  .payment-delivery-insurance__card {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    height: 100%;
+    padding-bottom: 0;
+    max-width: calc(100% - 40px);
+  }
+}
+.payment-delivery-insurance__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.payment-delivery-insurance__title {
+  margin: 0 0 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  font-size: clamp(22px, 1.6666666667vw + 16px, 40px);
+  line-height: 110%;
+  color: #fff;
+}
+.payment-delivery-insurance__text {
+  margin: 0;
+  max-width: 500px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 130%;
+  color: #fff;
+}
+.payment-delivery-insurance__text b, .payment-delivery-insurance__text strong {
+  font-weight: 700;
+}
+.payment-delivery-insurance__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 420px;
+  margin-left: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+@media (max-width: 991px) {
+  .payment-delivery-insurance__image {
+    max-width: 350px;
+  }
+}
+@media (max-width: 991px) and (min-width: 991px) {
+  .payment-delivery-insurance__image {
+    max-width: 350px;
+  }
+}
+@media (max-width: 991px) and (min-width: 650px) and (max-width: 991px) {
+  @supports (max-width: clamp(17.5pxrem, calc(146.568914956px + 20.5278592375 * 1vw), 21.875pxrem)) {
+    .payment-delivery-insurance__image {
+      max-width: clamp(17.5pxrem, calc(146.568914956px + 20.5278592375 * 1vw), 21.875pxrem);
+    }
+  }
+  @supports not (max-width: clamp(17.5pxrem, calc(146.568914956px + 20.5278592375 * 1vw), 21.875pxrem)) {
+    .payment-delivery-insurance__image {
+      max-width: calc(280px + (100vw - 650px) * 0.2052785924);
+    }
+  }
+}
+@media (max-width: 991px) and (max-width: 650px) {
+  .payment-delivery-insurance__image {
+    max-width: 280px;
+  }
+}
+@media (max-width: 650px) {
+  .payment-delivery-insurance__image {
+    position: relative;
+    left: 20px;
+  }
+}

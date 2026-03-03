@@ -1,0 +1,174 @@
+.hero-services {
+  padding: 40px 0 50px;
+}
+@media (max-width: 991px) {
+  .hero-services {
+    padding: 40px 0 50px;
+  }
+}
+@media (max-width: 650px) {
+  .hero-services {
+    padding: 30px 0 30px;
+  }
+}
+.hero-services .section__title {
+  font-size: clamp(25px, 2.3148148148vw + 16.6666666667px, 50px);
+}
+.hero-services__inner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 40px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+}
+@media (min-width: 1200px) {
+  .hero-services__inner {
+    gap: 40px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (gap: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .hero-services__inner {
+      gap: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem);
+    }
+  }
+  @supports not (gap: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .hero-services__inner {
+      gap: calc(20px + (100vw - 650px) * 0.0363636364);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .hero-services__inner {
+    gap: 20px;
+  }
+}
+.hero-services__inner {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 991px) {
+  .hero-services__inner {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    gap: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .hero-services__inner {
+    gap: 0;
+  }
+}
+.hero-services__content {
+  min-width: 0;
+}
+.hero-services__text {
+  margin: 10px 0 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 130%;
+  color: #222222;
+  max-width: 640px;
+}
+@media (max-width: 991px) {
+  .hero-services__text {
+    margin: 12px 0 18px;
+  }
+}
+.hero-services__media {
+  min-width: 0;
+  height: 100%;
+}
+@media (max-width: 991px) {
+  .hero-services__media {
+    margin-top: 8px;
+  }
+}
+.hero-services__gallery {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 10px 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 100%;
+}
+.hero-services__pic {
+  border-radius: 14px;
+  overflow: hidden;
+}
+.hero-services__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 560/360;
+  -webkit-transform: scale(1.001);
+          transform: scale(1.001);
+  -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: -webkit-transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (min-width: 1200px) {
+  .hero-services__img:hover {
+    -webkit-transform: scale(1.04);
+            transform: scale(1.04);
+  }
+}
+@media (max-width: 991px) {
+  .hero-services__img {
+    aspect-ratio: 380/320;
+  }
+}
+@media (max-width: 650px) {
+  .hero-services__img {
+    aspect-ratio: 155/130;
+  }
+}
+.hero-services__btn {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: clamp(16px, 0.1851851852vw + 15.3333333333px, 18px);
+}
+@media (max-width: 650px) {
+  .hero-services__btn {
+    width: 100%;
+  }
+}
+.hero-services__btn--desktop {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+@media (max-width: 650px) {
+  .hero-services__btn--desktop {
+    display: none;
+  }
+}
+.hero-services__btn--mobile {
+  display: none;
+  margin-top: 20px;
+}
+@media (max-width: 650px) {
+  .hero-services__btn--mobile {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+}
+@media (max-width: 650px) {
+  .hero-services__btn--mobile {
+    margin-top: 20px;
+  }
+}

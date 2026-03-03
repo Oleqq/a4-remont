@@ -1,0 +1,308 @@
+.workflow-roadmap {
+  padding: 60px 0;
+}
+@media (max-width: 991px) {
+  .workflow-roadmap {
+    padding: 50px 0px;
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap {
+    padding: 30px 0;
+  }
+}
+.workflow-roadmap__inner {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 44%) 56px minmax(0, 56%);
+  grid-template-columns: minmax(0, 44%) minmax(0, 56%);
+  gap: 56px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__inner {
+    gap: 56px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (gap: clamp(0.625pxrem, calc(-44.3636363636px + 8.3636363636 * 1vw), 3.5pxrem)) {
+    .workflow-roadmap__inner {
+      gap: clamp(0.625pxrem, calc(-44.3636363636px + 8.3636363636 * 1vw), 3.5pxrem);
+    }
+  }
+  @supports not (gap: clamp(0.625pxrem, calc(-44.3636363636px + 8.3636363636 * 1vw), 3.5pxrem)) {
+    .workflow-roadmap__inner {
+      gap: calc(10px + (100vw - 650px) * 0.0836363636);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__inner {
+    gap: 10px;
+  }
+}
+.workflow-roadmap__inner {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__inner {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+.workflow-roadmap__left {
+  min-width: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.workflow-roadmap__text {
+  margin-top: 10px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__text {
+    margin-top: 10px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-top: clamp(0.625pxrem, calc(10px + 0 * 1vw), 0.625pxrem)) {
+    .workflow-roadmap__text {
+      margin-top: clamp(0.625pxrem, calc(10px + 0 * 1vw), 0.625pxrem);
+    }
+  }
+  @supports not (margin-top: clamp(0.625pxrem, calc(10px + 0 * 1vw), 0.625pxrem)) {
+    .workflow-roadmap__text {
+      margin-top: calc(10px + (100vw - 650px) * 0);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__text {
+    margin-top: 10px;
+  }
+}
+.workflow-roadmap__text p {
+  margin: 0 0 10px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__text p {
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-bottom: clamp(0.625pxrem, calc(10px + 0 * 1vw), 0.625pxrem)) {
+    .workflow-roadmap__text p {
+      margin-bottom: clamp(0.625pxrem, calc(10px + 0 * 1vw), 0.625pxrem);
+    }
+  }
+  @supports not (margin-bottom: clamp(0.625pxrem, calc(10px + 0 * 1vw), 0.625pxrem)) {
+    .workflow-roadmap__text p {
+      margin-bottom: calc(10px + (100vw - 650px) * 0);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__text p {
+    margin-bottom: 10px;
+  }
+}
+.workflow-roadmap__text p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 130%;
+  color: #222222;
+}
+.workflow-roadmap__text p:last-child {
+  margin-bottom: 0;
+}
+.workflow-roadmap__cta {
+  margin-top: auto;
+}
+@media (min-width: 992px) {
+  .workflow-roadmap__cta {
+    max-width: 310px;
+  }
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__cta {
+    display: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__cta {
+    width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__cta.desktop {
+    display: none;
+  }
+}
+.workflow-roadmap__cta.mobile {
+  display: none;
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__cta.mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.workflow-roadmap__right {
+  min-width: 0;
+}
+.workflow-roadmap__subtitle {
+  margin: 0 0 18px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__subtitle {
+    margin-bottom: 18px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (margin-bottom: clamp(0.875pxrem, calc(9.2727272727px + 0.7272727273 * 1vw), 1.125pxrem)) {
+    .workflow-roadmap__subtitle {
+      margin-bottom: clamp(0.875pxrem, calc(9.2727272727px + 0.7272727273 * 1vw), 1.125pxrem);
+    }
+  }
+  @supports not (margin-bottom: clamp(0.875pxrem, calc(9.2727272727px + 0.7272727273 * 1vw), 1.125pxrem)) {
+    .workflow-roadmap__subtitle {
+      margin-bottom: calc(14px + (100vw - 650px) * 0.0072727273);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__subtitle {
+    margin-bottom: 14px;
+  }
+}
+.workflow-roadmap__subtitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  font-size: clamp(18px, 0.5555555556vw + 16px, 24px);
+  line-height: 120%;
+  color: #222222;
+  max-width: 640px;
+}
+.workflow-roadmap__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  gap: 10px;
+}
+.workflow-roadmap__item {
+  background: #ede4d2;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__item {
+    padding-left: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .workflow-roadmap__item {
+      padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding-left: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .workflow-roadmap__item {
+      padding-left: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__item {
+    padding-left: 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .workflow-roadmap__item {
+    padding-right: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .workflow-roadmap__item {
+      padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding-right: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .workflow-roadmap__item {
+      padding-right: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__item {
+    padding-right: 10px;
+  }
+}
+.workflow-roadmap__item {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 72px 20px minmax(0, 1fr);
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 650px) {
+  .workflow-roadmap__item {
+    -ms-grid-columns: 50px 10px minmax(0, 1fr);
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 10px;
+  }
+}
+.workflow-roadmap__num {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  font-size: clamp(32px, 1.1111111111vw + 28px, 44px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #c09b57;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.workflow-roadmap__label {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
+  line-height: 130%;
+  color: #222222;
+  max-width: 560px;
+}
+@media (max-width: 991px) {
+  .workflow-roadmap__left {
+    display: -ms-grid;
+    display: grid;
+  }
+  .workflow-roadmap__right {
+    margin-top: 10px;
+  }
+  .workflow-roadmap__cta {
+    margin-top: 22px;
+  }
+}

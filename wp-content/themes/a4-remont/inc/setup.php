@@ -21,7 +21,7 @@ function a4_remont_setup() {
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'editor-styles' );
-	add_editor_style( 'assets/css/app.css' );
+	add_editor_style( 'css/style.css' );
 
 	add_theme_support(
 		'html5',

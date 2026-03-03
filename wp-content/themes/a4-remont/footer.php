@@ -8,12 +8,18 @@
 ?>
 	</main>
 
-	<footer class="site-footer">
-		<div class="site-footer__inner">
-			<p class="site-footer__copy"><?php echo esc_html( wp_get_theme()->get( 'Name' ) ); ?></p>
-		</div>
-	</footer>
+	<?php
+	if ( function_exists( 'a4_remont_render_site_footer' ) ) {
+		a4_remont_render_site_footer();
+	}
+	?>
 </div>
+
+<?php
+if ( function_exists( 'a4_remont_render_site_popups' ) ) {
+	a4_remont_render_site_popups();
+}
+?>
 
 <?php wp_footer(); ?>
 

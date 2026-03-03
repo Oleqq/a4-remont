@@ -1,0 +1,177 @@
+.service-payment-banner {
+  padding: 60px 0;
+}
+@media (max-width: 991px) {
+  .service-payment-banner {
+    padding: 50px 0;
+  }
+}
+@media (max-width: 650px) {
+  .service-payment-banner {
+    padding: 30px 0;
+  }
+}
+.service-payment-banner__content {
+  max-width: 520px;
+}
+.service-payment-banner__card {
+  border-radius: 10px;
+  background: #222;
+  overflow: hidden;
+  padding: 20px 40px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+@media (min-width: 1200px) {
+  .service-payment-banner__card {
+    padding-left: 40px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-left: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .service-payment-banner__card {
+      padding-left: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem);
+    }
+  }
+  @supports not (padding-left: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .service-payment-banner__card {
+      padding-left: calc(20px + (100vw - 650px) * 0.0363636364);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-payment-banner__card {
+    padding-left: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .service-payment-banner__card {
+    padding-right: 40px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding-right: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .service-payment-banner__card {
+      padding-right: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem);
+    }
+  }
+  @supports not (padding-right: clamp(1.25pxrem, calc(-3.6363636364px + 3.6363636364 * 1vw), 2.5pxrem)) {
+    .service-payment-banner__card {
+      padding-right: calc(20px + (100vw - 650px) * 0.0363636364);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-payment-banner__card {
+    padding-right: 20px;
+  }
+}
+.service-payment-banner__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 30px minmax(0, 590px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 590px);
+  gap: 20px 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media (max-width: 991px) {
+  .service-payment-banner__grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+.service-payment-banner__title {
+  margin-bottom: 10px;
+}
+.service-payment-banner__text {
+  color: #fff;
+  max-width: 640px;
+}
+.service-payment-banner__text + .service-payment-banner__text {
+  margin-top: 6px;
+}
+.service-payment-banner__btn {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 430px;
+}
+@media (max-width: 650px) {
+  .service-payment-banner__btn {
+    max-width: 100%;
+  }
+}
+.service-payment-banner__media {
+  position: relative;
+  min-height: 360px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+}
+@media (max-width: 650px) {
+  .service-payment-banner__media {
+    min-height: 100%;
+  }
+}
+.service-payment-banner__chip {
+  position: absolute;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  background: #efe6d6;
+  color: #222;
+  z-index: 2;
+  -webkit-transition: -webkit-transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: -webkit-transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.service-payment-banner__chip::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  opacity: 0.8;
+}
+.service-payment-banner__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: -webkit-transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  max-width: 590px;
+}
+.service-payment-banner__media:hover .service-payment-banner__image {
+  -webkit-transform: translateY(-4px);
+          transform: translateY(-4px);
+}
+.service-payment-banner__media:hover .service-payment-banner__chip--top {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+.service-payment-banner__media:hover .service-payment-banner__chip--bottom {
+  -webkit-transform: translateX(2px);
+          transform: translateX(2px);
+}

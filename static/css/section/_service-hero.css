@@ -1,0 +1,248 @@
+.service-hero {
+  padding: 40px 0 60px;
+}
+@media (max-width: 991px) {
+  .service-hero {
+    padding: 40px 0 50px;
+  }
+}
+@media (max-width: 650px) {
+  .service-hero {
+    padding: 40px 0 30px;
+  }
+}
+.service-hero__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr) 20px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  -ms-grid-rows: auto 40px auto;
+      grid-template-areas: "intro media" "feature media";
+  gap: 40px 20px;
+}
+@media (min-width: 1200px) {
+  .service-hero__grid {
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
+  }
+}
+@media (min-width: 991px) and (max-width: 1200px) {
+  @supports ((-moz-column-gap: clamp(0.0625pxrem, calc(-89.0909090909px + 9.0909090909 * 1vw), 1.25pxrem)) or (column-gap: clamp(0.0625pxrem, calc(-89.0909090909px + 9.0909090909 * 1vw), 1.25pxrem))) {
+    .service-hero__grid {
+      -webkit-column-gap: clamp(0.0625pxrem, calc(-89.0909090909px + 9.0909090909 * 1vw), 1.25pxrem);
+         -moz-column-gap: clamp(0.0625pxrem, calc(-89.0909090909px + 9.0909090909 * 1vw), 1.25pxrem);
+              column-gap: clamp(0.0625pxrem, calc(-89.0909090909px + 9.0909090909 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not ((-moz-column-gap: clamp(0.0625pxrem, calc(-89.0909090909px + 9.0909090909 * 1vw), 1.25pxrem)) or (column-gap: clamp(0.0625pxrem, calc(-89.0909090909px + 9.0909090909 * 1vw), 1.25pxrem))) {
+    .service-hero__grid {
+      -webkit-column-gap: calc(1px + (100vw - 991px) * 0.0909090909);
+         -moz-column-gap: calc(1px + (100vw - 991px) * 0.0909090909);
+              column-gap: calc(1px + (100vw - 991px) * 0.0909090909);
+    }
+  }
+}
+@media (max-width: 991px) {
+  .service-hero__grid {
+    -webkit-column-gap: 1px;
+       -moz-column-gap: 1px;
+            column-gap: 1px;
+  }
+}
+.service-hero__grid {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+@media (max-width: 991px) {
+  .service-hero__grid {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: auto 16px auto 16px auto;
+        grid-template-areas: "intro" "feature" "media";
+    gap: 16px;
+  }
+}
+.service-hero__intro {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: intro;
+  max-width: 700px;
+}
+@media (max-width: 991px) {
+  .service-hero__intro {
+    max-width: 100%;
+  }
+}
+.service-hero__title {
+  font-size: clamp(25px, 2.3148148148vw + 16.6666666667px, 50px);
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+@media (min-width: 992px) {
+  .service-hero__title {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 991px) {
+  .service-hero__title {
+    max-width: 860px;
+  }
+}
+.service-hero__lead {
+  margin: 0 0 20px;
+  max-width: 620px;
+}
+@media (max-width: 991px) {
+  .service-hero__lead {
+    max-width: 100%;
+    margin-bottom: 16px;
+  }
+}
+.service-hero__btn {
+  min-width: 310px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: clamp(16px, 0.1851851852vw + 15.3333333333px, 18px);
+}
+@media (max-width: 650px) {
+  .service-hero__btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+.service-hero__media {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 3;
+  grid-area: media;
+  min-width: 0;
+  -ms-grid-row-align: end;
+      align-self: end;
+  padding-top: 45px;
+}
+@media (min-width: 1200px) {
+  .service-hero__media {
+    padding-top: 45px;
+  }
+}
+@media (min-width: 991px) and (max-width: 1200px) {
+  @supports (padding-top: clamp(1.25pxrem, calc(-98.5406698565px + 11.961722488 * 1vw), 2.8125pxrem)) {
+    .service-hero__media {
+      padding-top: clamp(1.25pxrem, calc(-98.5406698565px + 11.961722488 * 1vw), 2.8125pxrem);
+    }
+  }
+  @supports not (padding-top: clamp(1.25pxrem, calc(-98.5406698565px + 11.961722488 * 1vw), 2.8125pxrem)) {
+    .service-hero__media {
+      padding-top: calc(20px + (100vw - 991px) * 0.1196172249);
+    }
+  }
+}
+@media (max-width: 991px) {
+  .service-hero__media {
+    padding-top: 20px;
+  }
+}
+@media (max-width: 991px) {
+  .service-hero__media {
+    padding-left: 60px;
+    padding-top: 0;
+  }
+}
+.service-hero__image {
+  display: block;
+  width: 100%;
+  height: 410px;
+  aspect-ratio: 980/620;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+  position: relative;
+  top: 32px;
+}
+@media (max-width: 650px) {
+  .service-hero__image {
+    aspect-ratio: 4/4;
+    height: unset;
+  }
+}
+.service-hero__feature {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: feature;
+  width: calc(100% + 96px);
+  max-width: 840px;
+  background: #c09b57;
+  border-radius: 10px;
+  padding: 20px;
+}
+@media (max-width: 991px) {
+  .service-hero__intro {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  .service-hero__media {
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 1;
+  }
+  .service-hero__feature {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+}
+@media (min-width: 1200px) {
+  .service-hero__feature {
+    padding: 20px;
+  }
+}
+@media (min-width: 650px) and (max-width: 1200px) {
+  @supports (padding: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-hero__feature {
+      padding: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem);
+    }
+  }
+  @supports not (padding: clamp(0.625pxrem, calc(-1.8181818182px + 1.8181818182 * 1vw), 1.25pxrem)) {
+    .service-hero__feature {
+      padding: calc(10px + (100vw - 650px) * 0.0181818182);
+    }
+  }
+}
+@media (max-width: 650px) {
+  .service-hero__feature {
+    padding: 10px;
+  }
+}
+.service-hero__feature {
+  color: #fff;
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 991px) {
+  .service-hero__feature {
+    width: calc(100% - 86px);
+    margin-bottom: -130px;
+  }
+}
+@media (max-width: 650px) {
+  .service-hero__feature {
+    width: calc(100% - 78px);
+    margin-bottom: -96px;
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+}
+.service-hero__feature-title {
+  margin: 0 0 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  font-size: clamp(22px, 1.6666666667vw + 16px, 40px);
+  line-height: 120%;
+}
+.service-hero__feature-text {
+  color: #fff;
+  max-width: 760px;
+}

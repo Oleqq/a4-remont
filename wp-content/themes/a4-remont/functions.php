@@ -11,8 +11,31 @@ if ( ! defined( 'A4_REMONT_THEME_VERSION' ) ) {
 
 $a4_remont_includes = array(
 	'/inc/setup.php',
+	'/inc/slugs.php',
+	'/inc/media.php',
 	'/inc/enqueue.php',
+	'/inc/content-types.php',
+	'/inc/static-content.php',
+	'/inc/section-helpers.php',
+	'/inc/header-builder.php',
+	'/inc/footer-builder.php',
+	'/inc/popups.php',
 	'/inc/acf.php',
+	'/inc/acf-header.php',
+	'/inc/acf-popups.php',
+	'/inc/acf-feedback.php',
+	'/inc/acf-about.php',
+	'/inc/acf-faq-page.php',
+	'/inc/acf-contacts-page.php',
+	'/inc/acf-privacy-policy.php',
+	'/inc/acf-payment-delivery.php',
+	'/inc/acf-news.php',
+	'/inc/acf-reviews.php',
+	'/inc/acf-services.php',
+	'/inc/acf-works.php',
+	'/inc/acf-news-single.php',
+	'/inc/acf-work-single.php',
+	'/inc/acf-service-single.php',
 );
 
 foreach ( $a4_remont_includes as $a4_remont_file ) {
