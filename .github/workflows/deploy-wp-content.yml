@@ -34,20 +34,20 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v5
 
-      - name: Install rsync and ssh
+      - name: Install FTP client
         run: |
           sudo apt-get update
-          sudo apt-get install -y rsync openssh-client
+          sudo apt-get install -y lftp
 
       - name: Validate deploy secrets
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
-          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
         run: |
-          required=(DEPLOY_HOST DEPLOY_USER DEPLOY_PATH DEPLOY_SSH_KEY)
+          required=(DEPLOY_HOST DEPLOY_USER DEPLOY_PASSWORD DEPLOY_PATH)
           for variable in "${required[@]}"; do
             if [ -z "${!variable}" ]; then
               echo "::error::${variable} is not configured for the selected environment."
@@ -55,30 +55,24 @@ jobs:
             fi
           done
 
-      - name: Configure SSH
-        env:
-          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
-          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
-          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-        run: |
-          install -m 700 -d ~/.ssh
-          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -p "${DEPLOY_PORT:-22}" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
-
       - name: Deploy theme
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           REMOTE_THEME_PATH="${DEPLOY_PATH%/}/wp-content/themes/${THEME_SLUG}"
-          ssh -p "${DEPLOY_PORT:-22}" "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${REMOTE_THEME_PATH}'"
-          rsync -az --delete \
-            -e "ssh -p ${DEPLOY_PORT:-22}" \
-            --exclude '.gitkeep' \
-            "${THEME_DIR}/" "${DEPLOY_USER}@${DEPLOY_HOST}:${REMOTE_THEME_PATH}/"
+          lftp -u "${DEPLOY_USER}","${DEPLOY_PASSWORD}" -p "${DEPLOY_PORT:-21}" "${DEPLOY_HOST}" <<EOF
+          set cmd:fail-exit yes
+          set ftp:ssl-allow no
+          set net:max-retries 2
+          set net:timeout 20
+          mkdir -p "${REMOTE_THEME_PATH}"
+          mirror -R --delete --verbose --exclude-glob .gitkeep "${THEME_DIR}" "${REMOTE_THEME_PATH}"
+          bye
+          EOF
 
       - name: Deploy managed plugins
         if: ${{ inputs.deploy_plugins }}
@@ -86,6 +80,7 @@ jobs:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PASSWORD: ${{ secrets.DEPLOY_PASSWORD }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           shopt -s nullglob
@@ -100,9 +95,13 @@ jobs:
             plugin_name="$(basename "${plugin_dir}")"
             remote_plugin_path="${DEPLOY_PATH%/}/wp-content/plugins/${plugin_name}"
 
-            ssh -p "${DEPLOY_PORT:-22}" "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${remote_plugin_path}'"
-            rsync -az --delete \
-              -e "ssh -p ${DEPLOY_PORT:-22}" \
-              --exclude '.gitkeep' \
-              "${plugin_dir}" "${DEPLOY_USER}@${DEPLOY_HOST}:${remote_plugin_path}/"
+            lftp -u "${DEPLOY_USER}","${DEPLOY_PASSWORD}" -p "${DEPLOY_PORT:-21}" "${DEPLOY_HOST}" <<EOF
+            set cmd:fail-exit yes
+            set ftp:ssl-allow no
+            set net:max-retries 2
+            set net:timeout 20
+            mkdir -p "${remote_plugin_path}"
+            mirror -R --delete --verbose --exclude-glob .gitkeep "${plugin_dir}" "${remote_plugin_path}"
+            bye
+            EOF
           done
