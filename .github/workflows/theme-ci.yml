@@ -1,4 +1,4 @@
-name: Theme CI
+name: WordPress Theme CI
 
 on:
   push:

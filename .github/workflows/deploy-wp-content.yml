@@ -1,4 +1,4 @@
-name: Deploy WordPress Artifacts
+name: Deploy WordPress Theme Build
 
 on:
   workflow_dispatch:
