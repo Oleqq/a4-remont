@@ -64,15 +64,15 @@ jobs:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           REMOTE_THEME_PATH="${DEPLOY_PATH%/}/wp-content/themes/${THEME_SLUG}"
-          lftp -u "${DEPLOY_USER}","${DEPLOY_PASSWORD}" -p "${DEPLOY_PORT:-21}" "${DEPLOY_HOST}" <<EOF
-          set cmd:fail-exit yes
-          set ftp:ssl-allow no
-          set net:max-retries 2
-          set net:timeout 20
-          mkdir -p "${REMOTE_THEME_PATH}"
-          mirror -R --delete --verbose --exclude-glob .gitkeep "${THEME_DIR}" "${REMOTE_THEME_PATH}"
+          lftp -u "${DEPLOY_USER}","${DEPLOY_PASSWORD}" -p "${DEPLOY_PORT:-21}" "${DEPLOY_HOST}" -e "
+          set cmd:fail-exit yes;
+          set ftp:ssl-allow no;
+          set net:max-retries 2;
+          set net:timeout 20;
+          mkdir -p \"${REMOTE_THEME_PATH}\";
+          mirror -R --delete --verbose --exclude-glob .gitkeep \"${THEME_DIR}\" \"${REMOTE_THEME_PATH}\";
           bye
-          EOF
+          "
 
       - name: Deploy managed plugins
         if: ${{ inputs.deploy_plugins }}
@@ -95,13 +95,13 @@ jobs:
             plugin_name="$(basename "${plugin_dir}")"
             remote_plugin_path="${DEPLOY_PATH%/}/wp-content/plugins/${plugin_name}"
 
-            lftp -u "${DEPLOY_USER}","${DEPLOY_PASSWORD}" -p "${DEPLOY_PORT:-21}" "${DEPLOY_HOST}" <<EOF
-            set cmd:fail-exit yes
-            set ftp:ssl-allow no
-            set net:max-retries 2
-            set net:timeout 20
-            mkdir -p "${remote_plugin_path}"
-            mirror -R --delete --verbose --exclude-glob .gitkeep "${plugin_dir}" "${remote_plugin_path}"
+            lftp -u "${DEPLOY_USER}","${DEPLOY_PASSWORD}" -p "${DEPLOY_PORT:-21}" "${DEPLOY_HOST}" -e "
+            set cmd:fail-exit yes;
+            set ftp:ssl-allow no;
+            set net:max-retries 2;
+            set net:timeout 20;
+            mkdir -p \"${remote_plugin_path}\";
+            mirror -R --delete --verbose --exclude-glob .gitkeep \"${plugin_dir}\" \"${remote_plugin_path}\";
             bye
-            EOF
+            "
           done
