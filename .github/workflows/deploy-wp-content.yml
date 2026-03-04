@@ -64,7 +64,9 @@ jobs:
           install -m 700 -d ~/.ssh
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -p "${DEPLOY_PORT:-22}" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+          touch ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+          ssh-keyscan -T 15 -p "${DEPLOY_PORT:-22}" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts || true
 
       - name: Deploy theme
         env:
@@ -73,10 +75,11 @@ jobs:
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
+          SSH_OPTS="-p ${DEPLOY_PORT:-22} -o StrictHostKeyChecking=accept-new"
           REMOTE_THEME_PATH="${DEPLOY_PATH%/}/wp-content/themes/${THEME_SLUG}"
-          ssh -p "${DEPLOY_PORT:-22}" "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${REMOTE_THEME_PATH}'"
+          ssh ${SSH_OPTS} "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${REMOTE_THEME_PATH}'"
           rsync -az --delete \
-            -e "ssh -p ${DEPLOY_PORT:-22}" \
+            -e "ssh ${SSH_OPTS}" \
             --exclude '.gitkeep' \
             "${THEME_DIR}/" "${DEPLOY_USER}@${DEPLOY_HOST}:${REMOTE_THEME_PATH}/"
 
@@ -88,6 +91,7 @@ jobs:
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
+          SSH_OPTS="-p ${DEPLOY_PORT:-22} -o StrictHostKeyChecking=accept-new"
           shopt -s nullglob
           plugin_dirs=("${PLUGINS_DIR}"/*/)
 
@@ -100,9 +104,9 @@ jobs:
             plugin_name="$(basename "${plugin_dir}")"
             remote_plugin_path="${DEPLOY_PATH%/}/wp-content/plugins/${plugin_name}"
 
-            ssh -p "${DEPLOY_PORT:-22}" "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${remote_plugin_path}'"
+            ssh ${SSH_OPTS} "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${remote_plugin_path}'"
             rsync -az --delete \
-              -e "ssh -p ${DEPLOY_PORT:-22}" \
+              -e "ssh ${SSH_OPTS}" \
               --exclude '.gitkeep' \
               "${plugin_dir}" "${DEPLOY_USER}@${DEPLOY_HOST}:${remote_plugin_path}/"
           done
