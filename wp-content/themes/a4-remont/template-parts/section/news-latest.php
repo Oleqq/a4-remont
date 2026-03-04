@@ -65,7 +65,7 @@ if ( empty( $archive_button ) && post_type_exists( 'news' ) ) {
 						</div>
 						<div class="news-latest-card__bottom">
 							<h3 class="news-latest-card__title"><?php echo esc_html( get_the_title( $news_post ) ); ?></h3>
-							<span class="news-latest-card__more">View</span>
+							<span class="news-latest-card__more">Смотреть</span>
 						</div>
 					</a>
 				</article>

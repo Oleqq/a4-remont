@@ -17,6 +17,7 @@ $a4_remont_includes = array(
 	'/inc/content-types.php',
 	'/inc/static-content.php',
 	'/inc/section-helpers.php',
+	'/inc/admin-docs.php',
 	'/inc/header-builder.php',
 	'/inc/footer-builder.php',
 	'/inc/popups.php',
