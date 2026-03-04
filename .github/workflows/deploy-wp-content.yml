@@ -65,15 +65,17 @@ jobs:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
           LOCAL_THEME_PATH="${GITHUB_WORKSPACE}/${THEME_DIR}"
-          REMOTE_THEME_PATH="${DEPLOY_PATH%/}/wp-content/themes/${THEME_SLUG}"
+          REMOTE_THEMES_PATH="${DEPLOY_PATH%/}/wp-content/themes"
           lftp -u "${DEPLOY_USER}","${DEPLOY_PASSWORD}" -p "${DEPLOY_PORT:-21}" "${DEPLOY_HOST}" -e "
           set cmd:fail-exit yes;
           set ftp:ssl-allow no;
           set net:max-retries 2;
           set net:timeout 20;
-          mkdir -p ${REMOTE_THEME_PATH};
+          cd ${REMOTE_THEMES_PATH};
+          mkdir -f ${THEME_SLUG};
+          cd ${THEME_SLUG};
           lcd ${LOCAL_THEME_PATH};
-          mirror -R --delete --verbose --exclude-glob .gitkeep . ${REMOTE_THEME_PATH};
+          mirror -R --delete --verbose --exclude-glob .gitkeep . .;
           bye
           "
 
@@ -89,6 +91,7 @@ jobs:
         run: |
           shopt -s nullglob
           plugin_dirs=("${PLUGINS_DIR}"/*/)
+          REMOTE_PLUGINS_PATH="${DEPLOY_PATH%/}/wp-content/plugins"
 
           if [ "${#plugin_dirs[@]}" -eq 0 ]; then
             echo "No managed plugin directories found."
@@ -98,16 +101,17 @@ jobs:
           for plugin_dir in "${plugin_dirs[@]}"; do
             plugin_name="$(basename "${plugin_dir}")"
             local_plugin_path="${GITHUB_WORKSPACE}/${plugin_dir%/}"
-            remote_plugin_path="${DEPLOY_PATH%/}/wp-content/plugins/${plugin_name}"
 
             lftp -u "${DEPLOY_USER}","${DEPLOY_PASSWORD}" -p "${DEPLOY_PORT:-21}" "${DEPLOY_HOST}" -e "
             set cmd:fail-exit yes;
             set ftp:ssl-allow no;
             set net:max-retries 2;
             set net:timeout 20;
-            mkdir -p ${remote_plugin_path};
+            cd ${REMOTE_PLUGINS_PATH};
+            mkdir -f ${plugin_name};
+            cd ${plugin_name};
             lcd ${local_plugin_path};
-            mirror -R --delete --verbose --exclude-glob .gitkeep . ${remote_plugin_path};
+            mirror -R --delete --verbose --exclude-glob .gitkeep . .;
             bye
             "
           done
